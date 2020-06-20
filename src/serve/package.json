@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "error-inject": "^1.0.0",
+    "is-generator-function": "^1.0.7",
+    "koa-bodyparser": "^4.3.0",
+    "koa-cors": "^0.0.16",
+    "koa-is-json": "^1.0.0",
+    "koa-router": "^9.0.1",
+    "koa2": "^2.0.0-alpha.7",
+    "mysql": "^2.18.1",
+    "only": "^0.0.2"
+  }
+}
