@@ -6,7 +6,6 @@ import My from '../views/my.vue'
 import Course from '../views/course.vue'
 import Pay from '../views/pay.vue'
 import Login from '../views/login.vue'
-import Register from '../views/register.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -36,14 +35,9 @@ const routes = [
     component: Pay
   },
   {
-    path: '/login',
+    path: 'login',
     name: 'login',
     component: Login
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
   }
 ]
 

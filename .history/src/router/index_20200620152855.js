@@ -4,9 +4,6 @@ import Index from '../views/index.vue'
 import New from '../views/news.vue'
 import My from '../views/my.vue'
 import Course from '../views/course.vue'
-import Pay from '../views/pay.vue'
-import Login from '../views/login.vue'
-import Register from '../views/register.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,21 +26,6 @@ const routes = [
     path: '/course',
     name: 'course',
     component: Course
-  },
-  {
-    path: '/pay',
-    name: 'pay',
-    component: Pay
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: Register
   }
 ]
 
