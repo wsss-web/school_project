@@ -1,0 +1,33 @@
+<template>
+    <div>
+        <navigation left="back" title="重要信息维护"></navigation>
+        <div class="title">
+            <div class="case"></div>
+        </div>
+    </div>
+</template>
+<script>
+import navigation from '../../component/navigation'
+export default {
+  data () {
+    return {
+
+    }
+  },
+  components: {
+    navigation
+  }
+}
+</script>
+<style lang="less">
+.title{
+    margin-top: 40px;
+    height: 3rem;
+    background: rgb(241, 240, 245);
+    .case{
+        margin-left:10px;
+        margin-right: 10px;
+        border:1px solid black;
+    }
+}
+</style>
