@@ -13,7 +13,9 @@ import Modify from '../views/my/modify.vue'
 import Card from '../views/my/card.vue'
 import Forget from '../views/login/forget.vue'
 import newword from '../views/login/new_word.vue'
-import newAtical from '../views/new/newAtical.vue'
+import Mail from '../views/my/mail.vue'
+import Tripartite from '../views/my/tripartite.vue'
+import Information from '../views/my/information .vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -60,6 +62,21 @@ const routes = [
     path: '/my/card',
     name: 'card',
     component: Card
+  },
+  {
+    path: '/my/mail',
+    name: 'mail',
+    component: Mail
+  },
+  {
+    path: '/my/tripartite',
+    name: 'tripartite',
+    component: Tripartite
+  },
+  {
+    path: '/my/information',
+    name: 'information',
+    component: Information
   },
   {
     path: '/course',
