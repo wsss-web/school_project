@@ -51,6 +51,7 @@ export default {
     sure () {
       var that = this
       var address = this.address
+      localStorage.setItem('address', address)
       var cururl = 'http://localhost:3000/identify?address=' + address + ''
       this.tools.axios({
         url: cururl,
@@ -59,7 +60,7 @@ export default {
         .then(
           function (res) {
             console.log(res)
-            that.word2 = res.data
+            that.word2 = res.data.code
           },
           function (err) {
             console.log(err)
@@ -69,7 +70,7 @@ export default {
     bbb () {
       this.word2 = this.word2.toString()
       if (this.word === this.word2) {
-        this.$router.push('/new_word')
+        this.$router.push('/newword')
       } else {
         Dialog.confirm({
           title: '提示',
