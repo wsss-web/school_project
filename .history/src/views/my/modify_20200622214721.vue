@@ -1,0 +1,61 @@
+<template>
+    <div>
+        <navigation left="back" title="修改密码"></navigation>
+        <div class="form">
+ <Form @submit="onSubmit">
+  <Field
+    v-model="username"
+    type="password"
+    placeholder="请输入原密码"
+    :rules="[{ required: true, message: '请输入原密码' }]"
+  />
+  <Field
+    v-model="password"
+    type="password"
+    name="密码"
+    placeholder="密码"
+    :rules="[{ required: true, message: '请输入新密码' }]"
+  />
+    <Field
+    v-model="password2"
+    type="password"
+    name="密码"
+    placeholder="密码"
+    :rules="[{ required: true, message: '请再次输入密码' }]"
+  />
+  <div style="margin: 16px;">
+    <van-button round block type="info" native-type="submit">
+      提交
+    </van-button>
+  </div>
+</Form>
+   <div class="bottom">
+ <Button type="primary" size="large" @click="loginout">退出登录</Button>
+    </div>
+        </div>
+    </div>
+</template>
+<script>
+import navigation from '../../component/navigation'
+import { Form, Field } from 'vant'
+export default {
+  data () {
+    return {
+      username: '',
+      password: '',
+      password2: ''
+    }
+  },
+  components: {
+    navigation,
+    Form,
+    Field
+  }
+
+}
+</script>
+<style lang="less">
+.form{
+    margin-top:80px;
+}
+</style>
