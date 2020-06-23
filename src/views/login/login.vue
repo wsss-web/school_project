@@ -4,7 +4,7 @@
       <span>登录</span>
     </div>
     <div class="tu">
- <img class="logo" src="../../../public/img/96.png" />
+      <img class="logo" src="../../../public/img/96.png" />
     </div>
     <vform @submit="onSubmit">
       <field
@@ -98,7 +98,7 @@ export default {
         )
     },
     apply () {
-      this.$router.push('/apply')
+      this.$router.push('/register')
     },
     forget () {
       this.$router.push('/forget')
@@ -130,18 +130,15 @@ export default {
   letter-spacing: 5px;
 }
 .bottom{
-  background-color: #006600;
   display: flex;
 }
 .apply{
-  background-color: #CE3C39;
   flex: 1;
 }
 .apply span{
-  margin-left: 127px;
+  margin-left: 110px;
 }
 .forget{
-  background-color: #00FFFF;
   flex: 1;
 }
 </style>
