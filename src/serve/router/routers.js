@@ -44,14 +44,13 @@ router.get('/login', async (ctx, next) => {
     status: '',
     msg: ''
   }
-  if (results == '') {
+  if (results.length == 0) {
     login.status = 0
-    users.push(results[0].user_name)
-    login.msg = '登录成功'
-    ctx.body = login
-  } else if (results[0].user_id != '') {
-    login.status = 1
     login.msg = '登录失败'
+    ctx.body = login
+  } else{
+    login.status = 1
+    login.msg = '登录成功'
     ctx.body = login
   }
 })
@@ -71,7 +70,7 @@ router.get('/apply', async (ctx, body) => {
   var sql = "insert into user(user_name,pass_word,address) values('" + data.username + "','" + data.password +
     "','" + data.address + "')"
   const results = await query(sql)
-  console.log(results)
+  console.log(results.error)
   ctx.body = data
 })
 // 一个生成随机数的函数
@@ -88,13 +87,27 @@ router.get('/identify', async (ctx, body) => {
   // var code = await tools.createSixNum(); //这里是我写的生成的随机六位数，等等下面给代码
   var date = new Date() // 获取当前时间
   var isLive = 'no'
-  var code = await aaa()
-  // 一个生成随机数的函数
-  // 去数据库中找有没有同名的用户名，这里就要自己写了，不同的数据库查询方法不同
+  // 一个随机六位数
+  var cur_code = await aaa()
+  // 去数据库中找有没有该邮箱
+  var status = ''
+  var code = ''
+  var to_mail = ''
+  var data = {
+    status,
+    code,
+    to_mail
+  }
   var sql = "select * from user where address='" + email + "'"
   const results = await query(sql)
-  var ok_email = results[0].address
-  ctx.body = code
+  if(results.length == 0){
+    data.status = 0
+  }else{
+    data.status = 1
+    data.code = cur_code
+    data.to_mail = mail
+  }
+  ctx.body = data
   var mail = {
     // 发件人
     from: '<1121842729@qq.com>',
@@ -103,8 +116,33 @@ router.get('/identify', async (ctx, body) => {
     // 收件人
     to: email, // 前台传过来的邮箱
     // 邮件内容，HTML格式
-    text: '用' + code + '作为你的验证码' // 发送验证码
+    text: '用' + cur_code + '作为你的验证码' // 发送验证码
   }
   await e_mail(mail) // 发送邮件
 })
+
+
+// 修改密码路由
+router.get('/newword', async(ctx,body) => {
+  var new_word = ctx.request.query.newword
+  var address = ctx.request.query.address
+  var sql = "update user set pass_word='"+ new_word +"'where address='" + address + "'"
+  var status = ''
+  var data = {
+    status
+  }
+  const results = await query(sql)
+  console.log(results)
+  if(results){
+    data.status = 1
+  }
+  ctx.body = data
+})
 module.exports = router
+// 新闻信息路由
+router.get('/newsinfo', async(ctx,body) => {
+  var sql = "select * from news"
+  const results = await query(sql)
+  ctx.body = results
+  console.log(results)
+})

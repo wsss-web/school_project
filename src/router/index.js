@@ -13,6 +13,7 @@ import Modify from '../views/my/modify.vue'
 import Card from '../views/my/card.vue'
 import Forget from '../views/login/forget.vue'
 import newword from '../views/login/new_word.vue'
+import newAtical from '../views/new/newAtical.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,6 +30,11 @@ const routes = [
     path: '/news',
     name: 'news',
     component: New
+  },
+  {
+    path: '/newAtical',
+    name: 'newAtical',
+    component: newAtical
   },
   {
     path: '/my',

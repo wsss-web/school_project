@@ -89,7 +89,7 @@ export default {
               console.log(err)
               Dialog.confirm({
                 title: '提示',
-                message: '您的账号已存在！'
+                message: '您的账号或邮箱已存在！'
               })
                 .then(() => {
                   that.$router.push('/login')
