@@ -13,6 +13,16 @@ import Modify from '../views/my/modify.vue'
 import Card from '../views/my/card.vue'
 import Forget from '../views/login/forget.vue'
 import newword from '../views/login/new_word.vue'
+const kefu = () => import('../views/home/kefu.vue')
+const lbt = () => import('../views/home/lbt.vue')
+const lbt2 = () => import('../views/home/lbt2.vue')
+const lbt3 = () => import('../views/home/lbt3.vue')
+const jkbb = () => import('../views/home/jkbb.vue')
+const xyzn = () => import('../views/home/xyzn.vue')
+const jcxy = () => import('../views/home/jcxy.vue')
+const stfc = () => import('../views/home/stfc.vue')
+const gengduo = () => import('../views/home/gengduo.vue')
+const xyzk = () => import('../views/home/xyzk.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -82,9 +92,49 @@ const routes = [
   {
     path: '/newword',
     component: newword
+  },
+  // 主页界面路由
+  {
+    path: '/kefu',
+    component: kefu
+  },
+  {
+    path: '/lbt',
+    component: lbt
+  },
+  {
+    path: '/lbt2',
+    component: lbt2
+  },
+  {
+    path: '/lbt3',
+    component: lbt3
+  },
+  {
+    path: '/jkbb',
+    component: jkbb
+  },
+  {
+    path: '/xyzn',
+    component: xyzn
+  },
+  {
+    path: '/jcxy',
+    component: jcxy
+  },
+  {
+    path: '/stfc',
+    component: stfc
+  },
+  {
+    path: '/gengduo',
+    component: gengduo
+  },
+  {
+    path: '/xyzk',
+    component: xyzk
   }
 ]
-
 const router = new VueRouter({
   routes
 })

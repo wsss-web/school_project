@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="jiuye" unicode="&#58881;" d="M942.9 704.5H699.1v79.3c0 32.1-27 58.3-60.2 58.3H385.1c-33.2 0-60.2-26.1-60.2-58.3v-79.3H81.1C36.3 704.5 0 669 0 625.2v-619.9C0-38.5 36.3-74 81.1-74h861.8c44.9 0 81.1 35.5 81.1 79.3V625.2c0 43.8-36.3 79.3-81.1 79.3z m-575.7 79.3c0 9.6 8 17.3 17.9 17.3h253.8c9.9 0 17.9-7.8 17.9-17.3v-77.2H367.2v77.2zM1005.3 290H637.7v-15.9c0-10.7-9-19.4-20.1-19.4H410.4c-11.1 0-20 8.7-20 19.4V290H9v36.3h381.3v15.8c0 10.7 9 19.4 20 19.4h207.3c11.1 0 20.1-8.7 20.1-19.4v-15.8h367.6V290z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

@@ -6,12 +6,14 @@ import './plugins/vant.js'
 import tools from '../tools.js'
 import '../src/assets/icon/tabbar/font_nk2enrejq1p/iconfont.css'
 import '../src/assets/common/common.less'
+import '../src/assets/css/tubiao/iconfont.css'
+import '../src/assets/css/tubiao1/iconfont.css'
+import '../src/assets/css/tubiaojiuye/iconfont.css'
 
 Vue.prototype.tools = tools
 // require('../node_modules/vux/src/styles/reset.less')
 
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,

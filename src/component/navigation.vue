@@ -13,7 +13,7 @@
           alt
         />
         <p v-if="left==='sweep'">扫一扫</p>
-         <p v-if="left=== 'remind'">提醒</p>
+         <p v-if="left=== 'remind'" @click="remind" class="remind">提醒</p>
         <i v-if="left === 'back'" @click="back" class="iconfont icon-iconzuojiantou"></i>
       </div>
       <div class="center">{{title}}</div>
@@ -21,7 +21,9 @@
         <img src="" v-if="right === 'list'" height="24" alt />
         <img
           class="customer"
+          @click="customer"
           src="../assets/1.png"
+
           v-if="right === 'customer'"
           height="24"
           altright
@@ -65,7 +67,7 @@
   .center {
     width: 100%/3;
     color: white;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-align: center;
   }
   .right {
@@ -76,9 +78,13 @@
     color:white;
     font-size: 0.83rem;
   }
+  .remind {
+    font-size: 15px;
+  }
 }
 </style>
 <script>
+import { Dialog } from 'vant'
 export default {
   name: 'Menu',
   props: ['left', 'right', 'title'],
@@ -87,12 +93,26 @@ export default {
       titles: ''
     }
   },
+  components: {
+    [Dialog.Component.name]: Dialog.Component
+  },
   methods: {
     back () {
       this.$router.go(-1)
     },
     toset () {
       this.$router.push('/setup')
+    },
+    remind () {
+      console.log('1111')
+      Dialog.alert({
+        title: '今天你努力了吗',
+        message: '哈哈，啥也没有'
+      }).then(() => {
+      })
+    },
+    customer () {
+      this.$router.push({ path: '/kefu' })
     }
   }
 }
