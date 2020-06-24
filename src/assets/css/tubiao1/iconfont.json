@@ -1,0 +1,177 @@
+{
+  "id": "1897359",
+  "name": "project",
+  "font_family": "iconfont",
+  "css_prefix_text": "my_icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5109415",
+      "name": "创业",
+      "font_class": "icon-test",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "2635701",
+      "name": "课外活动",
+      "font_class": "kewaihuodong-",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "3934912",
+      "name": "主页_成长档案",
+      "font_class": "zhuye_chengchangdangan",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "6394402",
+      "name": "迎新",
+      "font_class": "zhoushitubiao-",
+      "unicode": "e701",
+      "unicode_decimal": 59137
+    },
+    {
+      "icon_id": "7251101",
+      "name": "就业",
+      "font_class": "jiuye",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "8904573",
+      "name": "茶",
+      "font_class": "cha",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "11685472",
+      "name": "学校介绍",
+      "font_class": "xuexiaojieshao",
+      "unicode": "e74c",
+      "unicode_decimal": 59212
+    },
+    {
+      "icon_id": "11780344",
+      "name": "心理生活-心灵成长",
+      "font_class": "xinlishenghuo",
+      "unicode": "e74e",
+      "unicode_decimal": 59214
+    },
+    {
+      "icon_id": "12642518",
+      "name": "学习",
+      "font_class": "xuexi",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "13943314",
+      "name": "茶",
+      "font_class": "cha1",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "1364392",
+      "name": "考试安排",
+      "font_class": "kaoshianpai",
+      "unicode": "e6f8",
+      "unicode_decimal": 59128
+    },
+    {
+      "icon_id": "6924130",
+      "name": "视频学习",
+      "font_class": "shipinxuexi",
+      "unicode": "e7ad",
+      "unicode_decimal": 59309
+    },
+    {
+      "icon_id": "8034527",
+      "name": "大众点评",
+      "font_class": "dazhongdianping",
+      "unicode": "eae7",
+      "unicode_decimal": 60135
+    },
+    {
+      "icon_id": "4626070",
+      "name": "健康",
+      "font_class": "jiankang",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "4372019",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "5452271",
+      "name": "智库",
+      "font_class": "zhiku",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "10021329",
+      "name": "审批",
+      "font_class": "shenpi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "10729034",
+      "name": "查询",
+      "font_class": "chaxun",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "13923661",
+      "name": "课堂",
+      "font_class": "ketang",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "277870",
+      "name": "社团",
+      "font_class": "shetuan",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "3961946",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7193459",
+      "name": "指南",
+      "font_class": "kuyihuifu-",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "8435186",
+      "name": "教材评价",
+      "font_class": "jiaocaipingjia",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "15286204",
+      "name": "杰出青年",
+      "font_class": "jiechuqingnian",
+      "unicode": "e8bf",
+      "unicode_decimal": 59583
+    }
+  ]
+}

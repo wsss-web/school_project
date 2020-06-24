@@ -1,0 +1,86 @@
+{
+  "id": "1897359",
+  "name": "project",
+  "font_family": "iconfont",
+  "css_prefix_text": "my_icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4372019",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "5452271",
+      "name": "智库",
+      "font_class": "zhiku",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "10021329",
+      "name": "审批",
+      "font_class": "shenpi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "10729034",
+      "name": "查询",
+      "font_class": "chaxun",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "13923661",
+      "name": "课堂",
+      "font_class": "ketang",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "277870",
+      "name": "社团",
+      "font_class": "shetuan",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "3961946",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7193459",
+      "name": "指南",
+      "font_class": "kuyihuifu-",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "8435186",
+      "name": "教材评价",
+      "font_class": "jiaocaipingjia",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "13031312",
+      "name": "icon_健康报备",
+      "font_class": "icon_jiankangbaobei",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "15286204",
+      "name": "杰出青年",
+      "font_class": "jiechuqingnian",
+      "unicode": "e8bf",
+      "unicode_decimal": 59583
+    }
+  ]
+}

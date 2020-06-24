@@ -184,6 +184,8 @@ export default {
     }
   }
 }
+.van-cell-group{
+}
 .bottom{
      margin: 10px 16px 80px 16px;
      background-color:#45bce4;

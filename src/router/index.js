@@ -16,126 +16,147 @@ import newword from '../views/login/new_word.vue'
 import Mail from '../views/my/mail.vue'
 import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
-import newAtical from '../views/new/newAtical'
-import Timetable from '../views/course/timetable.vue'
-import Courses from '../views/course/courses.vue'
-import Evaluate from '../views/course/evaluate.vue'
-import Cname from '../views/course/Cname.vue'
-import Details from '../views/course/details.vue'
+import newAtical from '../views/new/newAtical.vue'
+const kefu = () => import('../views/home/kefu.vue')
+const lbt = () => import('../views/home/lbt.vue')
+const lbt2 = () => import('../views/home/lbt2.vue')
+const lbt3 = () => import('../views/home/lbt3.vue')
+const jkbb = () => import('../views/home/jkbb.vue')
+const xyzn = () => import('../views/home/xyzn.vue')
+const jcxy = () => import('../views/home/jcxy.vue')
+const stfc = () => import('../views/home/stfc.vue')
+const gengduo = () => import('../views/home/gengduo.vue')
+const xyzk = () => import('../views/home/xyzk.vue')
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/index',
-  name: 'index',
-  component: Index
-},
-{
-  path: '/',
-  redirect: '/login'
-},
-{
-  path: '/news',
-  name: 'news',
-  component: New
-},
-{
-  path: '/newAtical',
-  name: 'newAtical',
-  component: newAtical
-},
-{
-  path: '/my',
-  name: 'my',
-  component: My
-},
-{
-  path: '/my/phone',
-  name: 'phone',
-  component: Phone
-},
-{
-  path: '/my/name',
-  name: 'name',
-  component: Name
-},
-{
-  path: '/my/modify',
-  name: 'modify',
-  component: Modify
-},
-{
-  path: '/my/card',
-  name: 'card',
-  component: Card
-},
-{
-  path: '/my/mail',
-  name: 'mail',
-  component: Mail
-},
-{
-  path: '/my/tripartite',
-  name: 'tripartite',
-  component: Tripartite
-},
-{
-  path: '/my/information',
-  name: 'information',
-  component: Information
-},
-{
-  path: '/course',
-  name: 'course',
-  component: Course
-},
-{
-  path: '/pay',
-  name: 'pay',
-  component: Pay
-},
-{
-  path: '/login',
-  name: 'login',
-  component: Login
-},
-{
-  path: '/register',
-  name: 'register',
-  component: Register
-},
-{
-  path: '/forget',
-  component: Forget
-},
-{
-  path: '/newword',
-  component: newword
-},
-{
-  path: '/timetable',
-  name: 'timetable',
-  component: Timetable
-},
-{
-  path: '/courses',
-  name: 'courses',
-  component: Courses
-},
-{
-  path: '/evaluate',
-  name: 'evaluate',
-  component: Evaluate
-},
-{
-  path: '/Cname',
-  name: 'Cname',
-  component: Cname
-},
-{
-  path: '/details',
-  name: 'details',
-  component: Details
-}
+const routes = [
+  {
+    path: '/index',
+    name: 'index',
+    component: Index
+  },
+  {
+    path: '/',
+    redirect: '/login'
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: New
+  },
+  {
+    path: '/newAtical',
+    name: 'newAtical',
+    component: newAtical
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: My
+  },
+  {
+    path: '/my/phone',
+    name: 'phone',
+    component: Phone
+  },
+  {
+    path: '/my/name',
+    name: 'name',
+    component: Name
+  },
+  {
+    path: '/my/modify',
+    name: 'modify',
+    component: Modify
+  },
+  {
+    path: '/my/card',
+    name: 'card',
+    component: Card
+  },
+  {
+    path: '/my/mail',
+    name: 'mail',
+    component: Mail
+  },
+  {
+    path: '/my/tripartite',
+    name: 'tripartite',
+    component: Tripartite
+  },
+  {
+    path: '/my/information',
+    name: 'information',
+    component: Information
+  },
+  {
+    path: '/course',
+    name: 'course',
+    component: Course
+  },
+  {
+    path: '/pay',
+    name: 'pay',
+    component: Pay
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/forget',
+    component: Forget
+  },
+  {
+    path: '/newword',
+    component: newword
+  },
+  {
+    path: '/kefu',
+    component: kefu
+  },
+  {
+    path: '/lbt',
+    component: lbt
+  },
+  {
+    path: '/lbt2',
+    component: lbt2
+  },
+  {
+    path: '/lbt3',
+    component: lbt3
+  },
+  {
+    path: '/jkbb',
+    component: jkbb
+  },
+  {
+    path: '/xyzn',
+    component: xyzn
+  },
+  {
+    path: '/jcxy',
+    component: jcxy
+  },
+  {
+    path: '/stfc',
+    component: stfc
+  },
+  {
+    path: '/gengduo',
+    component: gengduo
+  },
+  {
+    path: '/xyzk',
+    component: xyzk
+  }
 ]
 
 const router = new VueRouter({
