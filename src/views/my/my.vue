@@ -184,24 +184,10 @@ export default {
     }
   }
 }
-.van-cell-group{
- .van-cell{
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
-  //  border-bottom:1px solid  #bebebe;
->>>>>>> 2d0e16a87b10d0b1f5a72a49fb32034e63b5cc08
->>>>>>> 1b35498463bf222961148b11428480378d59729b
- }
-}
 .bottom{
      margin: 10px 16px 80px 16px;
      background-color:#45bce4;
      border-radius: 0.3rem;
-     .van-cell::after{
-}
 .van-button--primary{
     background:rgb(69,188,228);
     border:1px solid rgb(69,188,228);
