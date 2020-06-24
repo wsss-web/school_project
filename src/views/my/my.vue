@@ -120,6 +120,21 @@ export default {
         .catch(() => {
         })
     }
+  },
+  created: function () {
+    var username = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/userinfo?username=' + username + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          console.log(res)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   }
 }
 </script>
@@ -157,23 +172,16 @@ export default {
     }
   }
 }
-.about{
-    border-bottom:none;
-}
 .van-cell-group{
  .van-cell{
-   border-bottom:1px solid  #bebebe;
+
  }
-}
-.van-cell:last-child{
-  border-bottom:none;
 }
 .bottom{
      margin: 10px 16px 80px 16px;
      background-color:#45bce4;
      border-radius: 0.3rem;
      .van-cell::after{
-    border-bottom:none;
 }
 .van-button--primary{
     background:rgb(69,188,228);
@@ -190,9 +198,9 @@ export default {
   }
 
   .block {
-     width: 78%;
+    width: 78%;
     height: 14%;
     background-color: #fff;
-      box-shadow: 0px -4px;
+    box-shadow: 0px -4px;
   }
 </style>

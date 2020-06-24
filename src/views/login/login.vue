@@ -59,6 +59,7 @@ export default {
     },
     login () {
       var name = this.username
+      localStorage.setItem('username', name)
       var password = this.password
       var that = this
       const cururl =
