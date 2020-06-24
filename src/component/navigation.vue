@@ -26,6 +26,7 @@
           height="24"
           altright
         />
+        <p v-if="right==='list'">课程列表</p>
         <p v-if="right=== 'sure'">确定</p>
         <p v-if="right=== 'people'">个人档案</p>
         <van-icon name="setting" v-if="right === 'set'" @click="toset" />

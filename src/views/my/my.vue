@@ -139,7 +139,6 @@ export default {
 <style lang="less">
 .gild {
   margin-top: 41.6px;
-  // border-bottom: 1px solid gray;
   height: 55px;
 }
 .cell {
@@ -175,7 +174,6 @@ export default {
 }
 .van-cell-group{
  .van-cell{
-  //  border-bottom:1px solid  #bebebe;
  }
 }
 .van-cell:last-child{
