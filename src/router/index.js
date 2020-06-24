@@ -34,6 +34,11 @@ const routes = [
     component: New
   },
   {
+    path: '/newAtical',
+    name: 'newAtical',
+    component: newAtical
+  },
+  {
     path: '/my',
     name: 'my',
     component: My

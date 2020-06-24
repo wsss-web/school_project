@@ -25,10 +25,10 @@
         <p>信息维护</p>
       </div>
     </div>
-        <div class="both" @click="go" >
+        <div class="both" >
       <div class="name">
         <div class="first">出生日期</div>
-        <div class="input" style="display:none"  :show="show" > <DatetimePicker
+        <div class="input" display: none :show="show"  @click="show =false"> <DatetimePicker
   v-model="currentDate"
   :show="show"
   type="date"
@@ -46,7 +46,7 @@ import { Uploader, DatetimePicker } from 'vant'
 export default {
   data () {
     return {
-      show: true,
+      show: false,
       value: '',
       minDate: new Date(2020, 0, 1),
       maxDate: new Date(2025, 10, 1),
@@ -73,9 +73,8 @@ export default {
       // 此时可以自行将文件上传至服务器
       console.log(file)
     },
-    go () {
-      console.log(111)
-      this.display = 'block'
+    time () {
+      this.show = true
     },
     formatter (type, val) {
       if (type === 'year') {
@@ -158,7 +157,7 @@ export default {
     justify-content: center;
     border:1px solid rgb(205,232,249);
     margin-left: 2rem;
-    margin-bottom: .08rem
+    margin-bottom: .08rem;
   }
 }
 .both{
