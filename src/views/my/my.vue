@@ -187,11 +187,6 @@ export default {
 }
 .van-cell-group{
  .van-cell{
-<<<<<<< HEAD
-
-=======
-  //  border-bottom:1px solid  #bebebe;
->>>>>>> 2d0e16a87b10d0b1f5a72a49fb32034e63b5cc08
  }
 }
 .bottom{

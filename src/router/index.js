@@ -16,6 +16,7 @@ import newword from '../views/login/new_word.vue'
 import Mail from '../views/my/mail.vue'
 import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
+import newAtical from '../views/new/newAtical.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,7 +35,7 @@ const routes = [
     component: New
   },
   {
-    path: '/newAtical',
+    path: '/news/newAtical',
     name: 'newAtical',
     component: newAtical
   },

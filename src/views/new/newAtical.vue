@@ -3,7 +3,7 @@
     <div class="artBody" v-for="(item, index) in artlist" :key="index">
       <!-- <navigation class="title" :title="item.title"></navigation> -->
       <div class="title">
-        <div class="backfont"></div>
+        <div class="backfont" @click="backfont"></div>
         <div class="efont">{{item.title}}</div>
         <div class="iconfont"><img src="../../assets/newsimg/jiantou.png" alt=""></div>
       </div>
@@ -12,7 +12,7 @@
       <div class="artText">
           <div>{{item.text}}</div>
           <div>
-            <img :src='item.src' alt="">
+            <img :src='item.img_src' alt="">
           </div>
       </div>
     </div>
@@ -25,18 +25,34 @@ export default {
   data () {
     return {
       artlist: [
-        {
-          title: '是的快女富士康v你覅收入及v能否发表',
-          autor: 'fgvf',
-          date: '2020-12-09 15.04',
-          src: 'https://i01piccdn.sogoucdn.com/94fe5834ee0c106a',
-          text:
-            '收到v表示符号的俗人回复可能如果救恩堂默认发到v表示符号的俗人回复可能如果救恩堂默认发到到v表示符号的俗人回复可能如果救恩堂默认发v表示符号的俗人回复可能如果救恩堂默认发大脑男爵夫人健康往往会放入回复危机恶化覅如果黑u任何国际妇女收看凤凰卫视库for回复v哦i然后妇女技术开发的女生v'
-        }
       ]
     }
   },
   components: {
+  },
+  methods: {
+    backfont () {
+      this.$router.push('/news')
+    }
+  },
+  created: function () {
+    var that = this
+    var newid = localStorage.getItem('newid')
+    console.log(newid)
+    this.tools.axios({
+      url: 'http://localhost:3000/newmore?new_id=' + newid + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          console.log('请求成功')
+          that.artlist = res.data
+          console.log(res)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   }
 }
 </script>
