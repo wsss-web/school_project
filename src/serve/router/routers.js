@@ -137,7 +137,7 @@ router.get('/newword', async (ctx, body) => {
   }
   ctx.body = data
 })
-module.exports = router
+
 // 新闻信息路由
 router.get('/newsinfo', async (ctx, body) => {
   var sql = 'select * from news'
@@ -145,3 +145,13 @@ router.get('/newsinfo', async (ctx, body) => {
   ctx.body = results
   console.log(results)
 })
+
+// 用户信息路由（显示）
+router.get('/userinfo', async(ctx,body) =>{
+	var username = ctx.request.query.username
+	var sql = "select * from user_info where username='" + username + "'"
+	const results = await query(sql)
+	console.log(results)
+  ctx.body = results[0]
+})
+module.exports = router
