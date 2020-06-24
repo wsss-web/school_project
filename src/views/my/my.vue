@@ -5,7 +5,7 @@
       <div class="cell">
         <div class="cell-item">
           <p class="font">头像</p>
-          <div class="title">
+          <div class="ti">
             <img src="../../assets/1.png" alt />
           </div>
           <Icon name="arrow" color="#969799" />
@@ -14,6 +14,7 @@
     </div>
     <CellGroup>
       <Cell
+        @click="set(index)"
         v-for="(item,index) in List"
         :key="index"
         :title="(item.title)"
@@ -27,15 +28,26 @@
  <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
+    <Overlay :show="show" @click="show = false" >
+  <div class="wrapper" @click.stop>
+    <div class="block" >
+      <Cell @click="chose" title="男"   />
+      <Cell  @click='girl' title='女'  />
+    </div>
+      <div>
+      </div>
+  </div>
+</Overlay>
   </div>
 </template>
 <script>
 import tabbar from '../../component/tabbar.vue'
 import navigation from '../../component/navigation.vue'
-import { Icon, Cell, CellGroup, Button, Dialog } from 'vant'
+import { Icon, Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
 export default {
   data () {
     return {
+      show: false,
       List: [
         {
           title: '名字',
@@ -60,7 +72,9 @@ export default {
           value: '男'
         },
         {
-          title: '邮箱'
+          title: '邮箱',
+          value: '',
+          to: '/my/mail'
         },
         {
           title: '修改密码',
@@ -69,7 +83,8 @@ export default {
         },
         {
           title: '重要信息维护',
-          value: ''
+          value: '',
+          to: '/my/information'
         },
         {
           title: '电子学生证',
@@ -78,7 +93,8 @@ export default {
         },
         {
           title: '绑定第三方账号',
-          value: ''
+          value: '',
+          to: '/my/tripartite'
         }
       ]
     }
@@ -90,7 +106,8 @@ export default {
     Cell,
     CellGroup,
     Button,
-    [Dialog.Component.name]: Dialog.Component
+    [Dialog.Component.name]: Dialog.Component,
+    Overlay
   },
   methods: {
     loginout () {
@@ -103,14 +120,40 @@ export default {
         })
         .catch(() => {
         })
+    },
+    set (index) {
+      console.log(index)
+      this.show = true
+    },
+    chose (e) {
+      console.log(e.target.innerText)
+      console.log(this)
+      this.show = false
+    },
+    girl () {
+      this.show = false
     }
+  },
+  created: function () {
+    var username = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/userinfo?username=' + username + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          console.log(res)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   }
 }
 </script>
 <style lang="less">
 .gild {
   margin-top: 41.6px;
-  border-bottom: 1px solid gray;
   height: 55px;
 }
 .cell {
@@ -130,7 +173,7 @@ export default {
     font-size: 14px;
     color: rgb(51, 51, 51);
   }
-  .title {
+  .ti {
     margin-left: auto;
     text-align: center;
     margin-top: 0.46rem;
@@ -141,21 +184,23 @@ export default {
     }
   }
 }
-.about{
-    border-bottom:none;
-}
 .van-cell-group{
  .van-cell{
-   border-bottom:1px solid gray;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+  //  border-bottom:1px solid  #bebebe;
+>>>>>>> 2d0e16a87b10d0b1f5a72a49fb32034e63b5cc08
+>>>>>>> 1b35498463bf222961148b11428480378d59729b
  }
 }
-.van-cell:last-child{
-  border-bottom:none;
-}
 .bottom{
-     margin: 0px 16px 80px 16px;
+     margin: 10px 16px 80px 16px;
+     background-color:#45bce4;
+     border-radius: 0.3rem;
      .van-cell::after{
-    border-bottom:none;
 }
 .van-button--primary{
     background:rgb(69,188,228);
@@ -164,5 +209,17 @@ export default {
     border-radius: .3rem;
 }
 }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 
+  .block {
+    width: 78%;
+    height: 14%;
+    background-color: #fff;
+    box-shadow: 0px -4px;
+  }
 </style>

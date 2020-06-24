@@ -1,0 +1,110 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Index from '../views/index.vue'
+import New from '../views/new/news.vue'
+import My from '../views/my/my.vue'
+import Course from '../views/course/course.vue'
+import Pay from '../views/pay/pay.vue'
+import Login from '../views/login/login.vue'
+import Register from '../views/login/register.vue'
+import Phone from '../views/my/phone.vue'
+import Name from '../views/my/name.vue'
+import Modify from '../views/my/modify.vue'
+import Card from '../views/my/card.vue'
+import Forget from '../views/login/forget.vue'
+import newword from '../views/login/new_word.vue'
+import Mail from '../views/my/mail.vue'
+import Tripartite from '../views/my/tripartite.vue'
+import Information from '../views/my/information.vue'
+Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '/index',
+    name: 'index',
+    component: Index
+  },
+  {
+    path: '/',
+    redirect: '/login'
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: New
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: My
+  },
+  {
+    path: '/my/phone',
+    name: 'phone',
+    component: Phone
+  },
+  {
+    path: '/my/name',
+    name: 'name',
+    component: Name
+  },
+  {
+    path: '/my/modify',
+    name: 'modify',
+    component: Modify
+  },
+  {
+    path: '/my/card',
+    name: 'card',
+    component: Card
+  },
+  {
+    path: '/my/mail',
+    name: 'mail',
+    component: Mail
+  },
+  {
+    path: '/my/tripartite',
+    name: 'tripartite',
+    component: Tripartite
+  },
+  {
+    path: '/my/information',
+    name: 'information',
+    component: Information
+  },
+  {
+    path: '/course',
+    name: 'course',
+    component: Course
+  },
+  {
+    path: '/pay',
+    name: 'pay',
+    component: Pay
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/forget',
+    component: Forget
+  },
+  {
+    path: '/newword',
+    component: newword
+  }
+]
+
+const router = new VueRouter({
+  routes
+})
+
+export default router
