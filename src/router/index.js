@@ -17,6 +17,16 @@ import Mail from '../views/my/mail.vue'
 import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
+const kefu = () => import('../views/home/kefu.vue')
+const lbt = () => import('../views/home/lbt.vue')
+const lbt2 = () => import('../views/home/lbt2.vue')
+const lbt3 = () => import('../views/home/lbt3.vue')
+const jkbb = () => import('../views/home/jkbb.vue')
+const xyzn = () => import('../views/home/xyzn.vue')
+const jcxy = () => import('../views/home/jcxy.vue')
+const stfc = () => import('../views/home/stfc.vue')
+const gengduo = () => import('../views/home/gengduo.vue')
+const xyzk = () => import('../views/home/xyzk.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -35,7 +45,7 @@ const routes = [
     component: New
   },
   {
-    path: '/news/newAtical',
+    path: '/newAtical',
     name: 'newAtical',
     component: newAtical
   },
@@ -106,6 +116,46 @@ const routes = [
   {
     path: '/newword',
     component: newword
+  },
+  {
+    path: '/kefu',
+    component: kefu
+  },
+  {
+    path: '/lbt',
+    component: lbt
+  },
+  {
+    path: '/lbt2',
+    component: lbt2
+  },
+  {
+    path: '/lbt3',
+    component: lbt3
+  },
+  {
+    path: '/jkbb',
+    component: jkbb
+  },
+  {
+    path: '/xyzn',
+    component: xyzn
+  },
+  {
+    path: '/jcxy',
+    component: jcxy
+  },
+  {
+    path: '/stfc',
+    component: stfc
+  },
+  {
+    path: '/gengduo',
+    component: gengduo
+  },
+  {
+    path: '/xyzk',
+    component: xyzk
   }
 ]
 

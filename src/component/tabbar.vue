@@ -16,9 +16,9 @@ li {
   display: flex;
   width: 100%;
   height: 3.2rem;
- background: rgb(233,233,233);
+ background: rgba(250, 249, 249, 0.986);
   li {
-      width: 25%;
+    width: 25%;
     display: flex;
     justify-content: center;
     color: #696e83;
@@ -30,7 +30,7 @@ li {
     margin-top:26px;
     margin-left: -23px;
     margin-bottom: 0px;
-    font-size: 13px;
+    font-size: 14px;
     }
   }
 }

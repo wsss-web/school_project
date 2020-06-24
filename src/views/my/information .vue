@@ -14,13 +14,17 @@
       <Uploader :after-read="afterRead" />
       <p class="photo">点击上传证件照</p>
     </div>
-    <div class="dell" v-for="(item,index) in List" :key="index">
+    <div  v-for="(item,index) in List" :key="index" >
+    <div class="dell">
       <div class="name">
         <div class="first">{{item.name}}</div>
         <div class="right">{{item.text}}</div>
       </div>
     </div>
+           <Divider />
+    </div>
      <div class="bo">
+        <Divider />
       <div class="case">
         <p>信息维护</p>
       </div>
@@ -42,7 +46,8 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
-import { Uploader, DatetimePicker } from 'vant'
+import { Uploader, DatetimePicker, Divider } from 'vant'
+
 export default {
   data () {
     return {
@@ -66,7 +71,8 @@ export default {
   components: {
     navigation,
     Uploader,
-    DatetimePicker
+    DatetimePicker,
+    Divider
   },
   methods: {
     afterRead (file) {
@@ -135,7 +141,6 @@ export default {
 }
 .dell {
   height: 50px;
-  border-top: 1px solid #78777c;
   padding-left: 16px;
   line-height: 50px;
 }
@@ -162,7 +167,6 @@ export default {
   }
 }
 .both{
-        border-bottom: 1px solid #78777c;
     height: 50px;
     padding-left: 16px;
     line-height: 50px;

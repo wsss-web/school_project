@@ -154,7 +154,6 @@ export default {
 <style lang="less">
 .gild {
   margin-top: 41.6px;
-  // border-bottom: 1px solid gray;
   height: 55px;
 }
 .cell {
@@ -186,8 +185,19 @@ export default {
   }
 }
 .van-cell-group{
- .van-cell{
- }
+//  .van-cell{
+// <<<<<<< HEAD
+// =======
+// <<<<<<< HEAD
+// =======
+// <<<<<<< HEAD
+
+// =======
+//   //  border-bottom:1px solid  #bebebe;
+// >>>>>>> 2d0e16a87b10d0b1f5a72a49fb32034e63b5cc08
+// >>>>>>> 1b35498463bf222961148b11428480378d59729b
+// >>>>>>> 898c041b93bdd94f00081202aaafe21c2b7ecbe8
+//  }
 }
 .bottom{
      margin: 10px 16px 80px 16px;
