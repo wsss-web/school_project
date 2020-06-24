@@ -46,7 +46,7 @@ import { Uploader, DatetimePicker } from 'vant'
 export default {
   data () {
     return {
-      show: true,
+      show: false,
       value: '',
       minDate: new Date(2020, 0, 1),
       maxDate: new Date(2025, 10, 1),
@@ -75,7 +75,7 @@ export default {
     },
     go () {
       console.log(111)
-      this.display = 'block'
+      this..display = 'block'
     },
     formatter (type, val) {
       if (type === 'year') {

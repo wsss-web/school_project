@@ -28,7 +28,7 @@
         <div class="both" @click="go" >
       <div class="name">
         <div class="first">出生日期</div>
-        <div class="input" style="display:none"  :show="show" > <DatetimePicker
+        <div class="input"  :show="show" > <DatetimePicker
   v-model="currentDate"
   :show="show"
   type="date"
@@ -46,7 +46,7 @@ import { Uploader, DatetimePicker } from 'vant'
 export default {
   data () {
     return {
-      show: true,
+      show: false,
       value: '',
       minDate: new Date(2020, 0, 1),
       maxDate: new Date(2025, 10, 1),
@@ -158,7 +158,8 @@ export default {
     justify-content: center;
     border:1px solid rgb(205,232,249);
     margin-left: 2rem;
-    margin-bottom: .08rem
+    margin-bottom: .08rem;
+    display: none
   }
 }
 .both{

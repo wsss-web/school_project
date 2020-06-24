@@ -14,7 +14,6 @@
     </div>
     <CellGroup>
       <Cell
-        @click="set(index)"
         v-for="(item,index) in List"
         :key="index"
         :title="(item.title)"
@@ -28,11 +27,11 @@
  <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
-    <Overlay :show="show" @click="show = false" >
+    <Overlay :show="show" @click="show = false">
   <div class="wrapper" @click.stop>
     <div class="block" >
-      <Cell @click="chose" title="男"   />
-      <Cell  @click='girl' title='女'  />
+      <Cell title="男"   />
+      <Cell title='女'  />
     </div>
       <div>
       </div>
@@ -120,18 +119,6 @@ export default {
         })
         .catch(() => {
         })
-    },
-    set (index) {
-      console.log(index)
-      this.show = true
-    },
-    chose (e) {
-      console.log(e.target.innerText)
-      console.log(this)
-      this.show = false
-    },
-    girl () {
-      this.show = false
     }
   }
 }
@@ -175,7 +162,7 @@ export default {
 }
 .van-cell-group{
  .van-cell{
-  //  border-bottom:1px solid  #bebebe;
+   border-bottom:1px solid  #bebebe;
  }
 }
 .van-cell:last-child{

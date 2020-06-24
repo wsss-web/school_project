@@ -32,7 +32,7 @@
   <div class="wrapper" @click.stop>
     <div class="block" >
       <Cell @click="chose" title="男"   />
-      <Cell  @click='girl' title='女'  />
+      <Cell title='女'  />
     </div>
       <div>
       </div>
@@ -123,15 +123,12 @@ export default {
     },
     set (index) {
       console.log(index)
-      this.show = true
+      show = true
     },
     chose (e) {
       console.log(e.target.innerText)
       console.log(this)
-      this.show = false
-    },
-    girl () {
-      this.show = false
+      this.setData({ show: false })
     }
   }
 }
