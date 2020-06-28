@@ -1,6 +1,6 @@
 <template>
     <div>
-        这是修改邮箱页面
+        这是支付页面
     </div>
 </template>
 <script>

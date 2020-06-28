@@ -31,6 +31,7 @@
         <p v-if="right==='list'">课程列表</p>
         <p v-if="right=== 'sure'">确定</p>
         <p v-if="right=== 'people'">个人档案</p>
+        <p v-if="right==='bill'">账单</p>
         <van-icon name="setting" v-if="right === 'set'" @click="toset" />
       </div>
     </div>

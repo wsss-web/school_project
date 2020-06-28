@@ -17,6 +17,7 @@ import Mail from '../views/my/mail.vue'
 import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
+import payment from '../views/pay/payment.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -156,6 +157,10 @@ const routes = [
   {
     path: '/xyzk',
     component: xyzk
+  },
+  {
+    path: '/pay/payment',
+    component: payment
   }
 ]
 
