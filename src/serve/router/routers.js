@@ -9,7 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.43.196',
+  host: '192.168.2.104',
   user: 'root',
   password: '123',
   database: 'school'
@@ -149,25 +149,24 @@ router.get('/newsinfo', async (ctx, body) => {
 // 单个新闻路由
 router.get('/newmore', async (ctx, body) => {
   var new_id = ctx.request.query.new_id
-  var sql = "select * from news where new_id = '"+ new_id +"'"
+  var sql = "select * from news where new_id = '" + new_id + "'"
   const results = await query(sql)
   ctx.body = results
-
 })
 // 用户信息路由（显示）
-router.get('/userinfo', async(ctx,body) =>{
-	var username = ctx.request.query.username
-	var sql = "select * from user_info where username='" + username + "'"
-	const results = await query(sql)
-	console.log(results)
+router.get('/userinfo', async (ctx, body) => {
+  var username = ctx.request.query.username
+  var sql = "select * from user_info where username='" + username + "'"
+  const results = await query(sql)
+  console.log(results)
   ctx.body = results[0]
 })
 
 // 用户宿舍信息展示路由
-router.get('/domitoryshow', async(ctx,body) => {
+router.get('/domitoryshow', async (ctx, body) => {
   var username = ctx.request.query.username
   console.log(username)
-  var sql = "select * from stu_domitory where username='"+ username +"'"
+  var sql = "select * from stu_domitory where username='" + username + "'"
   const results = await query(sql)
   console.log(results[0])
   ctx.body = results[0]

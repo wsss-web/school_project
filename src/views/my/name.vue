@@ -33,6 +33,7 @@ export default {
     .van-field__control{
         border:1px solid rgb(190,190,190);
         border-radius: .22rem;
+            padding-left: 12px;
     }
 }
 </style>
