@@ -1,9 +1,14 @@
 <template>
-    <div class="courses">
+    <div>
         <div class="courses_head">
-            <span @click="jiantou"><img class="courses_img" src="../../../public/img/箭头.png" /></span>
-            <span>信息工程学院课程</span>
+          <div  class="courses">
+            <span @click="back"><img class="courses_img" src="../../../public/img/箭头.png" /></span>
+            <span >信息工程学院课程</span>
             <span @click="showPicker = true">筛选</span>
+            <!-- <span>111</span>
+            <span>111</span>
+            <span>111</span> -->
+          </div>
         </div>
             <Popup v-model="showPicker" round position="bottom">
             <Picker
@@ -82,15 +87,15 @@ export default {
     Popup
   },
   methods: {
-    jiantou () {
-      this.$router.push('/course')
-    },
     onConfirm (value) {
       this.value = value
       this.showPicker = false
     },
     go_A () {
       this.$router.push('/Cname')
+    },
+    back () {
+      this.$router.go(-1)
     }
   }
 }
@@ -99,28 +104,36 @@ export default {
 <style  scoped>
 .courses_head {
     width: 100%;
-    height: 50px;
+    height: 43.38px;
     background-color: rgb(69, 188, 228);
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
-.courses_head img{
-    width: 30px;
+.courses{
+  display: flex;
+}
+.courses_img{
+    width: 17px;
+    line-height: 43.38px;
     vertical-align: middle;
+    margin-left: 10px;
+    margin-top: 14px;
 }
-.courses_head span:nth-child(2) {
-    margin-left: 80px;
+.courses span:nth-child(2) {
+    flex: 15;
+    width: 33.33333333%;
+    color: white;
+    font-size: 1rem;
     text-align: center;
-    font-size: 20px;
-    line-height: 48px;
-    color: rgb(221, 252, 252);
-    letter-spacing: 5px;
+    line-height: 43.38px;
 }
-.courses_head span:nth-child(3) {
-    margin-left: 50px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 48px;
-    color: rgb(221, 252, 252);
-    letter-spacing: 2px;
+.courses span:nth-child(3) {
+    flex: 2;
+    width: 33.33333333%;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-size: 0.83rem;
+    line-height: 43.38px;
 }
+
 </style>

@@ -18,6 +18,13 @@ import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
 import payment from '../views/pay/payment.vue'
+import Timetable from '../views/course/timetable.vue'
+import Courses from '../views/course/courses.vue'
+import Evaluate from '../views/course/evaluate.vue'
+import Cname from '../views/course/Cname.vue'
+import Details from '../views/course/details.vue'
+import Allcourse from '../views/course/allcourse.vue'
+import Titlename from '../views/course/titlename.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -161,6 +168,41 @@ const routes = [
   {
     path: '/pay/payment',
     component: payment
+  },
+  {
+    path: '/timetable',
+    name: 'timetable',
+    component: Timetable
+  },
+  {
+    path: '/courses',
+    name: 'courses',
+    component: Courses
+  },
+  {
+    path: '/evaluate',
+    name: 'evaluate',
+    component: Evaluate
+  },
+  {
+    path: '/Cname',
+    name: 'Cname',
+    component: Cname
+  },
+  {
+    path: '/details',
+    name: 'details',
+    component: Details
+  },
+  {
+    path: '/allcourse',
+    name: 'allcourse',
+    component: Allcourse
+  },
+  {
+    path: '/titlename',
+    name: 'titlename',
+    component: Titlename
   }
 ]
 
