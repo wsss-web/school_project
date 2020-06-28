@@ -17,12 +17,12 @@
       <Cell title="账号" :value="people.stu_id"></Cell>
       <Cell title="手机号" :value="people.phone" is-link to= '/my/phone'></Cell>
       <Cell title="昵称" :value="people.nickname" is-link to='/my/name'></Cell>
-       <Cell title="性别" :value="people.sex" is-link @click="set"></Cell>
-        <Cell title='邮箱' :value="people.address" is-link to='/my/mail'></Cell>
-        <Cell title='修改密码' is-link  to='/my/modify'></Cell>
-         <Cell style="color:red" title='重要信息维护' is-link to='/my/information'></Cell>
-          <Cell  title='电子学生证' is-link to='/my/card'></Cell>
-           <Cell  title='绑定第三方账号' is-link to='/my/tripartite'></Cell>
+      <Cell title="性别" :value="people.sex" is-link @click="set"></Cell>
+      <Cell title='邮箱' :value="people.address" is-link to='/my/mail'></Cell>
+      <Cell title='修改密码' is-link  to='/my/modify'></Cell>
+      <Cell style="color:red" title='重要信息维护' is-link to='/my/information'></Cell>
+      <Cell  title='电子学生证' is-link to='/my/card'></Cell>
+      <Cell  title='绑定第三方账号' is-link to='/my/tripartite'></Cell>
       <Cell title="关于" value="4.54" class="about" />
     </CellGroup>
     <div class="bottom">
@@ -49,55 +49,6 @@ export default {
     return {
       people: {},
       show: false
-      // List: [
-      //   {
-      //     title: '名字',
-      //     name: '王森'
-      //   },
-      //   {
-      //     title: '账号',
-      //     value: '1019161360204'
-      //   },
-      //   {
-      //     title: '手机号',
-      //     value: '17337570185',
-      //     to: '/my/phone'
-      //   },
-      //   {
-      //     title: '昵称',
-      //     value: 'zzedu',
-      //     to: '/my/name'
-      //   },
-      //   {
-      //     title: '性别',
-      //     value: '男'
-      //   },
-      //   {
-      //     title: '邮箱',
-      //     value: '',
-      //     to: '/my/mail'
-      //   },
-      //   {
-      //     title: '修改密码',
-      //     value: '',
-      //     to: '/my/modify'
-      //   },
-      //   {
-      //     title: '重要信息维护',
-      //     value: '',
-      //     to: '/my/information'
-      //   },
-      //   {
-      //     title: '电子学生证',
-      //     value: '',
-      //     to: '/my/card'
-      //   },
-      //   {
-      //     title: '绑定第三方账号',
-      //     value: '',
-      //     to: '/my/tripartite'
-      //   }
-      // ]
     }
   },
   components: {
