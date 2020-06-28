@@ -48,7 +48,7 @@ export default {
     newmore (newid) {
       console.log(newid)
       localStorage.setItem('newid', newid)
-      this.$router.push('/news/newAtical')
+      this.$router.push('/newAtical')
     }
   },
   created: function () {

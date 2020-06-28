@@ -133,6 +133,36 @@ export default {
     girl () {
       this.show = false
     }
+    // chuan () {
+    //   this.tools.axios({
+    //     params: {
+    //       status: 3,
+    //       stu_id: '161360205',
+    //       buliding_id: '3号楼',
+    //       floor: 1,
+    //       room: 3102,
+    //       specifications: '六人间',
+    //       washroom: '无',
+    //       balcony: '无',
+    //       username: 'wsss',
+    //       money: 30,
+    //       moniter: '陈鹏程'
+    //     },
+    //     url: 'http://localhost:3000/resetdomitoryinfo',
+    //     method: 'get',
+    //     header: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   })
+    //     .then(
+    //       function (res) {
+    //         console.log(res)
+    //       },
+    //       function (err) {
+    //         console.log(err)
+    //       }
+    //     )
+    // }
   },
   created: function () {
     var username = localStorage.getItem('username')
