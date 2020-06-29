@@ -13,12 +13,25 @@ import Modify from '../views/my/modify.vue'
 import Card from '../views/my/card.vue'
 import Forget from '../views/login/forget.vue'
 import newword from '../views/login/new_word.vue'
+<<<<<<< HEAD
+=======
 import Mail from '../views/my/mail.vue'
 import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
 import payment from '../views/pay/payment.vue'
+<<<<<<< HEAD
 import aircondition from '../views/pay/aircondition.vue'
+=======
+import Timetable from '../views/course/timetable.vue'
+import Courses from '../views/course/courses.vue'
+import Evaluate from '../views/course/evaluate.vue'
+import Cname from '../views/course/Cname.vue'
+import Details from '../views/course/details.vue'
+import Allcourse from '../views/course/allcourse.vue'
+import Titlename from '../views/course/titlename.vue'
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
+>>>>>>> 732b2de6ec980a2e63c0207d9fd954d9f3e6754c
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -29,6 +42,10 @@ const jcxy = () => import('../views/home/jcxy.vue')
 const stfc = () => import('../views/home/stfc.vue')
 const gengduo = () => import('../views/home/gengduo.vue')
 const xyzk = () => import('../views/home/xyzk.vue')
+const zhcx = () => import('../views/home/zhcx.vue')
+const dier = () => import('../views/home/dier.vue')
+const hhhh = () => import('../views/home/hhhh.vue')
+const dlzn = () => import('../views/home/dlzn.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -160,12 +177,65 @@ const routes = [
     component: xyzk
   },
   {
+<<<<<<< HEAD
+    path: '/zhcx',
+    component: zhcx
+  },
+  {
+    path: '/dier',
+    component: dier
+  },
+  {
+    path: '/hhhh',
+    component: hhhh
+  },
+  {
+    path: '/dlzn',
+    component: dlzn
+=======
     path: '/pay/payment',
     component: payment
   },
   {
+<<<<<<< HEAD
     path: '/pay/aircondition',
     component: aircondition
+=======
+    path: '/timetable',
+    name: 'timetable',
+    component: Timetable
+  },
+  {
+    path: '/courses',
+    name: 'courses',
+    component: Courses
+  },
+  {
+    path: '/evaluate',
+    name: 'evaluate',
+    component: Evaluate
+  },
+  {
+    path: '/Cname',
+    name: 'Cname',
+    component: Cname
+  },
+  {
+    path: '/details',
+    name: 'details',
+    component: Details
+  },
+  {
+    path: '/allcourse',
+    name: 'allcourse',
+    component: Allcourse
+  },
+  {
+    path: '/titlename',
+    name: 'titlename',
+    component: Titlename
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
+>>>>>>> 732b2de6ec980a2e63c0207d9fd954d9f3e6754c
   }
 ]
 

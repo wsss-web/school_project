@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div class="details_head">
-            <span @click="jiantou"><img class="details_img" src="../../../public/img/箭头.png" /></span>
-            <span>课程详情</span>
-        </div>
+        <navigation title="课程详情" left="back"></navigation>
         <div class="content_s" v-for="(item,i) in list" :key="i">
             课程名称：{{item.c_name}}<br>
             课程代码：{{item.c_num}}<br>
@@ -12,20 +9,26 @@
             上课时间：{{item.c_time}}<br>
             上课地点：{{item.c_add}}
         </div>
-        <div>
+        <div class="content" @click="go_allcourse">
             <CellGroup>
-                <img class="content_img" src="../../../public/img/客户.png"><Cell title="刘征的所有课程" is-link ></Cell>
+              <img class="content_img" src="../../../public/img/客户.png"><Cell  class="all" title="刘征的所有课程" is-link >
+              </Cell>
             </CellGroup>
+        </div>
+        <div class="content_x">
+            综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;">0人已评</span><br>
         </div>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-import { Cell, CellGroup } from 'vant'
+import { Cell, CellGroup, Rate } from 'vant'
+import navigation from '../../component/navigation'
 export default {
   data () {
     return {
+      value: 0,
       list: [
         {
           c_name: '数字电子技术',
@@ -39,46 +42,45 @@ export default {
     }
   },
   methods: {
-    jiantou () {
-      this.$router.push('/Cname')
+    go_allcourse () {
+      this.$router.push('/allcourse')
     }
   },
   components: {
     Cell,
-    CellGroup
+    CellGroup,
+    navigation,
+    Rate
   }
 }
 </script>
 
 <style  scoped>
-.details_head {
-    width: 100%;
-    height: 50px;
-    background-color: rgb(69, 188, 228);
-    border-radius: 5px;
-}
-.details_head img{
-    width: 30px;
-    vertical-align: middle;
-}
-.details_head span:nth-child(2) {
-    margin-left: 130px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 48px;
-    color: rgb(221, 252, 252);
-    letter-spacing: 5px;
-}
 .content_s{
     width: 90%;
-    height: 140px;
     border: 1px solid #c8c9cc;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 60px;
 }
 .content_img{
     width:40px;
     vertical-align: middle;
     margin-right: 20px;
+    flex: 1;
+}
+.content{
+  width: 90%;
+  border: 1px solid #c8c9cc;
+  margin: 20px auto;
+  /* display: flex; */
+  /* align-items: center; */
+}
+.all{
+  flex: 1;
+}
+.content_x{
+  width: 90%;
+  border: 1px solid #c8c9cc;
+  margin: 20px auto;
 }
 </style>

@@ -23,7 +23,7 @@
             <div class="tou3">已存在的课程点开课程，</div>
             <div class="tou3">进入课程详情页，</div>
         </center>
-        <div><center><img class="tu2" src="./lsshkb3.jpg"></center></div>
+        <div><center><img class="tu2" src="./lsshkb3.jpg" ></center></div>
     </div>
 </template>
 

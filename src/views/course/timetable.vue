@@ -85,7 +85,7 @@ export default {
 .timetable{
     margin-top:47px;
 }
-.table-wrapper {
+/* .table-wrapper {
   width: 100%;
   height: 50px;
   background-color: rgb(69, 188, 228);
@@ -94,8 +94,8 @@ export default {
 .table-wrapper img {
   width: 30px;
   vertical-align: middle;
-}
-.table-wrapper span:nth-child(2) {
+} */
+/* .table-wrapper span:nth-child(2) {
   margin-left: 150px;
   text-align: center;
   font-size: 20px;
@@ -110,18 +110,20 @@ export default {
   line-height: 48px;
   color: rgb(221, 252, 252);
   letter-spacing: 2px;
-}
+} */
 .tbody {
+  flex: 1;
   background-color: #eaf2ff;
 }
-.th,
-td {
+.th,td {
   width: 60px;
+  height: 20px;
+  /* flex: 1; */
   padding: 12px 2px;
-  font-size: 12px;
   text-align: center;
 }
 .content {
+  display: flex;
   height: 1000px;
   background-color: #eaf2ff;
 }

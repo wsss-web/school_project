@@ -31,7 +31,7 @@
     </Field>
 
     <Field
-    v-model="site"
+    v-model="site2"
     name="详细地址"
     label="4.本人所在地详细地址："
     placeholder="所在详细地址"
@@ -63,20 +63,21 @@
             </RadioGroup>
         </template>
     </Field>
-    <Field v-model="temp"
+    <Field v-model="oth"
     label="8.其他需要说明事项："
     placeholder="是否需要其他说明事项"/>
    </Form>
-   <div style="margin: 16px;">
-      <Button round block type="info" native-type="submit">
-          提交
+   <div style="margin: 16px;"  >
+      <Button round block type="info" native-type="submit" @click="totoast">
+        提交
       </Button>
     </div>
+    <Toast/>
   </div>
 </template>
 
 <script>
-import { Form, Field, Button, RadioGroup, Radio, NoticeBar, NavBar } from 'vant'
+import { Form, Field, Button, RadioGroup, Radio, NoticeBar, NavBar, Toast } from 'vant'
 export default {
   name: 'lbt',
   components: {
@@ -86,17 +87,21 @@ export default {
     RadioGroup,
     Radio,
     NoticeBar,
-    NavBar
+    NavBar,
+    Toast
   },
   data () {
     return {
       temp: '',
       site: '',
+      site2: '',
       radio: '0',
       radio1: '0',
       radio2: '0',
       radio3: '0',
-      radio4: '0'
+      radio4: '0',
+      msg: '',
+      oth: ''
     }
   },
   methods: {
@@ -105,6 +110,12 @@ export default {
     },
     onClickLeft () {
       this.$router.push({ path: '/index' })
+    },
+    totoast () {
+      this.$toast({
+        message: '提交成功',
+        position: 'top'
+      })
     }
   }
 }
