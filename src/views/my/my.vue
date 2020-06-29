@@ -13,31 +13,31 @@
       </div>
     </div>
     <CellGroup>
-      <Cell
-        @click="set(index)"
-        v-for="(item,index) in List"
-        :key="index"
-        :title="(item.title)"
-        :value="(item.value)"
-        :is-link= "true"
-        :to="item.to"
-      />
-         <Cell title="关于" value="4.54"  class="about" />
+      <Cell title="名字" :value="people.name" />
+      <Cell title="账号" :value="people.stu_id"></Cell>
+      <Cell title="手机号" :value="people.phone" is-link to= '/my/phone'></Cell>
+      <Cell title="昵称" :value="people.nickname" is-link to='/my/name'></Cell>
+      <Cell title="性别" :value="people.sex" is-link @click="set"></Cell>
+      <Cell title='邮箱' :value="people.address" is-link to='/my/mail'></Cell>
+      <Cell title='修改密码' is-link  to='/my/modify'></Cell>
+      <Cell style="color:red" title='重要信息维护' is-link to='/my/information'></Cell>
+      <Cell  title='电子学生证' is-link to='/my/card'></Cell>
+      <Cell  title='绑定第三方账号' is-link to='/my/tripartite'></Cell>
+      <Cell title="关于" value="4.54" class="about" />
     </CellGroup>
     <div class="bottom">
- <Button type="primary" size="large" @click="loginout">退出登录</Button>
+      <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
-    <Overlay :show="show" @click="show = false" >
-  <div class="wrapper" @click.stop>
-    <div class="block" >
-      <Cell @click="chose" title="男"   />
-      <Cell  @click='girl' title='女'  />
-    </div>
-      <div>
+    <Overlay :show="show" @click="show = false">
+      <div class="wrapper" @click.stop>
+        <div class="block">
+          <Cell @click="chose" title="男" />
+          <Cell @click="girl" title="女" />
+        </div>
+        <div></div>
       </div>
-  </div>
-</Overlay>
+    </Overlay>
   </div>
 </template>
 <script>
@@ -47,56 +47,8 @@ import { Icon, Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
 export default {
   data () {
     return {
-      show: false,
-      List: [
-        {
-          title: '名字',
-          value: '王森'
-        },
-        {
-          title: '账号',
-          value: '1019161360204'
-        },
-        {
-          title: '手机号',
-          value: '17337570185',
-          to: '/my/phone'
-        },
-        {
-          title: '昵称',
-          value: 'zzedu',
-          to: '/my/name'
-        },
-        {
-          title: '性别',
-          value: '男'
-        },
-        {
-          title: '邮箱',
-          value: '',
-          to: '/my/mail'
-        },
-        {
-          title: '修改密码',
-          value: '',
-          to: '/my/modify'
-        },
-        {
-          title: '重要信息维护',
-          value: '',
-          to: '/my/information'
-        },
-        {
-          title: '电子学生证',
-          value: '',
-          to: '/my/card'
-        },
-        {
-          title: '绑定第三方账号',
-          value: '',
-          to: '/my/tripartite'
-        }
-      ]
+      people: {},
+      show: false
     }
   },
   components: {
@@ -118,8 +70,7 @@ export default {
         .then(() => {
           this.$router.push('/login')
         })
-        .catch(() => {
-        })
+        .catch(() => {})
     },
     set (index) {
       console.log(index)
@@ -133,15 +84,48 @@ export default {
     girl () {
       this.show = false
     }
+    // chuan () {
+    //   this.tools.axios({
+    //     params: {
+    //       status: 3,
+    //       stu_id: '161360205',
+    //       buliding_id: '3号楼',
+    //       floor: 1,
+    //       room: 3102,
+    //       specifications: '六人间',
+    //       washroom: '无',
+    //       balcony: '无',
+    //       username: 'wsss',
+    //       money: 30,
+    //       moniter: '陈鹏程'
+    //     },
+    //     url: 'http://localhost:3000/resetdomitoryinfo',
+    //     method: 'get',
+    //     header: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   })
+    //     .then(
+    //       function (res) {
+    //         console.log(res)
+    //       },
+    //       function (err) {
+    //         console.log(err)
+    //       }
+    //     )
+    // }
   },
   created: function () {
+    var that = this
     var username = localStorage.getItem('username')
-    this.tools.axios({
-      url: 'http://localhost:3000/userinfo?username=' + username + '',
-      method: 'get'
-    })
+    this.tools
+      .axios({
+        url: 'http://localhost:3000/userinfo?username=' + username + '',
+        method: 'get'
+      })
       .then(
         function (res) {
+          that.people = res.data
           console.log(res)
         },
         function (err) {
@@ -184,6 +168,7 @@ export default {
     }
   }
 }
+<<<<<<< HEAD
 .van-cell-group{
  .van-cell{
    border-bottom:1px solid  #bebebe;
@@ -195,25 +180,32 @@ export default {
      border-radius: 0.3rem;
      .van-cell::after{
      border-bottom:1px solid  #bebebe;
+=======
+.van-cell-group {
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
 }
-.van-button--primary{
-    background:rgb(69,188,228);
-    border:1px solid rgb(69,188,228);
+.bottom {
+  margin: 10px 16px 80px 16px;
+  background-color: #45bce4;
+  border-radius: 0.3rem;
+  .van-button--primary {
+    background: rgb(69, 188, 228);
+    border: 1px solid rgb(69, 188, 228);
     height: 2rem;
-    border-radius: .3rem;
-}
-}
-  .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    border-radius: 0.3rem;
   }
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
-  .block {
-    width: 78%;
-    height: 14%;
-    background-color: #fff;
-    box-shadow: 0px -4px;
-  }
+.block {
+  width: 78%;
+  height: 14%;
+  background-color: #fff;
+  box-shadow: 0px -4px;
+}
 </style>

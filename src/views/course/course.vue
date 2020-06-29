@@ -1,20 +1,18 @@
 <template>
     <div class="course">
-        <!-- <div class="course_head">
-            <span>课程</span>
-        </div> -->
         <navigation title="课程"></navigation>
         <div class="textbox">
-            <input class="word" type="text" placeholder="请输入点名口令">
-            <button class="submit_btn">提交</button>
+            <input class="word" id=“word1 type="text" placeholder="请输入点名口令">
+            <button @click="submit_btn" class="submit">提交</button>
         </div>
         <div class="tips">
-            <span>Tips:</span><br>
+            <span>Tips:</span>
             <span>请确认当前的课程是您所选课程，并输入正确的点名口令。</span>
-            <div class='link-top'></div>
+            <!-- <div class='link-top'></div> -->
         </div>
         <div class="course_logo">
-            <div v-for="(item , i) in list" :key="i">
+          <div class='link-top'></div>
+            <div class="course1" v-for="(item , i) in list" :key="i">
             <ul>
                 <li>
                   <router-link :to="item.url">
@@ -34,9 +32,11 @@
 <script>
 import navigation from '../../component/navigation'
 import tabbar from '../../component/tabbar'
+// import { Toast } from 'vant'
 export default {
   data () {
     return {
+      value: '1',
       list: [
         {
           img: require('../../../public/img/课程表.png'),
@@ -59,6 +59,13 @@ export default {
   components: {
     navigation,
     tabbar
+    // Toast
+  },
+  methods: {
+    submit_btn () {
+      // console.log(111)
+      this.$toast('翻转校园：请输入正确的点名口令')
+    }
   }
 }
 </script>
@@ -69,7 +76,7 @@ export default {
     height: 1px;
     border-top: solid #ACC0D8 1px;
     margin-left: 0px;
-    margin-top: 25px;
+    margin-top: 10px;
 }
 .course_head {
     width: 100%;
@@ -77,26 +84,17 @@ export default {
     background-color: rgb(69, 188, 228);
     border-radius: 5px;
 }
-.course_head span {
-    margin-left: 180px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 48px;
-    color: rgb(221, 252, 252);
-    letter-spacing: 5px;
-}
-.submit_btn{
+.submit{
     background-color: rgb(69, 188, 228);
     border:none;
     outline:medium;
     border: 1px solid #c8c9cc;
     border-left:0px ;
-    margin: 0 auto;
     color: rgb(221, 252, 252);
-    vertical-align: bottom;
-    padding-top:2px ;
+    height: 26px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+    flex: 1;
 }
 .word{
     border:none;
@@ -104,25 +102,24 @@ export default {
     border: 1px solid #c8c9cc;
     border-right:0px ;
     height: 22px;
-    width: 250px;
+    // width: 250px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    flex: 6;
+    margin: 0 auto;
 }
 .textbox{
+    display: flex;
     border-radius: 3px;
-    // width: 278px;
-    width: 400px;
-    height: 50px;
-    margin: 0 auto;
-    margin-top: 60px;
-    text-align: center;
+    height: 40px;
+    margin: 70px 35px 1px 35px;
 }
 .tips{
-    width: 300px;
     height: 40px;
-    margin: 0 auto;
+    margin: 1px 35px 10px 35px;
     text-align: center;
     text-align:left;
+    display: flex;
 }
 li img{
     width:30px;
@@ -130,11 +127,15 @@ li img{
     margin-right: 15px;
 }
 .course_logo{
-    width: 310px;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    margin-top: 60px;
+    height: 200px;
+    // margin-top: 60px;
+    margin: 1px 35px 1px 35px;
 }
-.course_logo div{
-    margin: 20px 20px 20px 0px;
+.course1{
+  flex: 1;
+  margin-top: 20px;
 }
 </style>

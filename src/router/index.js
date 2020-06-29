@@ -13,6 +13,21 @@ import Modify from '../views/my/modify.vue'
 import Card from '../views/my/card.vue'
 import Forget from '../views/login/forget.vue'
 import newword from '../views/login/new_word.vue'
+<<<<<<< HEAD
+=======
+import Mail from '../views/my/mail.vue'
+import Tripartite from '../views/my/tripartite.vue'
+import Information from '../views/my/information .vue'
+import newAtical from '../views/new/newAtical.vue'
+import payment from '../views/pay/payment.vue'
+import Timetable from '../views/course/timetable.vue'
+import Courses from '../views/course/courses.vue'
+import Evaluate from '../views/course/evaluate.vue'
+import Cname from '../views/course/Cname.vue'
+import Details from '../views/course/details.vue'
+import Allcourse from '../views/course/allcourse.vue'
+import Titlename from '../views/course/titlename.vue'
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -45,6 +60,11 @@ const routes = [
     component: New
   },
   {
+    path: '/newAtical',
+    name: 'newAtical',
+    component: newAtical
+  },
+  {
     path: '/my',
     name: 'my',
     component: My
@@ -68,6 +88,21 @@ const routes = [
     path: '/my/card',
     name: 'card',
     component: Card
+  },
+  {
+    path: '/my/mail',
+    name: 'mail',
+    component: Mail
+  },
+  {
+    path: '/my/tripartite',
+    name: 'tripartite',
+    component: Tripartite
+  },
+  {
+    path: '/my/information',
+    name: 'information',
+    component: Information
   },
   {
     path: '/course',
@@ -97,7 +132,6 @@ const routes = [
     path: '/newword',
     component: newword
   },
-  // 主页界面路由
   {
     path: '/kefu',
     component: kefu
@@ -139,6 +173,7 @@ const routes = [
     component: xyzk
   },
   {
+<<<<<<< HEAD
     path: '/zhcx',
     component: zhcx
   },
@@ -153,8 +188,48 @@ const routes = [
   {
     path: '/dlzn',
     component: dlzn
+=======
+    path: '/pay/payment',
+    component: payment
+  },
+  {
+    path: '/timetable',
+    name: 'timetable',
+    component: Timetable
+  },
+  {
+    path: '/courses',
+    name: 'courses',
+    component: Courses
+  },
+  {
+    path: '/evaluate',
+    name: 'evaluate',
+    component: Evaluate
+  },
+  {
+    path: '/Cname',
+    name: 'Cname',
+    component: Cname
+  },
+  {
+    path: '/details',
+    name: 'details',
+    component: Details
+  },
+  {
+    path: '/allcourse',
+    name: 'allcourse',
+    component: Allcourse
+  },
+  {
+    path: '/titlename',
+    name: 'titlename',
+    component: Titlename
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
   }
 ]
+
 const router = new VueRouter({
   routes
 })

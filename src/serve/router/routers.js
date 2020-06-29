@@ -9,7 +9,11 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
+<<<<<<< HEAD
   host: '192.168.2.124',
+=======
+  host: '192.168.2.104',
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
   user: 'root',
   password: '123',
   database: 'school'
@@ -143,17 +147,86 @@ router.get('/newsinfo', async (ctx, body) => {
   var sql = 'select * from news'
   const results = await query(sql)
   ctx.body = results
-  console.log(results)
+  // console.log(results)
 })
 
+// 单个新闻路由
+router.get('/newmore', async (ctx, body) => {
+  var new_id = ctx.request.query.new_id
+  var sql = "select * from news where new_id = '" + new_id + "'"
+  const results = await query(sql)
+  ctx.body = results
+})
 // 用户信息路由（显示）
-router.get('/userinfo', async(ctx,body) =>{
-	var username = ctx.request.query.username
-	var sql = "select * from user_info where username='" + username + "'"
-	const results = await query(sql)
-	console.log(results)
+router.get('/userinfo', async (ctx, body) => {
+  var username = ctx.request.query.username
+  var sql = "select * from user_info where username='" + username + "'"
+  const results = await query(sql)
+  console.log(results)
   ctx.body = results[0]
 })
 
+// 用户宿舍信息展示路由
+router.get('/domitoryshow', async (ctx, body) => {
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from stu_domitory where username='" + username + "'"
+  const results = await query(sql)
+  console.log(results[0])
+  ctx.body = results[0]
+})
+
+<<<<<<< HEAD
+=======
+// 用户身份信息修改路由(管理系统)
+router.get('/resetuserinfo', async(ctx,body) => {
+  var one_per = ctx.request.query
+  console.log(one_per)
+  // 增加客户信息
+  if(one_per.status == 1){
+    console.log('6666')
+    var sql_add = "insert into user_info(stu_id,name,username,phone,nickname,sex,address,sch_id,major_id,classname,grade,education,home_address,plan) values('"+ one_per.stu_id +"','"+ one_per.name +"','"+ one_per.username +"','"+ one_per.phone +"','"+ one_per.nickname +"','"+ one_per.sex +"','"+ one_per.address +"','"+ one_per.sch_id +"','"+ one_per.major_id +"','"+ one_per.classname +"','"+ one_per.grade +"','"+ one_per.education +"','"+ one_per.home_address +"','"+ one_per.plan +"')"
+    var results_add = await query(sql_add)
+    console.log('插入成功')
+  }
+  // 删除客户信息
+  if(one_per.status == 2){
+    var one_per = ctx.request.query
+    var sql_del = "delete from user_info where username='"+ one_per.username +"'"
+    var results_del = await query(sql_del)
+    console.log('删除成功')
+  }
+  // 修改客户信息
+  if(one_per.status == 3){
+    var one_per = ctx.request.query
+    var sql_reset = "update user_info set name='"+ one_per.name +"',phone='"+ one_per.phone +"',nickname='"+ one_per.nickname +"',sex='"+ one_per.sex +"',address='"+ one_per.address +"',sch_id='"+ one_per.sch_id +"',major_id='"+ one_per.major_id +"',classname='"+ one_per.classname +"',grade='"+ one_per.grade +"',education='"+ one_per.education +"',home_address='"+ one_per.home_address +"',plan='"+ one_per.plan +"'where username='"+ one_per.username +"'"
+    var results_reset = await query(sql_reset)
+    console.log('修改成功')
+  }
+})
+
+// 用户宿舍信息修改路由（管理系统）
+router.get('/resetdomitoryinfo', async(ctx,body) =>{
+  var one_dom = ctx.request.query
+  // 增加住宿信息
+  if(one_dom.status == 1){
+    var sql_add = "insert into stu_domitory() values('"+ one_dom.stu_id +"','"+ one_dom.buliding_id +"','"+ one_dom.floor +"','"+ one_dom.room +"','"+ one_dom.specifications +"','"+ one_dom.washroom +"','"+ one_dom.balcony +"','"+ one_dom.username +"','"+ one_dom.money +"','"+ one_dom.moniter +"')"
+    var results_add = await query(sql_add)
+    console.log('插入成功')
+  }
+  // 删除住宿信息
+  if(one_dom.status == 2){
+    var sql_del = "delete from stu_domitory where username='"+ one_dom.username +"'"
+    var results_del = await query(sql_del)
+    console.log('删除成功')
+  }
+  // 修改住宿信息
+  if(one_dom.status == 3){
+    var sql_reset = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"'where username = '"+ one_dom.username +"'"
+    var results_reset = await query(sql_reset)
+    console.log('修改成功')
+  }
+})
+>>>>>>> 05539762d89db00547c971e160567c212aa6066e
 
 module.exports = router
