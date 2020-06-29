@@ -1,6 +1,6 @@
 <template>
     <div>
-        <navigation title="刘征所有课程" left="back"></navigation>
+        <navigation title="刘征的所有课程" left="back"></navigation>
         <div class="allcourse">
         <CellGroup>
             <div v-for="(item , i) in list" :key="i">
