@@ -49,30 +49,30 @@
         </div>
         <div class="zhuye2">
           <Grid direction="horizontal" column-num="2">  <!--四宫格 -->
-            <GridItem @click="xyzk">
+            <GridItem @click="zkk">
             <span id= "tb" class="iconfont my_iconzhiku" ></span>
             <div class ="dh1">校园智库<div class="ziti">经验专题指引</div></div>
             </GridItem>
-            <GridItem>
+            <GridItem @click="zhcx">
             <div><span id= "tb" class="iconfont my_iconchaxun"></span></div>
             <div>综合查询<div class="ziti">综合信息检索</div></div>
             </GridItem>
-            <GridItem>
-            <div><span id= "tb" class="iconfont my_iconketang"></span></div>
-            <div>第二课堂<div class="ziti">综合素质拓展</div></div>
+            <GridItem @click="dier">
+              <div><span id= "tb" class="iconfont my_iconketang"></span></div>
+              <div>第二课堂<div class="ziti">综合素质拓展</div></div>
             </GridItem>
-            <GridItem>
+            <GridItem @click="hh">
             <div><span id= "tb" class="iconfont my_iconshenpi"></span></div>
             <div>申报/审批<div class="ziti">填表申报审批</div></div>
             </GridItem>
           </Grid>
         </div>
         <div class="zhuye4">
-            <img class="tupian4"  src="../assets/tupian4.jpg">
+            <img @click="zdkf" class="tupian4"  src="../assets/tupian4.jpg">
         </div>
 
         <div class="zhuye4">
-            <img class="tupian4" src="../assets/tupian5.jpg">
+            <img @click="dlzn" class="tupian4" src="../assets/tupian5.jpg">
         </div>
         <div class="zhuye5"> --我们的努力只为了您片刻的停留--</div>
 
@@ -98,7 +98,6 @@ import { Swipe, SwipeItem, Grid, GridItem, Dialog } from 'vant'
 export default {
   methods: {
     remind () {
-      console.log('1111')
       Dialog.alert({
         title: '今天你努力了吗',
         message: '哈哈，啥也没有'
@@ -126,8 +125,11 @@ export default {
     gd () {
       this.$router.push({ path: '/gengduo' })
     },
-    xyzk () {
+    zkk () {
       this.$router.push({ path: '/xyzk' })
+    },
+    zhcx () {
+      this.$router.push({ path: '/zhcx' })
     },
     lt2 () {
       this.$router.push({ path: '/lbt2' })
@@ -135,11 +137,23 @@ export default {
     lt3 () {
       this.$router.push({ path: '/lbt3' })
     },
-    data () {
-      return {
-        active: 0,
-        show: false
-      }
+    dier () {
+      this.$router.push({ path: '/dier' })
+    },
+    hh () {
+      this.$router.push({ path: '/hhhh' })
+    },
+    zdkf () {
+      this.$router.push({ path: '/lbt' })
+    },
+    dlzn () {
+      this.$router.push({ path: '/dlzn' })
+    }
+  },
+  data () {
+    return {
+      active: 0,
+      show: false
     }
   },
   components: {
@@ -187,7 +201,9 @@ export default {
   .zhuye5{
     text-align: center;
     font-size: 12px;
-    margin-bottom: 50px;
+    margin-bottom: 53px;
+    margin-top: 0px;
+    background-color: rgb(250, 214, 173);
   }
   .tupian{
     width: 100%;

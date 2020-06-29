@@ -5,7 +5,11 @@
         title="微信公众号客服"
         left-text="返回"
         left-arrow
-        @click-left="onClickLeft"/>
+        @click-left="onClickLeft">
+        <template #right>
+          <Icon @click="touy" name="share" color="#e6e6e6" size="23"/>
+        </template>
+        </NavBar>
      <span class="kftext">
             <center>微信公众号客服人员上线啦!!!</center>
             <center class="kftext2">校园小番：  发表于 2020年6月30日</center>
@@ -22,22 +26,35 @@
 </template>
 
 <script>
-import { NavBar, Divider } from 'vant'
+import { NavBar, Divider, Icon, Dialog } from 'vant'
 export default {
   name: 'lbt',
   components: {
     NavBar,
-    Divider
+    Divider,
+    Icon,
+    [Dialog.Component.name]: Dialog.Component
   },
   methods: {
     onClickLeft () {
       this.$router.push({ path: '/index' })
+    },
+    touy () {
+      Dialog.alert({
+        title: '温馨提示',
+        message: '您将分享本页内容给其他人'
+      }).then(() => {
+      // on close
+      })
     }
   }
 }
 </script>
 
 <style scoped>
+.kftou{
+  background-color: rgb(10, 207, 241);
+}
 .kftext{
   text-align: center;
   font-size: 20px;

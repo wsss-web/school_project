@@ -13,7 +13,6 @@
     "koa2": "^2.0.0-alpha.7",
     "vant": "^2.8.7",
     "less-loader": "^6.1.2",
-    "vant": "^2.0.5",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.2",
     "vue-router": "^3.3.4",

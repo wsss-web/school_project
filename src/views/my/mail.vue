@@ -1,6 +1,6 @@
 <template>
     <div>
-       <navigation left="back" title="编辑邮箱" right='sure'></navigation>
+       <navigation left="back" title="编辑邮箱" right='sure' @click.native="sure"></navigation>
        <div class="text">
   <Field placeholder="请输入要编辑的内容" style="maring-left:'12px'"  v-model="value"  @input="handInput"  maxlength="32"  clearable></Field>
        </div>
@@ -8,7 +8,7 @@
 </template>
 <script>
 import navigation from '../../component/navigation.vue'
-import { Field } from 'vant'
+import { Field, Dialog } from 'vant'
 export default {
   data () {
     return {
@@ -17,12 +17,47 @@ export default {
   },
   components: {
     navigation,
-    Field
+    Field,
+    [Dialog.Component.name]: Dialog.Component
   },
   methods: {
     handInput: function (value) {
       console.log(value)
-      this.message = value
+    },
+    sure () {
+      var mail = this.value
+      var username = localStorage.getItem('username')
+      var that = this
+      this.tools.axios({
+        url: 'http://localhost:3000/resetuser',
+        method: 'get',
+        params: {
+          // 3为修改邮箱
+          status: 3,
+          username,
+          mail
+        }
+      })
+        .then(
+          function (res) {
+            if (res.data.status === 3) {
+              Dialog.confirm({
+                title: '提示',
+                message: '您已成功修改邮箱'
+              })
+                .then(() => {
+                  that.$router.push('/my')
+                })
+                .catch(() => {
+                  // on cancel
+                })
+            }
+          },
+          function (err) {
+            console.log(err)
+          }
+        )
+      console.log('666')
     }
   }
 }

@@ -126,6 +126,15 @@ export default {
       .then(
         function (res) {
           that.people = res.data
+          var user = JSON.stringify({
+            username: res.data.username,
+            password: res.data.password,
+            stu_id: res.data.stu_id,
+            name: res.data.name,
+            nickname: res.data.nickname,
+            sex: res.data.sex
+          })
+          localStorage.setItem('user', user)
           console.log(res)
         },
         function (err) {
@@ -168,6 +177,12 @@ export default {
     }
   }
 }
+.van-cell-group{
+ .van-cell{
+   border-bottom:1px solid  #bebebe;
+ }
+}
+
 .van-cell-group {
 }
 .bottom {
@@ -179,6 +194,9 @@ export default {
     border: 1px solid rgb(69, 188, 228);
     height: 2rem;
     border-radius: 0.3rem;
+  }
+  .van-cell::after{
+  border-bottom:1px solid  #bebebe;
   }
 }
 .wrapper {
