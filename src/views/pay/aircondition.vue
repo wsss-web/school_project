@@ -10,7 +10,7 @@
           style="margin-right:10px;"
           src="http://img1.imgtn.bdimg.com/it/u=3004952430,2809598645&fm=26&gp=0.jpg"
         />
-        <div class="font">宿舍照明用电支出</div>
+        <div class="font">空调用电支出</div>
       </div>
       <div>
         <Cell title="缴费单位" value="平顶山学院" size="large" />

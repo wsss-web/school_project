@@ -9,7 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.2.104',
+  host: '192.168.2.108',
   user: 'root',
   password: '123',
   database: 'school'
