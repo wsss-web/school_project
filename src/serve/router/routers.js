@@ -9,7 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.43.196',
+  host: '192.168.2.124',
   user: 'root',
   password: '123',
   database: 'school'
@@ -154,4 +154,6 @@ router.get('/userinfo', async(ctx,body) =>{
 	console.log(results)
   ctx.body = results[0]
 })
+
+
 module.exports = router
