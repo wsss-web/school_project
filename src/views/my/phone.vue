@@ -7,11 +7,11 @@
                      <span class="iconfont icon-wode"></span>
                   </div>
                   <p>您的手机号</p>
-                  <p>17337570185</p>
+                  <p>{{list.phone}}</p>
               </div>
       </div>
       <div class="bottom">
- <Button type="primary" size="large">更换手机号码</Button>
+ <Button type="primary" size="large" @click="phone">更换手机号码</Button>
     </div>
     </div>
 </template>
@@ -21,12 +21,34 @@ import { Button } from 'vant'
 export default {
   data () {
     return {
-
+      list: {}
     }
   },
   components: {
     navigation,
     Button
+  },
+  methods: {
+    phone: function () {
+      this.$router.push('/my/newphone')
+    }
+  },
+  created: function () {
+    var username = localStorage.getItem('username')
+    var that = this
+    this.tools.axios({
+      url: 'http://localhost:3000/userinfo?username=' + username + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          that.list = res.data
+          console.log(that.list)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   }
 
 }

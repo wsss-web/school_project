@@ -18,6 +18,7 @@ import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
 import payment from '../views/pay/payment.vue'
+import newphone from '../views/my/newphone.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -59,6 +60,10 @@ const routes = [
     path: '/my/phone',
     name: 'phone',
     component: Phone
+  },
+  {
+    path: '/my/newphone',
+    component: newphone
   },
   {
     path: '/my/name',

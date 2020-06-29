@@ -9,7 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.2.104',
+  host: '192.168.2.110',
   user: 'root',
   password: '123',
   database: 'school'
@@ -121,6 +121,11 @@ router.get('/identify', async (ctx, body) => {
   await e_mail(mail) // 发送邮件
 })
 
+// 一个模拟手机验证码的路由
+router.get('/imitate', async(ctx,body) => {
+  var cur_code = await aaa()
+  ctx.body = cur_code
+})
 // 修改密码路由
 router.get('/newword', async (ctx, body) => {
   var new_word = ctx.request.query.newword
@@ -196,6 +201,52 @@ router.get('/resetuserinfo', async(ctx,body) => {
     var sql_reset = "update user_info set name='"+ one_per.name +"',phone='"+ one_per.phone +"',nickname='"+ one_per.nickname +"',sex='"+ one_per.sex +"',address='"+ one_per.address +"',sch_id='"+ one_per.sch_id +"',major_id='"+ one_per.major_id +"',classname='"+ one_per.classname +"',grade='"+ one_per.grade +"',education='"+ one_per.education +"',home_address='"+ one_per.home_address +"',plan='"+ one_per.plan +"'where username='"+ one_per.username +"'"
     var results_reset = await query(sql_reset)
     console.log('修改成功')
+  }
+})
+
+// 用户身份信息修改路由（客户端）
+router.get('/resetuser', async(ctx,body) => {
+  var one_data = ctx.request.query
+  var username = one_data.username
+  // 修改手机号
+  if(one_data.status == 1){
+    var phone = one_data.phone
+    var sql_phone = "update user_info set phone='" + phone + "'where username='" + username + "'"
+    var results_phone = await query(sql_phone)
+    ctx.body = {
+      status:1,
+      newphone:phone
+    }
+  }
+  // 修改昵称
+  if(one_data.status == 2){
+    var nickname = one_data.nickname
+    var sql_nickname = "update user_info set nickname='" + nickname + "'where username='" + username + "'"
+    var results_nickname = await query(sql_nickname)
+    ctx.body = {
+      status:2,
+      newnickname:nickname
+    }
+  }
+  // 修改邮箱
+  if(one_data.status == 3){
+    var mail = one_data.mail
+    var sql_mail = "update user_info,user set user_info.address='"+ mail +"',user.address='"+ mail +"'where user.user_name='"+ username +"' and user_info.username='"+ username +"'"
+    var results_mail = await query(sql_mail)
+    ctx.body = {
+      status:3,
+      newmail:mail
+    }
+  }
+  // 修改密码
+  if(one_data.status == 4){
+    var newword = one_data.newword
+    var sql_word = "update user set pass_word='"+ newword +"'where user_name='"+ username +"'"
+    var results_word = await query(sql_word)
+    ctx.body = {
+      status:4,
+      newword:newword
+    }
   }
 })
 

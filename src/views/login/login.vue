@@ -59,8 +59,9 @@ export default {
     },
     login () {
       var name = this.username
-      localStorage.setItem('username', name)
       var password = this.password
+      localStorage.setItem('username', name)
+      localStorage.setItem('password', password)
       var that = this
       const cururl =
         'http://localhost:3000/login?username=' +
