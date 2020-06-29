@@ -137,7 +137,7 @@
           <div class="na">
             <div class="second">姓名</div>
             <div class="right">
-              <Field ></Field>
+              <Field :value='room.moniter' ></Field>
             </div>
           </div>
           <Divider />
@@ -199,32 +199,6 @@ export default {
           text: user.sex
         }
       ],
-      // msg: [
-      //   {
-      //     title: '楼号',
-      //     placeholder: '521'
-      //   },
-      //   {
-      //     title: '楼层',
-      //     placeholder: '5'
-      //   },
-      //   {
-      //     title: '房间',
-      //     placeholder: '529'
-      //   },
-      //   {
-      //     title: '房间规格',
-      //     placeholder: '未知'
-      //   },
-      //   {
-      //     title: '独立卫生间',
-      //     placeholder: '未知'
-      //   },
-      //   {
-      //     title: '有无阳台',
-      //     placeholder: '未知'
-      //   }
-      // ],
       Dormitory: [
         {
           title: '学号',

@@ -1,9 +1,7 @@
 <template>
     <div class="course_name">
-        <div class="Cname_head">
-            <span @click="jiantou"><img class="Cname_img" src="../../../public/img/箭头.png" /></span>
-            <span>数字电子技术</span>
-        </div>
+        <navigation title="数字电子技术" left="back"></navigation>
+        <div class="couser2">
         <CellGroup>
             <div v-for="(item , i) in list" :key="i">
               <Cell is-link @click="go_details">
@@ -15,12 +13,14 @@
               </Cell>
             </div>
         </CellGroup>
+        </div>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
 import { Cell, Rate, CellGroup } from 'vant'
+import navigation from '../../component/navigation'
 export default {
   data () {
     return {
@@ -51,28 +51,14 @@ export default {
   components: {
     Cell,
     Rate,
-    CellGroup
+    CellGroup,
+    navigation
   }
 }
 </script>
 
 <style  scoped>
-.Cname_head {
-    width: 100%;
-    height: 50px;
-    background-color: rgb(69, 188, 228);
-    border-radius: 5px;
-}
-.Cname_head img{
-    width: 30px;
-    vertical-align: middle;
-}
-.Cname_head span:nth-child(2) {
-    margin-left: 110px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 48px;
-    color: rgb(221, 252, 252);
-    letter-spacing: 5px;
+.couser2{
+  margin-top: 43px;
 }
 </style>
