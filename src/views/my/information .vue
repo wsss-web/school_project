@@ -23,27 +23,6 @@
       </div>
       <Divider />
     </div>
-    <!-- <div class="bo">
-      <Divider />
-      <div class="case">
-        <p>信息维护</p>
-      </div>
-    </div> -->
-    <!-- <div class="both" @click="go">
-      <div class="name">
-        <div class="first">出生日期</div>
-        <div class="input" style="display:none" @click="isactive=true">
-          <DatetimePicker
-            v-model="currentDate"
-            type="date"
-            :isactive="isactive"
-            title="选择年月日"
-            :min-date="minDate"
-            :max-date="maxDate"
-          />
-        </div>
-      </div>
-    </div> -->
     <div class="bo">
       <Divider />
       <div class="case">
@@ -57,7 +36,15 @@
           <div class="na">
             <div class="second">楼号</div>
             <div class="right">
-              <Field :value='room.buliding_id'></Field>
+              <Field :value='room.buliding_id' @click="showPicker.showPicker1 = true"></Field>
+                <Popup v-model="showPicker.showPicker1" round position="bottom">
+                  <Picker
+                    show-toolbar
+                    :columns="columns1"
+                    @cancel="showPicker.showPicker1 = false"
+                    @confirm="onConfirm_buliding"
+                  />
+                </Popup>
             </div>
           </div>
           <Divider />
@@ -67,7 +54,15 @@
           <div class="na">
             <div class="second">楼层</div>
             <div class="right">
-              <Field  :value='room.floor'></Field>
+              <Field :value='room.floor' @click="showPicker.showPicker2 = true"></Field>
+                <Popup v-model="showPicker.showPicker2" round position="bottom">
+                  <Picker
+                    show-toolbar
+                    :columns="columns2"
+                    @cancel="showPicker.showPicker2 = false"
+                    @confirm="onConfirm_floor"
+                  />
+                </Popup>
             </div>
           </div>
           <Divider />
@@ -77,7 +72,15 @@
           <div class="na">
             <div class="second">房间</div>
             <div class="right">
-              <Field  :value='room.room'></Field>
+              <Field :value='room.room' @click="showPicker.showPicker3 = true"></Field>
+                <Popup v-model="showPicker.showPicker3" round position="bottom">
+                  <Picker
+                    show-toolbar
+                    :columns="columns3"
+                    @cancel="showPicker.showPicker3 = false"
+                    @confirm="onConfirm_room"
+                  />
+                </Popup>
             </div>
           </div>
           <Divider />
@@ -87,7 +90,15 @@
           <div class="na">
             <div class="second">房间规格</div>
             <div class="right">
-              <Field  :value='room.specifications'></Field>
+              <Field :value='room.specifications' @click="showPicker.showPicker4 = true"></Field>
+                <Popup v-model="showPicker.showPicker4" round position="bottom">
+                  <Picker
+                    show-toolbar
+                    :columns="columns4"
+                    @cancel="showPicker.showPicker4 = false"
+                    @confirm="onConfirm_specifications"
+                  />
+                </Popup>
             </div>
           </div>
           <Divider />
@@ -97,7 +108,15 @@
           <div class="na">
             <div class="second">有无独卫</div>
             <div class="right">
-              <Field :value='room.washroom'></Field>
+              <Field :value='room.washroom' @click="showPicker.showPicker5 = true"></Field>
+                <Popup v-model="showPicker.showPicker5" round position="bottom">
+                  <Picker
+                    show-toolbar
+                    :columns="columns5"
+                    @cancel="showPicker.showPicker5 = false"
+                    @confirm="onConfirm_washroom"
+                  />
+                </Popup>
             </div>
           </div>
           <Divider />
@@ -107,7 +126,15 @@
           <div class="na">
             <div class="second">有无阳台</div>
             <div class="right">
-              <Field  :value='room.balcony'></Field>
+              <Field :value='room.balcony' @click="showPicker.showPicker6 = true"></Field>
+                <Popup v-model="showPicker.showPicker6" round position="bottom">
+                  <Picker
+                    show-toolbar
+                    :columns="columns6"
+                    @cancel="showPicker.showPicker6 = false"
+                    @confirm="onConfirm_balcony"
+                  />
+                </Popup>
             </div>
           </div>
           <Divider />
@@ -127,7 +154,7 @@
           <div class="na">
             <div class="second">学号</div>
             <div class="right">
-              <Field :value='room.stu_id'></Field>
+              <Field :value='room.moniter_id'></Field>
             </div>
           </div>
           <Divider />
@@ -147,7 +174,7 @@
           <div class="na">
             <div class="second">院系</div>
             <div class="right">
-              <Field ></Field>
+              <Field :value='room.sch_id' ></Field>
             </div>
           </div>
           <Divider />
@@ -168,7 +195,7 @@
       </div>
       <div class="button">
             <div class="bottom">
- <Button type="primary" size="large" >保存</Button>
+ <Button type="primary" size="large" @click="newmsg">保存</Button>
     </div>
       </div>
     </div>
@@ -176,16 +203,32 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
-import { Uploader, Divider, Field, Button } from 'vant'
+import { Uploader, Divider, Field, Button, Picker, Toast, Popup } from 'vant'
 
 export default {
   data () {
     var user = JSON.parse(localStorage.getItem('user'))
     return {
       date: '',
+      // showPicker: false,
+      // showPicker2: false,
+      showPicker: {
+        showPicker1: false,
+        showPicker2: false,
+        showPicker3: false,
+        showPicker4: false,
+        showPicker5: false,
+        showPicker6: false
+      },
       isactive: false,
       value: '',
       room: {},
+      columns1: ['1号楼', '2号楼', '3号楼', '4号楼', '5号楼', '6号楼', '7号楼', '8号楼', '9号楼', '10号楼', '11号楼', '12号楼', '13号楼', '14号楼'],
+      columns2: [1, 2, 3, 4, 5, 6],
+      columns3: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
+      columns4: ['六人间', '八人间'],
+      columns5: ['有', '无'],
+      columns6: ['有', '无'],
       minDate: new Date(2020, 0, 1),
       maxDate: new Date(2025, 10, 1),
       currentDate: new Date(),
@@ -221,7 +264,10 @@ export default {
     // DatetimePicker,
     Divider,
     Field,
-    Button
+    Button,
+    // Overlay,
+    Picker,
+    Popup
   },
   methods: {
     afterRead (file) {
@@ -238,6 +284,56 @@ export default {
         return `${val}月`
       }
       return val
+    },
+    onConfirm_buliding (value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`)
+      this.room.buliding_id = `${value}`
+      this.showPicker.showPicker1 = false
+    },
+    onConfirm_floor (value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`)
+      this.room.floor = `${value}`
+      this.showPicker.showPicker2 = false
+    },
+    onConfirm_room (value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`)
+      this.room.room = parseInt(this.room.buliding_id) + '' + this.room.floor + '' + `${value}`
+      this.showPicker.showPicker3 = false
+    },
+    onConfirm_specifications (value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`)
+      this.room.specifications = `${value}`
+      this.showPicker.showPicker4 = false
+    },
+    onConfirm_washroom (value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`)
+      this.room.washroom = `${value}`
+      this.showPicker.showPicker5 = false
+    },
+    onConfirm_balcony (value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`)
+      this.room.balcony = `${value}`
+      this.showPicker.showPicker6 = false
+    },
+    onCancel () {
+      Toast('取消')
+    },
+    newmsg () {
+      var that = this
+      this.tools.axios({
+        url: 'http://localhost:3000/resetdomitory',
+        method: 'get',
+        params: that.room
+      })
+        .then(
+          function (res) {
+            console.log(res)
+            that.$router.push('/my')
+          },
+          function (err) {
+            console.log(err)
+          }
+        )
     }
   },
   created: function () {
@@ -251,6 +347,7 @@ export default {
       .then(
         function (res) {
           that.room = res.data
+          that.value = res.data.building_id
           console.log(res)
         },
         function (err) {
@@ -405,4 +502,17 @@ export default {
     border-radius: .3rem;
 }
 }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .block {
+    width: 80%;
+    height: 50%;
+    background-color: #fff;
+    box-shadow: none;
+  }
 </style>

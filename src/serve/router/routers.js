@@ -9,7 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.2.110',
+  host: '192.168.2.111',
   user: 'root',
   password: '123',
   database: 'school'
@@ -272,6 +272,14 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
     var results_reset = await query(sql_reset)
     console.log('修改成功')
   }
+})
+
+// 用户宿舍信息修改路由（客户端）
+router.get('/resetdomitory' ,async(ctx,body) => {
+  var one_dom = ctx.request.query
+  var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"'where username = '"+ one_dom.username +"'"
+  var results = await query(sql)
+  ctx.body = '修改成功'
 })
 
 module.exports = router
