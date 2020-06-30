@@ -18,6 +18,7 @@ import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
 import payment from '../views/pay/payment.vue'
+import newphone from '../views/my/newphone.vue'
 import aircondition from '../views/pay/aircondition.vue'
 import Timetable from '../views/course/timetable.vue'
 import Courses from '../views/course/courses.vue'
@@ -28,6 +29,7 @@ import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
 import immediately from '../views/pay/immediately.vue'
 import detail from '../views/login/detail.vue'
+import Zhifu from '../views/pay/zhifu.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -43,7 +45,6 @@ const dier = () => import('../views/home/dier.vue')
 const hhhh = () => import('../views/home/hhhh.vue')
 const dlzn = () => import('../views/home/dlzn.vue')
 Vue.use(VueRouter)
-
 const routes = [{
   path: '/index',
   name: 'index',
@@ -238,7 +239,202 @@ const routes = [{
   path: '/titlename',
   name: 'titlename',
   component: Titlename
-}
+},
+  {
+    path: '/index',
+    name: 'index',
+    component: Index
+  },
+  {
+    path: '/',
+    redirect: '/login'
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: New
+  },
+  {
+    path: '/newAtical',
+    name: 'newAtical',
+    component: newAtical
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: My
+  },
+  {
+    path: '/my/phone',
+    name: 'phone',
+    component: Phone
+  },
+  {
+    path: '/my/newphone',
+    component: newphone
+  },
+  {
+    path: '/my/name',
+    name: 'name',
+    component: Name
+  },
+  {
+    path: '/my/modify',
+    name: 'modify',
+    component: Modify
+  },
+  {
+    path: '/my/card',
+    name: 'card',
+    component: Card
+  },
+  {
+    path: '/my/mail',
+    name: 'mail',
+    component: Mail
+  },
+  {
+    path: '/my/tripartite',
+    name: 'tripartite',
+    component: Tripartite
+  },
+  {
+    path: '/my/information',
+    name: 'information',
+    component: Information
+  },
+  {
+    path: '/course',
+    name: 'course',
+    component: Course
+  },
+  {
+    path: '/pay',
+    name: 'pay',
+    component: Pay
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/forget',
+    component: Forget
+  },
+  {
+    path: '/newword',
+    component: newword
+  },
+  {
+    path: '/kefu',
+    component: kefu
+  },
+  {
+    path: '/lbt',
+    component: lbt
+  },
+  {
+    path: '/lbt2',
+    component: lbt2
+  },
+  {
+    path: '/lbt3',
+    component: lbt3
+  },
+  {
+    path: '/jkbb',
+    component: jkbb
+  },
+  {
+    path: '/xyzn',
+    component: xyzn
+  },
+  {
+    path: '/jcxy',
+    component: jcxy
+  },
+  {
+    path: '/stfc',
+    component: stfc
+  },
+  {
+    path: '/gengduo',
+    component: gengduo
+  },
+  {
+    path: '/xyzk',
+    component: xyzk
+  },
+  {
+    path: '/zhcx',
+    component: zhcx
+  },
+  {
+    path: '/dier',
+    component: dier
+  },
+  {
+    path: '/hhhh',
+    component: hhhh
+  },
+  {
+    path: '/dlzn',
+    component: dlzn
+  },
+  {
+    path: '/pay/payment',
+    component: payment
+  },
+  {
+    path: '/pay/aircondition',
+    component: aircondition
+  },
+  {
+    path: '/timetable',
+    name: 'timetable',
+    component: Timetable
+  },
+  {
+    path: '/courses',
+    name: 'courses',
+    component: Courses
+  },
+  {
+    path: '/evaluate',
+    name: 'evaluate',
+    component: Evaluate
+  },
+  {
+    path: '/Cname',
+    name: 'Cname',
+    component: Cname
+  },
+  {
+    path: '/details',
+    name: 'details',
+    component: Details
+  },
+  {
+    path: '/allcourse',
+    name: 'allcourse',
+    component: Allcourse
+  },
+  {
+    path: '/titlename',
+    name: 'titlename',
+    component: Titlename
+  },
+  {
+    path: '/zhifu',
+    name: 'zhifu',
+    component: Zhifu
+  }
 ]
 
 const router = new VueRouter({

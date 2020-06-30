@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <navigation title="刘征所有课程" left="back"></navigation>
     <div class="allcourse">
@@ -18,6 +19,22 @@
             <br />
              <i  class="iconfont icon-iconzuojiantou" @click="go_titlename"></i>
           </Cell>
+=======
+    <div>
+        <navigation title="刘征的所有课程" left="back"></navigation>
+        <div class="allcourse">
+        <CellGroup>
+            <div v-for="(item , i) in list" :key="i">
+              <Cell is-link @click="go_titlename">
+                {{item.title}}<br>
+                学期：{{item.session}}<br>
+                选课号：{{item.num}}<br>
+                综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;">0人已评</span><br>
+                时间：{{item.time}}<br>
+              </Cell>
+            </div>
+        </CellGroup>
+>>>>>>> 9030ba32a8c820acd7874ad5e182108c95b0e828
         </div>
       </CellGroup>
     </div>

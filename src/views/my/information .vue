@@ -180,6 +180,7 @@ import { Uploader, Divider, Field, Button } from 'vant'
 
 export default {
   data () {
+    var user = JSON.parse(localStorage.getItem('user'))
     return {
       date: '',
       isactive: false,
@@ -191,11 +192,11 @@ export default {
       List: [
         {
           name: '姓名',
-          text: '王森'
+          text: user.name
         },
         {
           name: '性别',
-          text: '男'
+          text: user.sex
         }
       ],
       Dormitory: [

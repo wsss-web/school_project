@@ -67,7 +67,7 @@
     font-size: 0.83rem;
   }
   .center {
-    width: 100%/3;
+    width: 100%/2;
     color: white;
     font-size: 1.1rem;
     text-align: center;

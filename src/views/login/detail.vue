@@ -20,6 +20,7 @@
 </template>
 <script>
 import navigation from '../../component/navigation.vue'
+import { Icon, Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
 export default {
   data () {
     return {}

@@ -2,7 +2,7 @@
     <div>
         <div class="courses_head">
           <div  class="courses">
-            <span @click="back"><img class="courses_img" src="../../../public/img/箭头.png" /></span>
+            <span @click="back"><img class="courses_img" src="../../../public/img/心电图.png" /></span>
             <span >信息工程学院课程</span>
             <span @click="showPicker = true">筛选</span>
             <!-- <span>111</span>
@@ -104,7 +104,7 @@ export default {
 <style  scoped>
 .courses_head {
     width: 100%;
-    height: 43.38px;
+    height: 46.4px;
     background-color: rgb(69, 188, 228);
     /* border-radius: 5px; */
 }
@@ -113,18 +113,24 @@ export default {
 }
 .courses_img{
     width: 17px;
-    line-height: 43.38px;
+    line-height: 46.4px;
     vertical-align: middle;
     margin-left: 10px;
     margin-top: 14px;
 }
 .courses span:nth-child(2) {
-    flex: 15;
+    /* flex: 15;
     width: 33.33333333%;
     color: white;
     font-size: 1rem;
     text-align: center;
-    line-height: 43.38px;
+    line-height: 43.38px; */
+    width: 33.33333333%;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    flex: 15;
+    line-height: 46.4px;
 }
 .courses span:nth-child(3) {
     flex: 2;
@@ -133,7 +139,7 @@ export default {
     justify-content: flex-end;
     color: white;
     font-size: 0.83rem;
-    line-height: 43.38px;
+    line-height: 46.4px;
 }
 
 </style>
