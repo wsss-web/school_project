@@ -1,8 +1,9 @@
 <template>
   <div class="login">
-    <div class="login_head">
+    <!-- <div class="login_head">
       <span>登录</span>
-    </div>
+    </div> -->
+    <navigation title="登录"></navigation>
     <div class="tu">
       <img class="logo" src="../../../public/img/96.png" />
     </div>
@@ -38,6 +39,7 @@
 </template>
 
 <script>
+import navigation from '../../component/navigation'
 import { Form, Button, field, Dialog } from 'vant'
 export default {
   name: 'login',
@@ -51,7 +53,8 @@ export default {
     vbutton: Button,
     field,
     vform: Form,
-    [Dialog.Component.name]: Dialog.Component
+    [Dialog.Component.name]: Dialog.Component,
+    navigation
   },
   methods: {
     onSubmit (values) {
@@ -108,7 +111,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .tu{
   display: flex;
   justify-content: center;
@@ -121,7 +124,6 @@ export default {
       background-color: rgb(69, 188, 228);
       border-radius: 5px;
 }
-
 .login_head span {
   margin-left: 180px;
   text-align: center;
@@ -132,12 +134,14 @@ export default {
 }
 .bottom{
   display: flex;
+  height:50px;
+  text-align: center;
 }
 .apply{
   flex: 1;
 }
-.apply span{
-  margin-left: 110px;
+span{
+  line-height: 50px;
 }
 .forget{
   flex: 1;

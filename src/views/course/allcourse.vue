@@ -1,21 +1,28 @@
 <template>
-    <div>
-        <navigation title="刘征所有课程" left="back"></navigation>
-        <div class="allcourse">
-        <CellGroup>
-            <div v-for="(item , i) in list" :key="i">
-              <Cell is-link @click="go_titlename">
-                {{item.title}}<br>
-                学期：{{item.session}}<br>
-                选课号：{{item.num}}<br>
-                综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;">0人已评</span><br>
-                时间：{{item.time}}<br>
-              </Cell>
-            </div>
-        </CellGroup>
+  <div>
+    <navigation title="刘征所有课程" left="back"></navigation>
+    <div class="allcourse">
+      <CellGroup>
+        <div v-for="(item , i) in list" :key="i">
+          <Cell   >
+            {{item.title}}
+            <br />
+            学期：{{item.session}}
+            <br />
+            选课号：{{item.num}}
+            <br />综合评价：
+            <Rate v-model="value"  />
+            <span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span>
+            <br />
+            时间：{{item.time}}
+            <br />
+             <i  class="iconfont icon-iconzuojiantou" @click="go_titlename"></i>
+          </Cell>
         </div>
-        <router-view></router-view>
+      </CellGroup>
     </div>
+    <!-- <router-view></router-view> -->
+  </div>
 </template>
 
 <script>
@@ -56,9 +63,20 @@ export default {
 </script>
 
 <style scoped>
-.allcourse{
-    margin-top: 47px;
-    margin-bottom: unset;
-    /* border: 1px solid black; */
+.van-cell__value .van-cell__value--alone{
+position: relative;
+}
+.iconfont{
+  font-size: 12px;
+    color: #969799;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    transform: rotate(180deg);
+}
+.allcourse {
+  margin-top: 47px;
+  margin-bottom: unset;
+  /* border: 1px solid black; */
 }
 </style>

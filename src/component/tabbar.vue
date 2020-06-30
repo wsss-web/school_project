@@ -56,7 +56,7 @@ export default {
         },
         {
           path: '/course',
-          icon: 'icon-kecheng',
+          icon: 'icon-lesson',
           text: '课程'
         },
         {

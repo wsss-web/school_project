@@ -167,7 +167,10 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style  lang="less" scoped>
+/deep/ .iconfont{
+  font-size: 22px;
+}
   .tou{
     font-size: 20px;
   }

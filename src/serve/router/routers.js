@@ -9,15 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-<<<<<<< HEAD
-  host: '192.168.2.108',
-=======
-<<<<<<< HEAD
-  host: '192.168.2.124',
-=======
-  host: '192.168.2.104',
->>>>>>> 05539762d89db00547c971e160567c212aa6066e
->>>>>>> 732b2de6ec980a2e63c0207d9fd954d9f3e6754c
+  host: '192.168.2.111',
   user: 'root',
   password: '123',
   database: 'school'
@@ -180,8 +172,6 @@ router.get('/domitoryshow', async (ctx, body) => {
   ctx.body = results[0]
 })
 
-<<<<<<< HEAD
-=======
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query
@@ -231,6 +221,6 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
     console.log('修改成功')
   }
 })
->>>>>>> 05539762d89db00547c971e160567c212aa6066e
+
 
 module.exports = router
