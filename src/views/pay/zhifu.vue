@@ -37,12 +37,33 @@
             input-align="right"
             />
         </div>
-        <Button class="queren"  size="small">确认支付</Button>
+        <Button @click="showPopup" class="queren" size="small">确认支付</Button>
+        <div><Popup v-model="show" class="cc">
+          <div class="c1">
+            <!-- <span class="c2">×</span>
+            <span class="c3">请输入支付密码</span><br>
+            <div>￥11</div> -->
+            <!-- 密码输入框 -->
+             <PasswordInput
+              :shuzi="shuzi"
+              info="密码为 6 位数字"
+              :focused="showKeyboard"
+              @focus="showKeyboard = true"
+            />
+            <!-- 数字键盘 -->
+            <NumberKeyboard
+              :show="showKeyboard"
+              @input="onInput"
+              @delete="onDelete"
+              @blur="showKeyboard = false"
+            />
+          </div>
+        </Popup></div>
     </div>
 </template>
 
 <script>
-import { Field, CheckboxGroup, CellGroup, Cell, Checkbox, Button } from 'vant'
+import { Field, CheckboxGroup, CellGroup, Cell, Checkbox, Button, Popup, PasswordInput, NumberKeyboard } from 'vant'
 import navigation from '../../component/navigation'
 export default {
   data () {
@@ -50,7 +71,10 @@ export default {
       value: '',
       value2: '',
       list: [''],
-      result: []
+      result: [],
+      show: false,
+      shuzi: '123',
+      showKeyboard: true
     }
   },
   components: {
@@ -60,11 +84,23 @@ export default {
     CellGroup,
     Cell,
     Checkbox,
-    Button
+    Button,
+    Popup,
+    PasswordInput,
+    NumberKeyboard
   },
   methods: {
     toggle (index) {
       this.$refs.checkboxes[index].toggle()
+    },
+    showPopup () {
+      this.show = true
+    },
+    onInput (key) {
+      this.value = (this.value + key).slice(0, 6)
+    },
+    onDelete () {
+      this.value = this.value.slice(0, this.value.length - 1)
     }
   }
 }
@@ -109,5 +145,27 @@ export default {
   border-radius: 5px;
   margin-top: 40px;
   color: #f2f3f5;
+}
+.cc{
+  border-radius: 10px;
+}
+.c1{
+  display: flex;
+  width: 200px;
+  height:190px;
+}
+.c2{
+  flex: 1;
+  /* width: 20%; */
+  margin: 20px 10px;
+  height: 20px;
+}
+.c3{
+  flex: 4;
+  /* width: 80%; */
+  margin: 8px auto;
+  font-size: 13px;
+  height: 20px;
+  text-align: center;
 }
 </style>
