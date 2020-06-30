@@ -16,14 +16,14 @@
             <div class="tou3">进入课程列表页面</div>
             <div class="tou3">即可查看自己的课程数量</div>
         </center>
-        <div><center><img class="tu1" src="./lsshkb.jpg"></center></div>
+        <div><center><img class="tu1" src="../../assets/lsshkb.jpg"></center></div>
         <center>
             <div class="tou3">检查课程数量是否正确，</div>
             <div class="tou3">是否有无少课或多课？</div>
             <div class="tou3">已存在的课程点开课程，</div>
             <div class="tou3">进入课程详情页，</div>
         </center>
-        <div><center><img class="tu2" src="./lsshkb3.jpg" ></center></div>
+        <div><center><img class="tu2" src="../../assets/lsshkb3.jpg" ></center></div>
     </div>
 </template>
 
@@ -43,7 +43,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .toutou{
     background-color: rgb(119, 207, 241);
 }
@@ -73,5 +73,19 @@ export default {
     width: 90%;
     height: 450px;
     margin-top: 15px;
+}
+/deep/ .van-nav-bar .van-icon{
+  color: white;
+}
+/deep/ .van-nav-bar__text{
+  color: white;
+      font-size: 0.83rem;
+}
+/deep/  .van-nav-bar{
+background: #45bce4;
+}
+/deep/  .van-nav-bar__title{
+  color:white;
+  font-size: 1.1rem;
 }
 </style>

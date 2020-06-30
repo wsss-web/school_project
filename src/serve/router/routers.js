@@ -9,7 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.2.110',
+  host: '192.168.2.111',
   user: 'root',
   password: '123',
   database: 'school'
@@ -176,8 +176,6 @@ router.get('/domitoryshow', async (ctx, body) => {
   console.log(results[0])
   ctx.body = results[0]
 })
-
-
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query

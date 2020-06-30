@@ -9,7 +9,7 @@
             上课时间：{{item.c_time}}<br>
             上课地点：{{item.c_add}}
         </div>
-        <div class="titlename_x">综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;">0人已评</span><br></div>
+        <div class="titlename_x">综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br></div>
         <router-view></router-view>
     </div>
 </template>

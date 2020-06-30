@@ -25,7 +25,7 @@
       <Cell  title='绑定第三方账号' is-link to='/my/tripartite'></Cell>
       <Cell title="关于" value="4.54" class="about" />
     </CellGroup>
-    <div class="bottom">
+    <div class="botto">
       <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
@@ -177,13 +177,12 @@ export default {
     }
   }
 }
+.botto {
 .van-cell-group{
  .van-cell{
    border-bottom:1px solid  #bebebe;
  }
 }
-
-.van-cell-group {
 }
 .bottom {
   margin: 10px 16px 80px 16px;
@@ -195,6 +194,8 @@ export default {
     height: 2rem;
     border-radius: 0.3rem;
   }
+       .van-cell::after{
+     border-bottom:1px solid  #bebebe;}
   .van-cell::after{
   border-bottom:1px solid  #bebebe;
   }

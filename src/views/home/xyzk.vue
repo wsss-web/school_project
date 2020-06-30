@@ -118,7 +118,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .sousuo{
     height: 34px;
     width: 100%;
@@ -141,5 +141,19 @@ export default {
     height:30px;
     padding-left: 20px;
     background-color:rgba(224, 230, 229, 0.582);
+}
+/deep/ .van-nav-bar .van-icon{
+  color: white;
+}
+/deep/ .van-nav-bar__text{
+  color: white;
+      font-size: 0.83rem;
+}
+/deep/  .van-nav-bar{
+background: #45bce4;
+}
+/deep/  .van-nav-bar__title{
+  color:white;
+  font-size: 1.1rem;
 }
 </style>
