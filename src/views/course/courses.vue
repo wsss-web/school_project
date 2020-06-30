@@ -2,7 +2,7 @@
     <div>
         <div class="courses_head">
           <div  class="courses">
-            <span @click="back"><img class="courses_img" src="../../../public/img/心电图.png" /></span>
+            <span @click="back"><div class="iconfont icon-iconfontjiantouzuo"></div></span>
             <span >信息工程学院课程</span>
             <span @click="showPicker = true">筛选</span>
             <!-- <span>111</span>
@@ -101,7 +101,13 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style  scoped lang="less">
+/deep/ .iconfont{
+      line-height: 46px;
+    color: white;
+    padding-left: 0.7rem;
+    font-size: 0.8rem;
+}
 .courses_head {
     width: 100%;
     height: 46.4px;

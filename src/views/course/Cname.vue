@@ -4,13 +4,14 @@
         <div class="couser2">
         <CellGroup>
             <div v-for="(item , i) in list" :key="i">
+
               <Cell  >
                   教师：{{item.name}}<br>
                   选课号：{{item.num}}<br>
                   综合评价：{{item.comm}}
                   <Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
                   时间：{{item.time}}<br>
-              <i  class="iconfont icon-iconzuojiantou" @click="go_details"></i>
+              <i  class="iconfont icon-iconfontjiantouzuo" @click="go_details"></i>
               </Cell>
             </div>
         </CellGroup>
