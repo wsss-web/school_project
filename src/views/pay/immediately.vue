@@ -4,12 +4,6 @@
       <div class="xiaofei">
         <div style="margin:15px 20px; font-size:13px;">消费总额</div>
         <div class="shuru">
-          <!-- <Field
-          v-model="value"
-          label="￥"
-          placeholder=""
-          input-align="left"
-          /> -->
           <span>￥</span>
           <div>{{titles}}</div>
         </div>
@@ -41,20 +35,6 @@ export default {
   created () {
     this.titles = this.$route.query.money
   }
-  // beforeCreate () {
-  //   document.querySelector('body').setAttribute('style', 'background:rgb(245,251,253,1)')
-  // },
-  // beforeDestroy () {
-  //   document.querySelector('body').setAttribute('style', '')
-  // }
-  // mounted () {
-  //   document
-  //     .querySelector('body')
-  //     .setAttribute('style', 'background-color:rgb(243,243,243)')
-  // },
-  // beforeDestroy () {
-  //   document.querySelector('body').removeAttribute('style')
-  // }
 }
 </script>
 
