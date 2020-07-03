@@ -131,11 +131,11 @@ export default {
       this.$router.push('/pay/')
     },
     pay (i) {
-      this.current=i;
+      this.current = i
       this.$router.push({
-        path:'/pay/immediately',
-        query:{money:this.value2}
-        })
+        path: '/pay/immediately',
+        query: { money: this.value2 }
+      })
     }
   }
 }
