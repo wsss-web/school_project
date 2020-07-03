@@ -13,15 +13,17 @@
                 is-link
               />
               <div class="payable">
-                <Cell title="应缴账单" icon="checked " color="red" />
-                <Cell title="暂无应缴账单" />
-              </div>
-              <div class="payable">
-                <Cell title="自选账单" icon="checked " />
-                <Cell title="暂无自选账单" />
+                <CheckboxGroup v-model="result" ref="checkboxGroup">
+                  <Checkbox v-model="checkedd" icon-size="24px">自选账单</Checkbox>
+                  <Cell title="暂无应缴账单" />
+                  <div class="payable">
+                    <Checkbox v-model="check" name="a" icon-size="24px">自选账单</Checkbox>
+                    <Cell title="暂无应缴账单"></Cell>
+                  </div>
+                </CheckboxGroup>
               </div>
               <SubmitBar :price="0.00" button-text="提交订单" @submit="onSubmit">
-                <Checkbox v-model="checked">全选</Checkbox>
+                <Checkbox v-model="checked" @click="checkAll">全选</Checkbox>
                 <template #tip>
                   你的收货地址不支持同城送,
                   <span>修改地址</span>
@@ -66,13 +68,17 @@ import {
   Image as VanImage,
   Cell,
   SubmitBar,
-  Checkbox
+  Checkbox,
+  CheckboxGroup
 } from 'vant'
 export default {
   data () {
     return {
       value: '',
-      checked: ''
+      checked: '',
+      checkedd: '',
+      check: '',
+      result: []
     }
   },
   components: {
@@ -84,19 +90,28 @@ export default {
     VanImage,
     Cell,
     SubmitBar,
-    Checkbox
+    Checkbox,
+    CheckboxGroup
   },
   mounted () {
     document
-      .querySelector('body')
+      .querySelector('html')
       .setAttribute('style', 'background-color:rgb(243,243,243)')
   },
   beforeDestroy () {
-    document.querySelector('body').removeAttribute('style')
+    document.querySelector('html').removeAttribute('style')
+  },
+  created () {
+    console.log(this.$route.path)
+    this.theactive = this.$route.path
   },
   methods: {
     onSubmit (e) {
       console.log(e)
+    },
+    checkAll () {
+      console.log(this.$refs.checkboxGroup)
+      this.$refs.checkboxGroup.toggleAll(true)
     }
   }
 }
@@ -126,6 +141,30 @@ export default {
       margin-right: 5px;
       color: red;
       font-size: 19px;
+      display: flex;
+      align-items: center;
+      align-content: center;
+    }
+    /deep/ .van-checkbox {
+      background: white;
+      padding: 10px 16px;
+    }
+    /deep/ .van-icon-success {
+      font-size: 14px;
+      margin-top: 3px;
+    }
+    /deep/ .van-checkbox__label {
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    /deep/ .van-checkbox__icon--checked .van-icon {
+      background: red;
+      border-color: red;
+    }
+    /deep/ .van-field__left-icon .van-icon,
+    .van-field__right-icon .van-icon {
+      margin-left: 12px;
+      background: red;
     }
   }
 }
@@ -160,10 +199,6 @@ export default {
 /deep/ .van-search__content {
   border-radius: 16px;
 }
-/deep/ .van-field__left-icon .van-icon,
-.van-field__right-icon .van-icon {
-  margin-left: 12px;
-}
 .van-search {
   height: 60px;
 }
@@ -173,7 +208,18 @@ export default {
   display: flex;
   align-items: center;
 }
-.iconfont{
-      font-size: 16px;
+.iconfont {
+  font-size: 16px;
+}
+.van-submit-bar {
+  /deep/ .van-checkbox__icon--checked .van-icon {
+    background: red;
+    border-color: red;
+  }
+  /deep/ .van-field__left-icon .van-icon,
+  .van-field__right-icon .van-icon {
+    margin-left: 12px;
+    background: red;
+  }
 }
 </style>

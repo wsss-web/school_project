@@ -144,7 +144,7 @@ export default {
   }
 }
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .gild {
   margin-top: 41.6px;
   height: 55px;
@@ -184,21 +184,22 @@ export default {
  }
 }
 }
-.bottom {
+.botto {
   margin: 10px 16px 80px 16px;
   background-color: #45bce4;
   border-radius: 0.3rem;
-  .van-button--primary {
-    background: rgb(69, 188, 228);
-    border: 1px solid rgb(69, 188, 228);
-    height: 2rem;
-    border-radius: 0.3rem;
-  }
        .van-cell::after{
      border-bottom:1px solid  #bebebe;}
   .van-cell::after{
   border-bottom:1px solid  #bebebe;
   }
+ /deep/ .van-button--primary{
+    background: rgb(69, 188, 228);
+    border: 1px solid rgb(69, 188, 228);
+    height: 2rem;
+    border-radius: 0.3rem;
+  }
+
 }
 .wrapper {
   display: flex;

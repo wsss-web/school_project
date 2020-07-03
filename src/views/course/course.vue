@@ -2,8 +2,8 @@
     <div class="course">
         <navigation title="课程"></navigation>
         <div class="textbox">
-            <input class="word" id=“word1 type="text" placeholder="请输入点名口令">
-            <button @click="submit_btn" class="submit">提交</button>
+            <input class="word" style="background: #e3e9ea;" type="text" placeholder="请输入点名口令">
+            <button @click="submit_btn" class="submit" >提交</button>
         </div>
         <div class="tips">
             <span>Tips:</span>

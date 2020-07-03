@@ -125,12 +125,6 @@ export default {
     margin-top: 14px;
 }
 .courses span:nth-child(2) {
-    /* flex: 15;
-    width: 33.33333333%;
-    color: white;
-    font-size: 1rem;
-    text-align: center;
-    line-height: 43.38px; */
     width: 33.33333333%;
     color: white;
     font-size: 1.1rem;
