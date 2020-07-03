@@ -4,14 +4,20 @@ import router from './router'
 import store from './store'
 import './plugins/vant.js'
 import tools from '../tools.js'
-import '../src/assets/icon/tabbar/font_nk2enrejq1p/iconfont.css'
 import '../src/assets/common/common.less'
 import '../src/assets/css/tubiao/iconfont.css'
 import '../src/assets/css/tubiao1/iconfont.css'
 import '../src/assets/css/tubiaojiuye/iconfont.css'
+<<<<<<< HEAD
+=======
+import '../../school_project/src/assets/css/font_sw40geay92/iconfont.css'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25667f754c4d1ec39150d741211a69155486c664
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 Vue.prototype.tools = tools
 // require('../node_modules/vux/src/styles/reset.less')
-
 Vue.config.productionTip = false
 new Vue({
   router,

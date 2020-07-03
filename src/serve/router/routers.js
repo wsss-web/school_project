@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const router = new Router()
 const mysql = require('mysql')
 const e_mail = require('./maiier.js')
+const fs = require("fs")
 
 // 测试路由
 // router.get('/huawei', (ctx,next) => {
@@ -9,7 +10,11 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
+<<<<<<< HEAD
   host: '192.168.2.111',
+=======
+  host: '192.168.2.115',
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
   user: 'root',
   password: '123',
   database: 'school'
@@ -121,6 +126,11 @@ router.get('/identify', async (ctx, body) => {
   await e_mail(mail) // 发送邮件
 })
 
+// 一个模拟手机验证码的路由
+router.get('/imitate', async(ctx,body) => {
+  var cur_code = await aaa()
+  ctx.body = cur_code
+})
 // 修改密码路由
 router.get('/newword', async (ctx, body) => {
   var new_word = ctx.request.query.newword
@@ -162,16 +172,18 @@ router.get('/userinfo', async (ctx, body) => {
   ctx.body = results[0]
 })
 
-// 用户宿舍信息展示路由
+// 用户宿舍信息展示路由(客户端)
 router.get('/domitoryshow', async (ctx, body) => {
   var username = ctx.request.query.username
   console.log(username)
   var sql = "select * from stu_domitory where username='" + username + "'"
   const results = await query(sql)
-  console.log(results[0])
   ctx.body = results[0]
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query
@@ -199,12 +211,58 @@ router.get('/resetuserinfo', async(ctx,body) => {
   }
 })
 
+// 用户身份信息修改路由（客户端）
+router.get('/resetuser', async(ctx,body) => {
+  var one_data = ctx.request.query
+  var username = one_data.username
+  // 修改手机号
+  if(one_data.status == 1){
+    var phone = one_data.phone
+    var sql_phone = "update user_info set phone='" + phone + "'where username='" + username + "'"
+    var results_phone = await query(sql_phone)
+    ctx.body = {
+      status:1,
+      newphone:phone
+    }
+  }
+  // 修改昵称
+  if(one_data.status == 2){
+    var nickname = one_data.nickname
+    var sql_nickname = "update user_info set nickname='" + nickname + "'where username='" + username + "'"
+    var results_nickname = await query(sql_nickname)
+    ctx.body = {
+      status:2,
+      newnickname:nickname
+    }
+  }
+  // 修改邮箱
+  if(one_data.status == 3){
+    var mail = one_data.mail
+    var sql_mail = "update user_info,user set user_info.address='"+ mail +"',user.address='"+ mail +"'where user.user_name='"+ username +"' and user_info.username='"+ username +"'"
+    var results_mail = await query(sql_mail)
+    ctx.body = {
+      status:3,
+      newmail:mail
+    }
+  }
+  // 修改密码
+  if(one_data.status == 4){
+    var newword = one_data.newword
+    var sql_word = "update user set pass_word='"+ newword +"'where user_name='"+ username +"'"
+    var results_word = await query(sql_word)
+    ctx.body = {
+      status:4,
+      newword:newword
+    }
+  }
+})
+
 // 用户宿舍信息修改路由（管理系统）
 router.get('/resetdomitoryinfo', async(ctx,body) =>{
   var one_dom = ctx.request.query
   // 增加住宿信息
   if(one_dom.status == 1){
-    var sql_add = "insert into stu_domitory() values('"+ one_dom.stu_id +"','"+ one_dom.buliding_id +"','"+ one_dom.floor +"','"+ one_dom.room +"','"+ one_dom.specifications +"','"+ one_dom.washroom +"','"+ one_dom.balcony +"','"+ one_dom.username +"','"+ one_dom.money +"','"+ one_dom.moniter +"')"
+    var sql_add = "insert into stu_domitory() values('"+ one_dom.stu_id +"','"+ one_dom.buliding_id +"','"+ one_dom.floor +"','"+ one_dom.room +"','"+ one_dom.specifications +"','"+ one_dom.washroom +"','"+ one_dom.balcony +"','"+ one_dom.username +"','"+ one_dom.money +"','"+ one_dom.moniter +"','"+one_dom.moniter_id+"')"
     var results_add = await query(sql_add)
     console.log('插入成功')
   }
@@ -222,6 +280,7 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
   }
 })
 
+<<<<<<< HEAD
 //健康报备信息
 router.get('/healthinfo', async(ctx,body)=>{
   var one_data = ctx.request.query
@@ -241,5 +300,33 @@ router.get('/healthlook', async (ctx, body) => {
   ctx.body = results[0]
 })
 
+=======
+// 用户宿舍信息修改路由（客户端）
+router.get('/resetdomitory' ,async(ctx,body) => {
+  var one_dom = ctx.request.query
+  var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"'where username = '"+ one_dom.username +"'"
+  var results = await query(sql)
+  ctx.body = '修改成功'
+})
+
+// 上传头像
+router.post('/image', async(ctx,body) => {
+  var image = ctx.request.body.image
+  var username = ctx.request.body.username
+  console.log(username)
+  var content = image.content
+  var base64Data = content.replace(/^data:image\/\w+;base64,/, "");
+  const dataBuffer = new Buffer(base64Data,'base64')
+  var cur_name = await aaa()
+  var img_path = "http://localhost:3000/"+ cur_name +".jpg"
+  ctx.body = img_path
+  fs.writeFile("./static/images/"+ cur_name +".jpg",dataBuffer,(res)=>{
+    console.log('写入成功')
+  })
+  var sql = "update stu_domitory set image='"+ img_path +"'where username='"+ username +"'"
+  var results = await query(sql)
+  ctx.body = img_path
+})
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 
 module.exports = router

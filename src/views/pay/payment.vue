@@ -8,7 +8,7 @@
           width="2rem"
           height="2rem "
           style="margin-right:10px;"
-          src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2443852970,3855863032&fm=26&gp=0.jpg"
+          src="http://img1.imgtn.bdimg.com/it/u=3004952430,2809598645&fm=26&gp=0.jpg"
         />
         <div class="font">宿舍照明用电支出</div>
       </div>
@@ -36,8 +36,8 @@
       </popup>
       <p class="rest">提示：可能存在网络延迟，以上剩余量仅供参考</p>
       <div class="button">
-         <Button type="danger"  size="normal">加入待缴费账单</Button>
-         <Button  type="warning" style="background:rgb(254,184,48); border:1px solid rgb(248,180,69);border-radius: 5px; color:white;">立即支付</Button>
+         <Button type="danger"  size="normal" @click="join" >加入待缴费账单</Button>
+         <Button  type="warning" style="background:rgb(254,184,48); border:1px solid rgb(248,180,69);border-radius: 5px; color:white;" @click="pay(value2)">立即支付</Button>
       </div>
     </div>
     <tab></tab>
@@ -82,12 +82,11 @@ export default {
       }
     }
   },
-  beforeCreate () {
+  mounted () {
     document
       .querySelector('body')
       .setAttribute('style', 'background-color:rgb(243,243,243)')
   },
-
   beforeDestroy () {
     document.querySelector('body').removeAttribute('style')
   },
@@ -127,11 +126,24 @@ export default {
       this.show = false
       this.$refs.myArea.reset()
       // 重置城市列表
+    },
+    join () {
+      this.$router.push('/pay/')
+    },
+    pay (i) {
+      this.current=i;
+      this.$router.push({
+        path:'/pay/immediately',
+        query:{money:this.value2}
+        })
     }
   }
 }
 </script>
 <style lang="less" scoped>
+body{
+  background-color:rgb(243,243,243);
+}
 .van-cell--clickable{
  padding-left: 10px;
 }

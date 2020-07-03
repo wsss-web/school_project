@@ -4,17 +4,18 @@
         <div class="couser2">
         <CellGroup>
             <div v-for="(item , i) in list" :key="i">
-              <Cell is-link @click="go_details">
+
+              <Cell  >
                   教师：{{item.name}}<br>
                   选课号：{{item.num}}<br>
                   综合评价：{{item.comm}}
-                  <Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;">0人已评</span><br>
+                  <Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
                   时间：{{item.time}}<br>
+              <i  class="iconfont icon-iconfontjiantouzuo" @click="go_details"></i>
               </Cell>
             </div>
         </CellGroup>
         </div>
-        <router-view></router-view>
     </div>
 </template>
 
@@ -60,5 +61,13 @@ export default {
 <style  scoped>
 .couser2{
   margin-top: 43px;
+}
+.iconfont{
+  font-size: 12px;
+    color: #969799;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    transform: rotate(180deg);
 }
 </style>

@@ -18,6 +18,8 @@ import Tripartite from '../views/my/tripartite.vue'
 import Information from '../views/my/information .vue'
 import newAtical from '../views/new/newAtical.vue'
 import payment from '../views/pay/payment.vue'
+import newphone from '../views/my/newphone.vue'
+import aircondition from '../views/pay/aircondition.vue'
 import Timetable from '../views/course/timetable.vue'
 import Courses from '../views/course/courses.vue'
 import Evaluate from '../views/course/evaluate.vue'
@@ -25,6 +27,10 @@ import Cname from '../views/course/Cname.vue'
 import Details from '../views/course/details.vue'
 import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
+<<<<<<< HEAD
+=======
+import immediately from '../views/pay/immediately.vue'
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -70,6 +76,10 @@ const routes = [
     path: '/my/phone',
     name: 'phone',
     component: Phone
+  },
+  {
+    path: '/my/newphone',
+    component: newphone
   },
   {
     path: '/my/name',
@@ -190,6 +200,10 @@ const routes = [
     component: payment
   },
   {
+    path: '/pay/aircondition',
+    component: aircondition
+  },
+  {
     path: '/timetable',
     name: 'timetable',
     component: Timetable
@@ -223,6 +237,14 @@ const routes = [
     path: '/titlename',
     name: 'titlename',
     component: Titlename
+<<<<<<< HEAD
+=======
+  },
+  {
+    path: '/pay/immediately',
+    name: 'immediately',
+    component: immediately
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
   }
 ]
 

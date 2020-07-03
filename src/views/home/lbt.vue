@@ -17,7 +17,7 @@
           </span>
           <div class="kftext3">挥别以往单一的客服QQ时代，我们的微信公众号有人工客服来尽心尽力的服务大家喽~~~</div>
           <span>1. 打开手机微信关注 “翻转校园APP”</span>
-          <div><center><img class="wxtp" src="./weixingongzhonghao.jpg"></center></div>
+          <div><center><img class="wxtp" src="../../assets/weixingongzhonghao.jpg"></center></div>
           <div>2. 关注成功后，将自己需要咨询的问题输入对话框，进行咨询，我们将以最快的速度为您答疑解惑</div>
           <div class="weibu"><center>如有问题，请联系我们</center></div>
           <div class="weibu"><center>电话：110-110</center></div>
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .kftou{
   background-color: rgb(10, 207, 241);
 }
@@ -77,5 +77,19 @@ export default {
 }
 .weibu{
   margin-top: 10px;
+}
+/deep/ .van-nav-bar .van-icon{
+  color: white;
+}
+/deep/ .van-nav-bar__text{
+  color: white;
+      font-size: 0.83rem;
+}
+/deep/  .van-nav-bar{
+background: #45bce4;
+}
+/deep/  .van-nav-bar__title{
+  color:white;
+  font-size: 1.1rem;
 }
 </style>

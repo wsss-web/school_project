@@ -96,9 +96,6 @@ export default {
   width: 100%;
   height: 200px;
 }
-.van-swipe-item > div {
-  // display: inline-block;
-}
 .imgline{
     height: 28px;
     background:#000;

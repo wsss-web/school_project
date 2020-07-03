@@ -25,7 +25,7 @@
       <Cell  title='绑定第三方账号' is-link to='/my/tripartite'></Cell>
       <Cell title="关于" value="4.54" class="about" />
     </CellGroup>
-    <div class="bottom">
+    <div class="botto">
       <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
@@ -126,6 +126,15 @@ export default {
       .then(
         function (res) {
           that.people = res.data
+          var user = JSON.stringify({
+            username: res.data.username,
+            password: res.data.password,
+            stu_id: res.data.stu_id,
+            name: res.data.name,
+            nickname: res.data.nickname,
+            sex: res.data.sex
+          })
+          localStorage.setItem('user', user)
           console.log(res)
         },
         function (err) {
@@ -168,11 +177,19 @@ export default {
     }
   }
 }
+<<<<<<< HEAD
+=======
+.botto {
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 .van-cell-group{
  .van-cell{
    border-bottom:1px solid  #bebebe;
  }
 }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 .bottom {
   margin: 10px 16px 80px 16px;
   background-color: #45bce4;
@@ -182,6 +199,11 @@ export default {
     border: 1px solid rgb(69, 188, 228);
     height: 2rem;
     border-radius: 0.3rem;
+  }
+       .van-cell::after{
+     border-bottom:1px solid  #bebebe;}
+  .van-cell::after{
+  border-bottom:1px solid  #bebebe;
   }
 }
 .wrapper {
