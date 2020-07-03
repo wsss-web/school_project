@@ -168,21 +168,10 @@ export default {
     }
   }
 }
-<<<<<<< HEAD
 .van-cell-group{
  .van-cell{
    border-bottom:1px solid  #bebebe;
  }
-}
-.bottom{
-     margin: 10px 16px 80px 16px;
-     background-color:#45bce4;
-     border-radius: 0.3rem;
-     .van-cell::after{
-     border-bottom:1px solid  #bebebe;
-=======
-.van-cell-group {
->>>>>>> 05539762d89db00547c971e160567c212aa6066e
 }
 .bottom {
   margin: 10px 16px 80px 16px;

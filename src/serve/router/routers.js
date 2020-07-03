@@ -9,11 +9,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-<<<<<<< HEAD
-  host: '192.168.2.124',
-=======
-  host: '192.168.2.104',
->>>>>>> 05539762d89db00547c971e160567c212aa6066e
+  host: '192.168.2.111',
   user: 'root',
   password: '123',
   database: 'school'
@@ -176,8 +172,6 @@ router.get('/domitoryshow', async (ctx, body) => {
   ctx.body = results[0]
 })
 
-<<<<<<< HEAD
-=======
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query
@@ -227,6 +221,25 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
     console.log('修改成功')
   }
 })
->>>>>>> 05539762d89db00547c971e160567c212aa6066e
+
+//健康报备信息
+router.get('/healthinfo', async(ctx,body)=>{
+  var one_data = ctx.request.query
+  if(one_data.status==1){
+    var sql_add = "insert into health() values('"+ one_data.tody_tem +"', '"+one_data.place+ "','"+one_data.radio+ "','"+one_data.del_address+ "','"+one_data.radio1+ "','"+one_data.radio2+ "','"+one_data.radio3+ "','"+one_data.other+ "','"+one_data.username+ "')"
+    var results_add = await query(sql_add)
+    console.log('插入成功')
+  }
+})
+
+//查询健康报备
+router.get('/healthlook', async (ctx, body) => {
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from health where username='" + username + "'"
+  const results = await query(sql)
+  ctx.body = results[0]
+})
+
 
 module.exports = router
