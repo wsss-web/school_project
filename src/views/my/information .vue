@@ -7,17 +7,20 @@
         <p>完整度:(0%)</p>
       </div>
     </div>
-    <div class="head">
-      <div class="portrait">个人照片</div>
-    </div>
+    <div class="portrait">个人照片</div>
     <div class="uploader">
-      <Uploader :after-read="afterRead" />
-      <p class="photo">点击上传证件照</p>
+      <Field name="uploader">
+        <template #input>
+          <Uploader style="margin: 0 auto;" v-model="images" :after-read="afterRead" multiple :max-count="1">
+<!--            <img :src="aaa" > -->
+          </Uploader>
+        </template>
+      </Field>
     </div>
     <div v-for="(item,index) in List" :key="index">
       <div class="dell">
         <div class="name">
-          <div class="first">{{item.name}}</div>
+          <div class="first">{{item.text}}</div>
           <div class="right">{{item.text}}</div>
         </div>
       </div>
@@ -203,11 +206,12 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
-import { Uploader, Divider, Field, Button, Picker, Toast, Popup } from 'vant'
+import { Uploader, Divider, Field, Button, Picker, Toast, Popup, Dialog } from 'vant'
 
 export default {
   data () {
     var user = JSON.parse(localStorage.getItem('user'))
+    console.log(user)
     return {
       date: '',
       // showPicker: false,
@@ -255,7 +259,11 @@ export default {
           title: '院系',
           text: ''
         }
-      ]
+      ],
+      images: [{ url: '' }]
+      // aaa: '',
+      // aaa2: ''
+      // imgSrc: require('../../serve/static/images/u=3350677925,1908554&fm=26&gp=0.jpg')
     }
   },
   components: {
@@ -267,12 +275,22 @@ export default {
     Button,
     // Overlay,
     Picker,
-    Popup
+    Popup,
+    [Dialog.Component.name]: Dialog.Component
   },
   methods: {
     afterRead (file) {
       // 此时可以自行将文件上传至服务器
       console.log(file)
+      var that = this
+      this.tools.axios.post('http://localhost:3000/image', {
+        image: file,
+        username: localStorage.getItem('username')
+      })
+        .then(function (res) {
+          console.log(res)
+          that.images[0].url = res.data
+        })
     },
     go () {
       console.log(111)
@@ -321,14 +339,23 @@ export default {
     newmsg () {
       var that = this
       this.tools.axios({
-        url: 'http://localhost:3000/resetdomitory',
+        url: 'http://localhost:3000/resetdomitory?status=' + status + '',
         method: 'get',
         params: that.room
       })
         .then(
           function (res) {
             console.log(res)
-            that.$router.push('/my')
+            Dialog.confirm({
+              title: '提示',
+              message: '您已成功修改宿舍信息'
+            })
+              .then(() => {
+                that.$router.push('/my')
+              })
+              .catch(() => {
+                // on cancel
+              })
           },
           function (err) {
             console.log(err)
@@ -348,6 +375,7 @@ export default {
         function (res) {
           that.room = res.data
           that.value = res.data.building_id
+          that.images[0].url = res.data.image
           console.log(res)
         },
         function (err) {
@@ -413,12 +441,9 @@ export default {
     }
   }
 }
-.head {
-  margin-left: 34px;
-  margin-top: 12px;
-}
 .portrait {
-  font-size: 14px;
+  text-align: center;
+  font-size: 16px;
 }
 .uploader {
   text-align: center;

@@ -173,4 +173,7 @@ export default {
   display: flex;
   align-items: center;
 }
+.iconfont{
+      font-size: 16px;
+}
 </style>

@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const router = new Router()
 const mysql = require('mysql')
 const e_mail = require('./maiier.js')
+const fs = require("fs")
 
 // 测试路由
 // router.get('/huawei', (ctx,next) => {
@@ -9,7 +10,7 @@ const e_mail = require('./maiier.js')
 // });
 // 数据库设置
 var settings = {
-  host: '192.168.2.111',
+  host: '192.168.2.115',
   user: 'root',
   password: '123',
   database: 'school'
@@ -167,17 +168,14 @@ router.get('/userinfo', async (ctx, body) => {
   ctx.body = results[0]
 })
 
-// 用户宿舍信息展示路由
+// 用户宿舍信息展示路由(客户端)
 router.get('/domitoryshow', async (ctx, body) => {
   var username = ctx.request.query.username
   console.log(username)
   var sql = "select * from stu_domitory where username='" + username + "'"
   const results = await query(sql)
-  console.log(results[0])
   ctx.body = results[0]
 })
-
-
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query
@@ -256,7 +254,7 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
   var one_dom = ctx.request.query
   // 增加住宿信息
   if(one_dom.status == 1){
-    var sql_add = "insert into stu_domitory() values('"+ one_dom.stu_id +"','"+ one_dom.buliding_id +"','"+ one_dom.floor +"','"+ one_dom.room +"','"+ one_dom.specifications +"','"+ one_dom.washroom +"','"+ one_dom.balcony +"','"+ one_dom.username +"','"+ one_dom.money +"','"+ one_dom.moniter +"')"
+    var sql_add = "insert into stu_domitory() values('"+ one_dom.stu_id +"','"+ one_dom.buliding_id +"','"+ one_dom.floor +"','"+ one_dom.room +"','"+ one_dom.specifications +"','"+ one_dom.washroom +"','"+ one_dom.balcony +"','"+ one_dom.username +"','"+ one_dom.money +"','"+ one_dom.moniter +"','"+one_dom.moniter_id+"')"
     var results_add = await query(sql_add)
     console.log('插入成功')
   }
@@ -280,6 +278,25 @@ router.get('/resetdomitory' ,async(ctx,body) => {
   var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"'where username = '"+ one_dom.username +"'"
   var results = await query(sql)
   ctx.body = '修改成功'
+})
+
+// 上传头像
+router.post('/image', async(ctx,body) => {
+  var image = ctx.request.body.image
+  var username = ctx.request.body.username
+  console.log(username)
+  var content = image.content
+  var base64Data = content.replace(/^data:image\/\w+;base64,/, "");
+  const dataBuffer = new Buffer(base64Data,'base64')
+  var cur_name = await aaa()
+  var img_path = "http://localhost:3000/"+ cur_name +".jpg"
+  ctx.body = img_path
+  fs.writeFile("./static/images/"+ cur_name +".jpg",dataBuffer,(res)=>{
+    console.log('写入成功')
+  })
+  var sql = "update stu_domitory set image='"+ img_path +"'where username='"+ username +"'"
+  var results = await query(sql)
+  ctx.body = img_path
 })
 
 module.exports = router

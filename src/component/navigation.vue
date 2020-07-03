@@ -14,7 +14,7 @@
         />
         <p v-if="left==='sweep'">扫一扫</p>
          <p v-if="left=== 'remind'" @click="remind" class="remind">提醒</p>
-        <i v-if="left === 'back'" @click="back" class="iconfont icon-iconzuojiantou"></i>
+        <i v-if="left === 'back'" @click="back" class="iconfont icon-iconfontjiantouzuo"></i>
       </div>
       <div class="center">{{title}}</div>
       <div class="right">
@@ -67,7 +67,7 @@
     font-size: 0.83rem;
   }
   .center {
-    width: 100%/3;
+    width: 100%/2;
     color: white;
     font-size: 1.1rem;
     text-align: center;

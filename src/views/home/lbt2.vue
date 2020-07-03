@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .toutou{
     background-color: rgb(119, 207, 241);
 }
@@ -92,5 +92,19 @@ export default {
     width: 98%;
     margin-top: 20px;
     margin-left: 5px;
+}
+/deep/ .van-nav-bar .van-icon{
+  color: white;
+}
+/deep/ .van-nav-bar__text{
+  color: white;
+      font-size: 0.83rem;
+}
+/deep/  .van-nav-bar{
+background: #45bce4;
+}
+/deep/  .van-nav-bar__title{
+  color:white;
+  font-size: 1.1rem;
 }
 </style>

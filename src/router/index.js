@@ -27,6 +27,8 @@ import Cname from '../views/course/Cname.vue'
 import Details from '../views/course/details.vue'
 import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
+import Zhifu from '../views/pay/zhifu.vue'
+import immediately from '../views/pay/immediately.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -233,6 +235,16 @@ const routes = [
     path: '/titlename',
     name: 'titlename',
     component: Titlename
+  },
+  {
+    path: '/pay/immediately',
+    name: 'immediately',
+    component: immediately
+  },
+  {
+    path: '/zhifu',
+    name: 'zhifu',
+    component: Zhifu
   }
 ]
 
