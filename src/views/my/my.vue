@@ -199,7 +199,6 @@ export default {
     height: 2rem;
     border-radius: 0.3rem;
   }
-
 }
 .wrapper {
   display: flex;

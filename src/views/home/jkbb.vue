@@ -11,13 +11,14 @@
 
    <Form @submit="onSubmit">
     <Field v-model="temp"
+    name="tody_tem"
     label="1.今日体温："
     placeholder="今日体温"
     :rules="[{ required: true, message: '请输入今日体温' }]"/>
 
   <Field
     v-model="site"
-    name="所在地"
+    name="place"
     label="2.本人当前所在地："
     placeholder="当前所在地"
   />
@@ -32,7 +33,7 @@
 
     <Field
     v-model="site2"
-    name="详细地址"
+    name="del_address"
     label="4.本人所在地详细地址："
     placeholder="所在详细地址"
   />
@@ -64,14 +65,15 @@
         </template>
     </Field>
     <Field v-model="oth"
+    name="other"
     label="8.其他需要说明事项："
     placeholder="是否需要其他说明事项"/>
+    <div style="margin: 16px;"  >
+       <Button round block type="info" native-type="submit" @click="totoast">
+         提交
+       </Button>
+     </div>
    </Form>
-   <div style="margin: 16px;"  >
-      <Button round block type="info" native-type="submit" @click="totoast">
-        提交
-      </Button>
-    </div>
     <Toast/>
   </div>
 </template>
@@ -99,8 +101,6 @@ export default {
       radio1: '0',
       radio2: '0',
       radio3: '0',
-      radio4: '0',
-      msg: '',
       oth: ''
     }
   },

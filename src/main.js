@@ -12,7 +12,6 @@ import '../../school_project/src/assets/css/font_ybodwbv4vmn/iconfont.css'
 
 Vue.prototype.tools = tools
 // require('../node_modules/vux/src/styles/reset.less')
-
 Vue.config.productionTip = false
 new Vue({
   router,
