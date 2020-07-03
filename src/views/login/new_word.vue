@@ -41,7 +41,7 @@ export default {
     },
     sure () {
       var address = localStorage.getItem('address')
-      var cururl = 'http://localhost:3000/newword?newword=' + this.newword + '&address=' + address + ''
+      var cururl = '' + this.tools.requrl + '/newword?newword=' + this.newword + '&address=' + address + ''
       var that = this
       console.log(cururl)
       console.log(address)

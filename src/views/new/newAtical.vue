@@ -40,7 +40,7 @@ export default {
     var newid = localStorage.getItem('newid')
     console.log(newid)
     this.tools.axios({
-      url: 'http://localhost:3000/newmore?new_id=' + newid + '',
+      url: '' + this.tools.requrl + '/newmore?new_id=' + newid + '',
       method: 'get'
     })
       .then(

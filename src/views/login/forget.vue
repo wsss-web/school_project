@@ -52,7 +52,7 @@ export default {
       var that = this
       var address = this.address
       localStorage.setItem('address', address)
-      var cururl = 'http://localhost:3000/identify?address=' + address + ''
+      var cururl = '' + this.tools.requrl + '/identify?address=' + address + ''
       this.tools.axios({
         url: cururl,
         method: 'get'

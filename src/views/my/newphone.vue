@@ -53,7 +53,7 @@ export default {
     sendpass () {
       var that = this
       this.tools.axios({
-        url: 'http://localhost:3000/imitate',
+        url: '' + this.tools.requrl + '/imitate',
         method: 'get'
       })
         .then(
@@ -72,7 +72,7 @@ export default {
       var that = this
       if (imitate === this.cur_pass.toString()) {
         this.tools.axios({
-          url: 'http://localhost:3000/resetuser',
+          url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
           params: {
             // 1 为修改手机号

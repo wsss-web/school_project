@@ -54,7 +54,7 @@ export default {
   created: function () {
     var that = this
     this.tools.axios({
-      url: 'http://localhost:3000/newsinfo',
+      url: '' + this.tools.requrl + '/newsinfo',
       method: 'get'
     })
       .then(

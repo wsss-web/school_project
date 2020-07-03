@@ -66,12 +66,7 @@ export default {
       localStorage.setItem('username', name)
       localStorage.setItem('password', password)
       var that = this
-      const cururl =
-        'http://localhost:3000/login?username=' +
-        name +
-        '&password=' +
-        password +
-        ''
+      const cururl = '' + this.tools.requrl + '/login?username=' + name + '&password=' + password + ''
       this.tools
         .axios({
           url: cururl,

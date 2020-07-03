@@ -30,7 +30,7 @@ export default {
       var that = this
       if (mail !== '') {
         this.tools.axios({
-          url: 'http://localhost:3000/resetuser',
+          url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
           params: {
             // 3为修改邮箱

@@ -6,9 +6,9 @@
         <div class="cell-item">
           <p class="font">头像</p>
           <div class="ti">
-            <img src="../../assets/1.png" alt />
+            <img :src="people.image" alt />
           </div>
-          <Icon name="arrow" color="#969799" />
+<!--          <Icon name="arrow" color="#969799" /> -->
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
 <script>
 import tabbar from '../../component/tabbar.vue'
 import navigation from '../../component/navigation.vue'
-import { Icon, Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
+import { Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
 export default {
   data () {
     return {
@@ -54,7 +54,6 @@ export default {
   components: {
     tabbar,
     navigation,
-    Icon,
     Cell,
     CellGroup,
     Button,
@@ -99,7 +98,7 @@ export default {
     //       money: 30,
     //       moniter: '陈鹏程'
     //     },
-    //     url: 'http://localhost:3000/resetdomitoryinfo',
+    //     url: '' + this.tools.requrl + ' + '/resetdomitoryinfo',
     //     method: 'get',
     //     header: {
     //       'Content-Type': 'application/json'
@@ -120,7 +119,7 @@ export default {
     var username = localStorage.getItem('username')
     this.tools
       .axios({
-        url: 'http://localhost:3000/userinfo?username=' + username + '',
+        url: '' + this.tools.requrl + '/userinfo?username=' + username + '',
         method: 'get'
       })
       .then(

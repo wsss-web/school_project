@@ -277,12 +277,19 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
 router.get('/healthinfo', async(ctx,body)=>{
   var one_data = ctx.request.query
   console.log(one_data)
-  if(one_data.status==1){
+  // 插入信息
+  if(one_data.status == 1){
     var sql_add = "insert into health() values('"+ one_data.tody_tem +"', '"+one_data.place+ "','"+one_data.radio+ "','"+one_data.del_address+ "','"+one_data.radio1+ "','"+one_data.radio2+ "','"+one_data.radio3+ "','"+one_data.other+ "','"+one_data.username+ "')"
     var results_add = await query(sql_add)
     console.log(results_add)
-    
-    console.log('插入成功')
+    ctx.body = one_data
+  }
+  // 更新信息
+  if (one_data.status == 3) {
+    var sql_update = "update health set tody_tem = '"+ one_data.tody_tem +"',place='"+ one_data.place +"',radio='"+ one_data.radio +"',del_address='"+ one_data.del_address +"',radio1='"+ one_data.radio1 +"',radio2='"+ one_data.radio2 +"',radio3='"+ one_data.radio3 +"',other='"+ one_data.other +"'where username='"+ one_data.username +"'"
+    var results_update = await query(sql_update)
+    console.log('更新成功')
+    ctx.body = one_data
   }
 })
 
@@ -309,15 +316,15 @@ router.post('/image', async(ctx,body) => {
   var username = ctx.request.body.username
   console.log(username)
   var content = image.content
-  var base64Data = content.replace(/^data:image\/\w+;base64,/, "");
+  var base64Data = content.replace(/^data:image\/\w+;base64,/, "");
   const dataBuffer = new Buffer(base64Data,'base64')
   var cur_name = await aaa()
-  var img_path = "http://localhost:3000/"+ cur_name +".jpg"
+  var img_path = "http://127.0.0.1:3000/"+ cur_name +".jpg"
   ctx.body = img_path
   fs.writeFile("./static/images/"+ cur_name +".jpg",dataBuffer,(res)=>{
     console.log('写入成功')
   })
-  var sql = "update stu_domitory set image='"+ img_path +"'where username='"+ username +"'"
+  var sql = "update stu_domitory,user_info set stu_domitory.image='"+ img_path +"',user_info.image='"+ img_path +"'where stu_domitory.username='"+ username +"'and user_info.username='"+ username +"'"
   var results = await query(sql)
   ctx.body = img_path
 })

@@ -1,15 +1,12 @@
 <template>
-    <div>
-        
-    </div>
+    <div></div>
 </template>
 <script>
 export default {
-    data () {
-
-    }
+  data () {
+  }
 }
 </script>
 <style lang="less" scopede>
-    
+
 </style>

@@ -168,7 +168,7 @@ export default {
   // created: function () {
   //   var username = localStorage.getItem('username')
   //   this.tools.axios({
-  //     url: 'http://localhost:3000/userinfo?username=' + username + '',
+  //     url: '' + this.tools.requrl + '/userinfo?username=' + username + '',
   //     method: 'get'
   //   })
   //     .then(
@@ -182,7 +182,7 @@ export default {
   //               // that.$router.push('/my')
   //             })
   //             .catch(() => {
-  //               // on cancel
+  //               that.$router.push('/index')
   //             })
   //         }
   //         console.log(res)

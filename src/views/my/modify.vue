@@ -57,7 +57,7 @@ export default {
       console.log(password)
       if (this.password === password && this.newword === this.newword2) {
         this.tools.axios({
-          url: 'http://localhost:3000/resetuser',
+          url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
           params: {
             // 4为修改密码

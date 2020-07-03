@@ -96,11 +96,22 @@ export default {
     var that = this
     var usernam = localStorage.getItem('username')
     this.tools.axios({
-      url: 'http://localhost:3000/healthlook?username=' + usernam + '',
+      url: '' + this.tools.requrl + '/healthlook?username=' + usernam + '',
       method: 'get'
     })
       .then((res) => {
-        that.data = res.data
+        if (res.data === '') {
+          that.data.tody_tem = ''
+          that.data.place = ''
+          that.data.radio = ''
+          that.data.del_address = ''
+          that.data.radio1 = ''
+          that.data.radio2 = ''
+          that.data.radio3 = ''
+          that.data.other = ''
+        } else {
+          that.data = res.data
+        }
         console.log(res)
       })
       .catch(function (err) {
@@ -109,7 +120,16 @@ export default {
   },
   data () {
     return {
-      data: []
+      data: {
+        tody_tem: '',
+        place: '',
+        radio: '',
+        del_address: '',
+        radio1: '',
+        radio2: '',
+        radio3: '',
+        other: ''
+      }
     }
   },
   methods: {
@@ -121,12 +141,16 @@ export default {
       this.$router.push({ path: '/index' })
     },
     totoast () {
-      this.$toast({
-        message: '提交成功',
-        position: 'top'
-      })
-      console.log('11111')
-      console.log(this.data.tody_tem)
+      var status = ''
+      console.log(this.data)
+      if (!this.data.username) {
+        console.log('6666')
+        // 添加操作
+        status = 1
+      } else {
+        // 更新操作
+        status = 3
+      }
       var onedata = {
         tody_tem: this.data.tody_tem,
         place: this.data.place,
@@ -137,16 +161,17 @@ export default {
         radio3: this.data.radio3,
         other: this.data.other,
         username: localStorage.getItem('username'),
-        status: 1
+        status: status
       }
       console.log(onedata)
       this.tools.axios({
-        url: 'http://localhost:3000/healthinfo',
+        url: '' + this.tools.requrl + '/healthinfo',
         method: 'get',
         params: onedata
       })
         .then((res) => {
           console.log(res)
+          Toast.success('您已提交成功')
         })
         .catch(function (err) {
           console.log(err)

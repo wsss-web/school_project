@@ -283,7 +283,7 @@ export default {
       // 此时可以自行将文件上传至服务器
       console.log(file)
       var that = this
-      this.tools.axios.post('http://localhost:3000/image', {
+      this.tools.axios.post('' + this.tools.requrl + '/image', {
         image: file,
         username: localStorage.getItem('username')
       })
@@ -339,7 +339,7 @@ export default {
     newmsg () {
       var that = this
       this.tools.axios({
-        url: 'http://localhost:3000/resetdomitory?status=' + status + '',
+        url: '' + this.tools.requrl + '/resetdomitory?status=' + status + '',
         method: 'get',
         params: that.room
       })
@@ -368,7 +368,7 @@ export default {
     var username = localStorage.getItem('username')
     this.tools
       .axios({
-        url: 'http://localhost:3000/domitoryshow?username=' + username + '',
+        url: '' + this.tools.requrl + '/domitoryshow?username=' + username + '',
         method: 'get'
       })
       .then(
