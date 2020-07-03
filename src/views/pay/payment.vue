@@ -37,7 +37,7 @@
       <p class="rest">提示：可能存在网络延迟，以上剩余量仅供参考</p>
       <div class="button">
          <Button type="danger"  size="normal" @click="join" >加入待缴费账单</Button>
-         <Button  type="warning" style="background:rgb(254,184,48); border:1px solid rgb(248,180,69);border-radius: 5px; color:white;" @click="pay">立即支付</Button>
+         <Button  type="warning" style="background:rgb(254,184,48); border:1px solid rgb(248,180,69);border-radius: 5px; color:white;" @click="pay(value2)">立即支付</Button>
       </div>
     </div>
     <tab></tab>
@@ -130,8 +130,12 @@ export default {
     join () {
       this.$router.push('/pay/')
     },
-    pay () {
-      this.$router.push('/pay/immediately')
+    pay (i) {
+      this.current=i;
+      this.$router.push({
+        path:'/pay/immediately',
+        query:{money:this.value2}
+        })
     }
   }
 }
