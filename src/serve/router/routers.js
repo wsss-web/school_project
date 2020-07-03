@@ -10,11 +10,7 @@ const fs = require("fs")
 // });
 // 数据库设置
 var settings = {
-<<<<<<< HEAD
-  host: '192.168.2.111',
-=======
   host: '192.168.2.115',
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
   user: 'root',
   password: '123',
   database: 'school'
@@ -180,10 +176,7 @@ router.get('/domitoryshow', async (ctx, body) => {
   const results = await query(sql)
   ctx.body = results[0]
 })
-<<<<<<< HEAD
 
-=======
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query
@@ -280,13 +273,15 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
   }
 })
 
-<<<<<<< HEAD
 //健康报备信息
 router.get('/healthinfo', async(ctx,body)=>{
   var one_data = ctx.request.query
+  console.log(one_data)
   if(one_data.status==1){
     var sql_add = "insert into health() values('"+ one_data.tody_tem +"', '"+one_data.place+ "','"+one_data.radio+ "','"+one_data.del_address+ "','"+one_data.radio1+ "','"+one_data.radio2+ "','"+one_data.radio3+ "','"+one_data.other+ "','"+one_data.username+ "')"
     var results_add = await query(sql_add)
+    console.log(results_add)
+    
     console.log('插入成功')
   }
 })
@@ -300,7 +295,6 @@ router.get('/healthlook', async (ctx, body) => {
   ctx.body = results[0]
 })
 
-=======
 // 用户宿舍信息修改路由（客户端）
 router.get('/resetdomitory' ,async(ctx,body) => {
   var one_dom = ctx.request.query
@@ -327,6 +321,5 @@ router.post('/image', async(ctx,body) => {
   var results = await query(sql)
   ctx.body = img_path
 })
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 
 module.exports = router

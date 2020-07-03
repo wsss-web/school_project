@@ -91,7 +91,6 @@ export default {
       .querySelector('body')
       .setAttribute('style', 'background-color:rgb(243,243,243)')
   },
- 
   beforeDestroy () {
     document.querySelector('body').removeAttribute('style')
   },

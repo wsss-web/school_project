@@ -10,25 +10,15 @@
       text="请大家认真填写，抗击肺炎，从我做起  &&日期：06月22日 周一"/>
 
    <Form @submit="onSubmit">
-<<<<<<< HEAD
     <Field v-model="data.tody_tem"
-    name='tem'
-=======
-    <Field v-model="temp"
-    name="tody_tem"
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
+    name='tody_tem'
     label="1.今日体温："
     placeholder="今日体温"
     :rules="[{ required: true, message: '请输入今日体温' }]"/>
 
   <Field
-<<<<<<< HEAD
     v-model="data.place"
-    name="所在地"
-=======
-    v-model="site"
-    name="place"
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
+    name="site"
     label="2.本人当前所在地："
     placeholder="当前所在地"
   />
@@ -42,13 +32,8 @@
     </Field>
 
     <Field
-<<<<<<< HEAD
     v-model="data.del_address"
-    name="详细地址"
-=======
-    v-model="site2"
-    name="del_address"
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
+    name="site2"
     label="4.本人所在地详细地址："
     placeholder="所在详细地址"
   />
@@ -79,7 +64,6 @@
             </RadioGroup>
         </template>
     </Field>
-<<<<<<< HEAD
     <Field v-model="data.other"
     name='other'
     label="8.其他需要说明事项："
@@ -90,18 +74,6 @@
    </Form>
    <div style="margin: 16px;"  >
     </div>
-=======
-    <Field v-model="oth"
-    name="other"
-    label="8.其他需要说明事项："
-    placeholder="是否需要其他说明事项"/>
-    <div style="margin: 16px;"  >
-       <Button round block type="info" native-type="submit" @click="totoast">
-         提交
-       </Button>
-     </div>
-   </Form>
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
     <Toast/>
   </div>
 </template>
@@ -137,18 +109,7 @@ export default {
   },
   data () {
     return {
-<<<<<<< HEAD
       data: []
-=======
-      temp: '',
-      site: '',
-      site2: '',
-      radio: '0',
-      radio1: '0',
-      radio2: '0',
-      radio3: '0',
-      oth: ''
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
     }
   },
   methods: {
@@ -165,18 +126,20 @@ export default {
         position: 'top'
       })
       console.log('11111')
+      console.log(this.data.tody_tem)
       var onedata = {
-        tody_tem: this.temp,
-        place: this.site,
-        radio: this.radio,
-        del_address: this.site2,
-        radio1: this.radio1,
-        radio2: this.radio2,
-        radio3: this.radio3,
-        other: this.oth,
+        tody_tem: this.data.tody_tem,
+        place: this.data.place,
+        radio: this.data.radio,
+        del_address: this.data.del_address,
+        radio1: this.data.radio1,
+        radio2: this.data.radio2,
+        radio3: this.data.radio3,
+        other: this.data.other,
         username: localStorage.getItem('username'),
         status: 1
       }
+      console.log(onedata)
       this.tools.axios({
         url: 'http://localhost:3000/healthinfo',
         method: 'get',
@@ -193,21 +156,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped >
-/deep/ .van-nav-bar .van-icon{
-  color: white;
-}
-/deep/ .van-nav-bar__text{
-  color: white;
-      font-size: 0.83rem;
-}
-/deep/  .van-nav-bar{
-background: #45bce4;
-}
-/deep/  .van-nav-bar__title{
-  color:white;
-  font-size: 1.1rem;
-}
+<style scoped>
 .wenzi1{
     font-size: 13px;
 }

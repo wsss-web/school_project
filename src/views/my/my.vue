@@ -177,19 +177,13 @@ export default {
     }
   }
 }
-<<<<<<< HEAD
-=======
 .botto {
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 .van-cell-group{
  .van-cell{
    border-bottom:1px solid  #bebebe;
  }
 }
-<<<<<<< HEAD
-=======
 }
->>>>>>> e43589e58c8b77f1979b85729197eb2410ba9455
 .bottom {
   margin: 10px 16px 80px 16px;
   background-color: #45bce4;
