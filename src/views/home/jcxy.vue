@@ -1,16 +1,16 @@
 <template>
     <div>
         <NavBar
-          title="标题"
+          title="十大杰出校友"
           left-text="返回"
           left-arrow
           @click-left="onClickLeft"/>
         <Card
           desc="我没钱，我对钱没有兴趣"
-          title="马没钱"
+          title="崔瑛璐"
           thumb="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2706052641,3356625088&fm=26&gp=0.jpg">
         <template #tags>
-            <Tag plain type="danger" color="#bfbfbf">毕业日期：2020年2月30日</Tag>
+            <Tag plain type="danger" color="#bfbfbf">毕业日期：2008年07月</Tag>
         </template>
         </Card>
          <Card

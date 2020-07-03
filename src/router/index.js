@@ -42,6 +42,7 @@ const zhcx = () => import('../views/home/zhcx.vue')
 const dier = () => import('../views/home/dier.vue')
 const hhhh = () => import('../views/home/hhhh.vue')
 const dlzn = () => import('../views/home/dlzn.vue')
+const txsq = () => import('../views/home/txsq.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -239,6 +240,11 @@ const routes = [
     path: '/pay/immediately',
     name: 'immediately',
     component: immediately
+  },
+  {
+    path: '/txsq',
+    name: 'txsq',
+    component: txsq
   }
 ]
 
