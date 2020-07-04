@@ -6,10 +6,10 @@
     </div>
     <p class="pay">支付成功</p>
     <p class="money">￥
-      <span>{{titles}}</span>
+      <span >{{title}}</span>
     </p>
     <div class="butt">
-<Button type="default" size="normal">完成</Button>
+<Button type="default" size="normal" @click="finish">完成</Button>
     </div>
   </div>
 </template>
@@ -27,8 +27,13 @@ export default {
     Nav
   },
   created () {
-    this.titles = this.$route.query.money
-    console.log(this.value3)
+    this.title = this.$route.query.money
+    console.log(this.title)
+  },
+  methods: {
+    finish () {
+      this.$router.push('/pay/payment')
+    }
   }
 }
 </script>

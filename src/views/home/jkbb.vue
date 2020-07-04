@@ -74,12 +74,11 @@
    </Form>
    <div style="margin: 16px;"  >
     </div>
-    <Toast/>
   </div>
 </template>
 
 <script>
-import { Form, Field, Button, RadioGroup, Radio, NoticeBar, NavBar, Toast } from 'vant'
+import { Form, Field, Button, RadioGroup, Radio, NoticeBar, NavBar } from 'vant'
 export default {
   name: 'lbt',
   components: {
@@ -89,8 +88,7 @@ export default {
     RadioGroup,
     Radio,
     NoticeBar,
-    NavBar,
-    Toast
+    NavBar
   },
   created: function () {
     var that = this

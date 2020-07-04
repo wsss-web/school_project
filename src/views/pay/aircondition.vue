@@ -13,7 +13,8 @@
         <div class="font">空调用电支出</div>
       </div>
       <div>
-        <Cell title="缴费单位" value="平顶山学院" size="large" />
+        <Cell title="缴费学院" :value="data.sch_id"  size="large" />
+        <Cell title="余额" :value="data.money"  size="large" />
         <Cell title="缴费房间" is-link value="请选择房间" @click="showPopup" v-model="carmodel"></Cell>
         <Field v-model="value2" clearable label="缴费金额" input-align="right" placeholder="请输入金额" />
       </div>
@@ -51,6 +52,10 @@ export default {
       show: false,
       value2: '',
       carmodel: '',
+      data: {
+        sch_id: '',
+        money: ''
+      },
       areaList: {
         province_list: {
           110000: '1号楼',
@@ -95,6 +100,21 @@ export default {
         }
       }
     }
+  },
+  created () {
+    var that = this
+    var usernam = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/payment?username=' + usernam + '',
+      method: 'get'
+    })
+      .then((res) => {
+        that.data = res.data
+        console.log(res)
+      })
+      .catch(function (err) {
+        console.log(err)
+      })
   },
   mounted () {
     document

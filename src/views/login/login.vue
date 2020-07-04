@@ -112,7 +112,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 .tu{
   display: flex;
   justify-content: center;

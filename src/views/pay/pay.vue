@@ -7,10 +7,10 @@
           <div class="wait">
             <tab title="待缴账单">
               <Cell
-                title="平顶山学院"
+               :title="data.sch_id"
                 class="iconfont icon-jiaofei color:rgb(204,142,83)"
-                value="王森(****0204)"
                 is-link
+                :value="data.name"
               />
               <div class="payable">
                 <CheckboxGroup v-model="result" ref="checkboxGroup">
@@ -23,11 +23,7 @@
                 </CheckboxGroup>
               </div>
               <SubmitBar :price="0.00" button-text="提交订单" @submit="onSubmit">
-                <Checkbox v-model="checked" @click="checkAll">全选</Checkbox>
-                <template #tip>
-                  你的收货地址不支持同城送,
-                  <span>修改地址</span>
-                </template>
+                <Checkbox v-model="checked"  @click="checkAll">全选</Checkbox>
               </SubmitBar>
             </tab>
           </div>
@@ -78,7 +74,12 @@ export default {
       checked: '',
       checkedd: '',
       check: '',
-      result: []
+      result: [],
+      title: '',
+      data: {
+        sch_id: '',
+        name: ''
+      }
     }
   },
   components: {
@@ -104,6 +105,19 @@ export default {
   created () {
     console.log(this.$route.path)
     this.theactive = this.$route.path
+    var that = this
+    var usernam = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/paylook?username=' + usernam + '',
+      method: 'get'
+    })
+      .then((res) => {
+        that.data = res.data
+        console.log(res)
+      })
+      .catch(function (err) {
+        console.log(err)
+      })
   },
   methods: {
     onSubmit (e) {

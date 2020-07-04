@@ -33,7 +33,6 @@
             <GridItem/>
             <GridItem/>
         </Grid>
-
         <div class="gd1">校园生活</div>
         <Grid>
             <GridItem>

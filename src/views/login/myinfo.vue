@@ -21,13 +21,7 @@
         :rules="[{ validator, message: '请输入正确内容' }]"
       />
       <Field label="昵称"  v-model="nickname" name="nickname" placeholder="昵称" />
-      <Field name="sex"  label="单选框">
-        <template #input>
-          <RadioGroup v-model="sex" direction="horizontal">
-            <Radio name="男">男</Radio>
-            <Radio name="女">女</Radio>
-          </RadioGroup>
-        </template>
+      <Field name="sex"  label="性别" v-model="sex" placeholder="性别">
       </Field>
       <Field
       v-model="address"
@@ -52,7 +46,7 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
-import { Form, Button, Field, RadioGroup, Radio, Toast } from 'vant'
+import { Form, Button, Field, Toast } from 'vant'
 export default {
   data () {
     return {
@@ -105,8 +99,6 @@ export default {
     Form,
     Button,
     Field,
-    RadioGroup,
-    Radio,
     navigation
   },
   mounted () {

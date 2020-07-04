@@ -75,7 +75,6 @@
             <img @click="dlzn" class="tupian4" src="../assets/tupian5.jpg">
         </div>
         <div class="zhuye5"> --我们的努力只为了您片刻的停留--</div>
-
         <!-- <div class="dibu">
         <Tabbar v-model="active">
             <TabbarItem icon="home-o">首页</TabbarItem>
