@@ -5,36 +5,38 @@
         <div style="margin:15px 20px; font-size:13px;">消费总额</div>
         <div class="shuru">
           <span>￥</span>
-          <div>{{titles}}</div>
+          <Field v-model="titles" label="￥"  />
         </div>
         <p style="margin:15px 20px;font-size:13px;">可询问工作人员应缴费用总额</p>
       </div>
-      <Button @click="pay(value3)" class="queren" size="small" >支付</Button>
+      <Button @click="pay(titles)" class="queren" size="small" >支付</Button>
   </div>
 </template>
 
 <script>
 import navigation from '../../component/navigation'
-import { Button } from 'vant'
+import { Button, Field } from 'vant'
 export default {
   name: 'zhifu',
   data () {
     return {
       value: '',
-      value3: '80'
+      value3: ''
     }
   },
   components: {
     Button,
-    navigation
+    navigation,
+    Field
   },
   methods: {
     pay (i) {
       this.current = i
       this.$router.push({
         path: '/pay/success',
-        query: { money: this.value3 }
+        query: { money: this.titles }
       })
+      localStorage.setItem('money', this.titles)
     }
   },
   created () {
@@ -63,6 +65,9 @@ export default {
   background:  #fff;
   border-radius: 5px;
   color:#8D8D8F;
+  /deep/ .van-field__label{
+    width:60px;
+  }
 }
 .queren{
   width: 80%;
@@ -72,10 +77,10 @@ export default {
   margin-top: 30px;
   color: #f2f3f5;
   border: 1px solid #47D14C;
-     background: rgb(69, 188, 228);
-    border: 1px solid rgb(69, 188, 228);
-    height: 2rem;
-    border-radius: 0.3rem;
+  background: rgb(69, 188, 228);
+  border: 1px solid rgb(69, 188, 228);
+  height: 2rem;
+  border-radius: 0.3rem;
 }
 .shuru span {
   position: absolute;

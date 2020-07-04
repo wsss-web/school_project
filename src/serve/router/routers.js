@@ -319,6 +319,22 @@ router.get('/loginlook', async (ctx, body) => {
   const results = await query(sql)
   ctx.body = results[0]
 })
+// 查询  缴费时候的信息表
+router.get('/paylook',async (ctx,body)=>{
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from user_info where username='" + username + "'"
+  const results = await query(sql)
+  ctx.body = results[0]
+})
+// 查询缴费时候的表
+router.get('/payment',async (ctx,body)=>{
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from stu_domitory where username='" + username + "'"
+  const results = await query(sql)
+  ctx.body = results[0]
+})
 // 注册用户宿舍信息
 router.get('/registerdomitory', async (ctx,body)=>{
   var one_data = ctx.request.query

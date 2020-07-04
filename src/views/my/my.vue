@@ -29,7 +29,7 @@
       <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
-    <Overlay :show="show" @click="show = false">
+    <!-- <Overlay :show="show" @click="show = false">
       <div class="wrapper" @click.stop>
         <div class="block">
           <Cell @click="chose" title="男" />
@@ -37,13 +37,13 @@
         </div>
         <div></div>
       </div>
-    </Overlay>
+    </Overlay> -->
   </div>
 </template>
 <script>
 import tabbar from '../../component/tabbar.vue'
 import navigation from '../../component/navigation.vue'
-import { Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
+import { Cell, CellGroup, Button, Dialog } from 'vant'
 export default {
   data () {
     return {
@@ -57,8 +57,7 @@ export default {
     Cell,
     CellGroup,
     Button,
-    [Dialog.Component.name]: Dialog.Component,
-    Overlay
+    [Dialog.Component.name]: Dialog.Component
   },
   methods: {
     loginout () {
@@ -147,6 +146,7 @@ export default {
 .gild {
   margin-top: 41.6px;
   height: 55px;
+  background: white;
 }
 .cell {
   margin: 0px 16px;

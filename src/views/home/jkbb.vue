@@ -1,13 +1,9 @@
 <template>
   <div>
-      <NavBar
-        title="标题"
-        left-text="返回"
-        left-arrow
-        @click-left="onClickLeft"/>
+    <navigation left="back" title="健康报备"></navigation>
     <NoticeBar
       left-icon="volume-o"
-      text="请大家认真填写，抗击肺炎，从我做起  &&日期：06月22日 周一"/>
+      text="请大家认真填写，抗击肺炎，从我做起  &&日期：06月22日 周一" style="margin-top: 47px;"/>
 
    <Form @submit="onSubmit">
     <Field v-model="data.tody_tem"
@@ -74,12 +70,12 @@
    </Form>
    <div style="margin: 16px;"  >
     </div>
-    <Toast/>
   </div>
 </template>
 
 <script>
-import { Form, Field, Button, RadioGroup, Radio, NoticeBar, NavBar, Toast } from 'vant'
+import navigation from '../../component/navigation'
+import { Form, Field, Button, RadioGroup, Radio, NoticeBar, Dialog } from 'vant'
 export default {
   name: 'lbt',
   components: {
@@ -89,8 +85,8 @@ export default {
     RadioGroup,
     Radio,
     NoticeBar,
-    NavBar,
-    Toast
+    navigation,
+    [Dialog.Component.name]: Dialog.Component
   },
   created: function () {
     var that = this
@@ -163,6 +159,7 @@ export default {
         username: localStorage.getItem('username'),
         status: status
       }
+      var that = this
       console.log(onedata)
       this.tools.axios({
         url: '' + this.tools.requrl + '/healthinfo',
@@ -171,7 +168,17 @@ export default {
       })
         .then((res) => {
           console.log(res)
-          Toast.success('您已提交成功')
+          // Toast.success('您已提交成功')
+          Dialog.confirm({
+            title: '提示',
+            message: '您已成功提交'
+          })
+            .then(() => {
+              that.$router.push('/index')
+            })
+            .catch(() => {
+              // on cancel
+            })
         })
         .catch(function (err) {
           console.log(err)

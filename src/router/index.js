@@ -27,12 +27,8 @@ import Cname from '../views/course/Cname.vue'
 import Details from '../views/course/details.vue'
 import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
-import Zhifu from '../views/pay/immediately.vue'
-import detail from '../views/login/detail.vue'
+import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
-import domitory from '../views/login/domitory.vue'
-import myinfo from '../views/login/myinfo.vue'
-import stop from '../views/home/txsq.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -47,6 +43,8 @@ const zhcx = () => import('../views/home/zhcx.vue')
 const dier = () => import('../views/home/dier.vue')
 const hhhh = () => import('../views/home/hhhh.vue')
 const dlzn = () => import('../views/home/dlzn.vue')
+const txsq = () => import('../views/home/txsq.vue')
+const aaaa = () => import('../views/home/aaaa.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -242,23 +240,13 @@ const routes = [
   },
   {
     path: '/zhifu',
-    name: 'zhifu',
-    component: Zhifu
+    name: 'immediately',
+    component: immediately
   },
   {
-    path: '/login/detail',
-    name: 'detail',
-    component: detail
-  },
-  {
-    path: '/login/domitory',
-    name: 'domitory',
-    component: domitory
-  },
-  {
-    path: '/login/myinfo',
-    name: 'myinfo',
-    component: myinfo
+    path: '/txsq',
+    name: 'txsq',
+    component: txsq
   },
   {
     path: '/pay/success',
@@ -266,11 +254,12 @@ const routes = [
     component: success
   },
   {
-    path: '/home/stop',
-    name: 'stop',
-    component: stop
+    path: '/aaaa',
+    name: 'aaaa',
+    component: aaaa
   }
 ]
+
 const router = new VueRouter({
   routes
 })

@@ -9,7 +9,7 @@
         <center><Icon name="todo-list" color="#1989fa" size='1.2rem'>活动列表</Icon></center>
         <div><img class="tu22" src="../../assets/chengjirending.jpg"></div>
         <div class="cj">
-          <span class="tb1"><Icon name="add" color="#1989fa" size='1.2rem' @click="gotxsq">填写申请</Icon></span>
+          <span class="tb1"><Icon name="add" color="#1989fa" size='1.2rem' @click="sq">填写申请</Icon></span>
           <span class="tb2"><Icon name="todo-list" color="#1989fa" size='1.2rem'>申请记录</Icon></span>
         </div>
     </div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     onClickLeft () {
       this.$router.push({ path: '/index' })
+    },
+    sq () {
+      this.$router.push('/txsq')
     },
     gotxsq () {
       this.$router.push('/home/stop')

@@ -12,13 +12,7 @@
         placeholder="手机"
       />
       <Field label="昵称"  v-model="nickname" name="nickname" placeholder="昵称" />
-      <Field name="sex"  label="单选框">
-        <template #input>
-          <RadioGroup v-model="sex" direction="horizontal">
-            <Radio name="男">男</Radio>
-            <Radio name="女">女</Radio>
-          </RadioGroup>
-        </template>
+      <Field name="sex"  label="性别" v-model="sex" placeholder="性别">
       </Field>
       <Field
       v-model="address"
@@ -42,7 +36,11 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
+<<<<<<< HEAD
 import { Form, Button, Field, RadioGroup, Radio, Dialog } from 'vant'
+=======
+import { Form, Button, Field, Toast } from 'vant'
+>>>>>>> 8ac3d04d4c534fa1361751ad1ef35fa54ab1a8ee
 export default {
   data () {
     return {
@@ -95,10 +93,14 @@ export default {
     Form,
     Button,
     Field,
+<<<<<<< HEAD
     RadioGroup,
     Radio,
     navigation,
     [Dialog.Component.name]: Dialog.Component
+=======
+    navigation
+>>>>>>> 8ac3d04d4c534fa1361751ad1ef35fa54ab1a8ee
   },
   mounted () {
     document

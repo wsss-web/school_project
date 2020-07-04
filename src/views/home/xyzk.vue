@@ -1,8 +1,7 @@
 <template>
     <div>
         <NavBar
-        title="标题"
-        left-text="返回"
+        title="校园智库"
         left-arrow
         @click-left="onClickLeft"/>
         <div class="sousuo">
@@ -10,19 +9,20 @@
             v-model= 'value'
             show-action
             label="全部"
-            placeholder="请输入搜索关键词"
-            background="#0fb2fd"
+            placeholder="输入关键字..."
             @search="onSearch">
             <template #action>
-                <div @click="onSearch">搜索</div>
+                <div class="sjx"></div>
+                <div class="serfont" @click="onSearch">搜索</div>
             </template>
             </Search>
-            <center class="sc"><a href="http//www.baidu.com" >我收藏的信息</a></center>
+            <center class="sc">
+             我收藏的信息</center>
         </div>
         <div class="zhongbu"></div>
         <div class="bq">
-            <div class="biaoqian"><Tag color="#f2826a">热门标签:</Tag>职业生涯规划</div>
-            <Tag color="rgb(164, 238, 168)">我的关注：</Tag>暂无关注的标签
+            <div class="biaoqian">热门标签:<Tag color="#f0f0f0">职业生涯规划</Tag></div>
+            <div class="biaoqian">我的关注:<Tag color="white">暂无关注的标签</Tag></div>
         </div>
         <div class="zhuanti"><span class="zt">专题</span></div>
         <Grid column-num="3"    >
@@ -119,12 +119,60 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.serfont{
+  background-color: blue;
+}
+.van-search__action{
+  background-color: blue;
+  border: 1px solid blue;
+  // margin-right: 8xp;
+}
+.van-search--show-action {
+  padding-right: 8px;
+}
+.van-search__label{
+  padding-right: 27px;
+}
+.sjx{
+  width: 0;
+  height: 0;
+  border: 0px;
+  border: 5px solid rgba(224, 230, 229, 0.582);
+  border-top-color: black;
+  border-bottom-color: rgba(224, 230, 229, 0);
+  border-left-color: rgba(224, 230, 229, 0);
+  border-right-color: rgba(224, 230, 229, 0);
+  position: absolute;
+  top: 76px;
+  // left: -300px;
+  left: 56px;
+  z-index: 999;
+}
+.van-nav-bar__left{
+  padding: 0px 8px;
+}
 .sousuo{
     height: 34px;
     width: 100%;
 }
-.sc{
-    margin-top: 0px;
+.sousuo .van-search__label{
+    border: 1px solid blue;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.van-search{
+  padding: 14px 12px;
+  padding-left: 0px;
+}
+.van-search .van-cell {
+    border: 1px solid blue;
+    border-left: none;
+}
+.van-search__action{
+  padding: 0px 12px;
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .zhongbu{
     width: 100%;
@@ -133,12 +181,32 @@ export default {
     background-color: rgba(224, 230, 229, 0.582);
 }
 .bq{
-    text-align: center;
-    padding-top: 15px;
+    text-align: left;
+    padding: 15px;
+    padding-left: 30px;
+}
+.bq div:first-child{
+  color: red;
+  .van-tag{
+    color: black;
+    font-size: 14px;
+    margin-left: 5px;
+}
+}
+.bq div:last-child{
+  color: green;
+  margin-top: 10px;
+  .van-tag{
+    color: #555;
+    font-size: 14px;
+    margin-left: 5px;
+  }
 }
 .zhuanti{
     width: 100%;
-    height:30px;
+    height:50px;
+    font-weight: 600;
+    line-height: 50px;
     padding-left: 20px;
     background-color:rgba(224, 230, 229, 0.582);
 }
@@ -155,5 +223,8 @@ background: #45bce4;
 /deep/  .van-nav-bar__title{
   color:white;
   font-size: 1.1rem;
+}
+.iconfont{
+  font-size: 40px;
 }
 </style>

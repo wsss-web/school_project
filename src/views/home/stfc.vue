@@ -1,83 +1,95 @@
 <template>
-    <div>
-        <NavBar
-        title="标题"
-        left-text="返回"
-        left-arrow
-        @click-left="onClickLeft"/>
-        <Card
-        desc="人数 1 人"
-        title="青年传媒中心"
-        thumb="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2706052641,3356625088&fm=26&gp=0.jpg">
-        <template #tags>
-            <Tag plain type="danger" color="#bfbfbf">成立时间：2000年2月30日</Tag>
-        </template>
-        </Card>
-         <Card
-        desc="人数 1 人"
-        title="青年传媒中心"
-        thumb="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3709156882,3336791121&fm=26&gp=0.jpg">
-        <template #tags>
-            <Tag plain type="danger" color="#bfbfbf">成立时间：2000年2月30日</Tag>
-        </template>
-        </Card>
-         <Card
-        desc="人数 1 人"
-        title="青年传媒中心"
-        thumb="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2215640435,2466918974&fm=26&gp=0.jpg">
-        <template #tags>
-            <Tag plain type="danger" color="#bfbfbf">成立时间：2000年2月30日</Tag>
-        </template>
-        </Card>
-         <Card
-        desc="人数 1 人"
-        title="青年传媒中心"
-        thumb="https://pic.rmb.bdstatic.com/38188957fb36c814567e63da0409b9ad.jpeg@wm_2,t_55m+5a625Y+3L0JhdHRsZeWFiOeUnw==,fc_ffffff,ff_U2ltSGVp,sz_30,x_19,y_19">
-        <template #tags>
-            <Tag plain type="danger" color="#bfbfbf">成立时间：2000年2月30日</Tag>
-        </template>
-        </Card>
-         <Card
-        desc="人数 1 人"
-        title="青年传媒中心"
-        thumb="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2706052641,3356625088&fm=26&gp=0.jpg">
-        <template #tags>
-            <Tag plain type="danger" color="#bfbfbf">成立时间：2000年2月30日</Tag>
-        </template>
-        </Card>
-    </div>
+  <div>
+    <navigation title="社团风采" left="back"></navigation>
+     <div class="content"  v-for="(item , i) in list" :key="i" @click="go_aaaa(i)">
+       <img :src="item.img" alt="">
+       <div class="content_s">
+          <p>{{item.title}}</p>
+          <p>人数：{{item.num}}</p>
+          <p>成立时间：{{item.time}}</p>
+       </div>
+     </div>
+  </div>
 </template>
 
 <script>
-import { NavBar, Card, Tag } from 'vant'
-
+import navigation from '../../component/navigation'
 export default {
-  components: {
-    NavBar,
-    Card,
-    Tag
+  data () {
+    return {
+      list: [
+        {
+          img: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2706052641,3356625088&fm=26&gp=0.jpg',
+          title: '青年传媒中心',
+          num: '20',
+          time: '2010年6月',
+          list1: {
+            title: '青年传媒中心',
+            aaa: '2000年01月17日',
+            bbb: '20人',
+            ccc: '未知'
+          }
+
+        },
+        {
+          img: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3709156882,3336791121&fm=26&gp=0.jpg',
+          title: '街舞社',
+          num: '32',
+          time: '2011年3月',
+          list1: {
+            title: '街舞社',
+            aaa: '2000年01月01日',
+            bbb: '24人',
+            ccc: '未知'
+          }
+        },
+        {
+          img: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2706052641,3356625088&fm=26&gp=0.jpg',
+          title: '轮滑社',
+          num: '20',
+          time: '2010年12月',
+          list1: {
+            title: '轮滑社',
+            aaa: '2000年01月01日',
+            bbb: '28人',
+            ccc: '未知'
+          }
+
+        }
+      ]
+    }
   },
   methods: {
-    onClickLeft () {
-      this.$router.push({ path: '/index' })
+    go_aaaa (i) {
+      var ajie = this.list[i].list1
+      this.$router.push({
+        path: '/aaaa',
+        query: {
+          aindex: ajie
+        }
+      })
     }
+  },
+  components: {
+    navigation
   }
 }
 </script>
 
-<style lang="less" scoped>
-/deep/ .van-nav-bar .van-icon{
-  color: white;
+<style  scoped>
+.content{
+  width:300px;
+  height:100px;
+  display: flex;
+  /* border:1px solid black; */
+  margin: 50px 20px 4px 20px;
 }
-/deep/ .van-nav-bar__text{
-  color: white;
-      font-size: 0.83rem;
+.content img{
+  width: 35%;
+  flex: 2;
 }
-/deep/  .van-nav-bar{
-background: #45bce4;
-}
-/deep/  .van-nav-bar__title{
-  color:white;
-  font-size: 1.1rem;
+.content_s{
+  flex: 3;
+  margin-left: 10px;
 }
 </style>

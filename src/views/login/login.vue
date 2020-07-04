@@ -106,7 +106,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='less'>
 .tu{
   display: flex;
   justify-content: center;
@@ -137,4 +137,7 @@ span{
  /deep/ .con{
     margin-top: 0px;
   }
+ /deep/ .bottom{
+   background-color: white;
+ }
 </style>
