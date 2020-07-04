@@ -5,7 +5,7 @@
         <div style="margin:15px 20px; font-size:13px;">消费总额</div>
         <div class="shuru">
           <span>￥</span>
-          <Field v-model='titles' label="￥"></Field>
+          <Field v-model="titles" label="￥"  />
         </div>
         <p style="margin:15px 20px;font-size:13px;">可询问工作人员应缴费用总额</p>
       </div>

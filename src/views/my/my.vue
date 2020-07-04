@@ -147,6 +147,7 @@ export default {
 .gild {
   margin-top: 41.6px;
   height: 55px;
+  background: white;
 }
 .cell {
   margin: 0px 16px;

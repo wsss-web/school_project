@@ -1,7 +1,7 @@
 <template>
   <div id="app">
         <div class="tou">
-          <navigation title="反转校园" left="remind" right="customer" @click-left="remind">
+          <navigation title="翻转校园" left="remind" right="customer" @click-left="remind">
           </navigation>
         </div>
         <div class="lunbo">
