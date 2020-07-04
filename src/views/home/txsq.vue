@@ -55,7 +55,9 @@
               />
             </CellGroup>
         </div>
-        <Button round type="info" style="position:center;">提交申请</Button>
+        <div class="submit">
+  <Button round type="info" style="position:center;">提交申请</Button>
+        </div>
         <router-view></router-view>
     </div>
 </template>
@@ -67,7 +69,7 @@ export default {
   data () {
     return {
       show: false,
-      radio: '1',
+      radio: '',
       value1: '',
       value2: '',
       value3: '',
@@ -103,7 +105,8 @@ export default {
     showPopup () {
       this.show1 = true
     },
-    showPopups () {
+    showPopups (value) {
+      console.log(value)
       this.shows = true
     },
     afterRead (file) {
