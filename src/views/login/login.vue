@@ -1,38 +1,37 @@
 <template>
   <div class="login">
-    <!-- <div class="login_head">
-      <span>登录</span>
-    </div> -->
     <navigation title="登录"></navigation>
-    <div class="tu">
-      <img class="logo" src="../../../public/img/96.png" />
-    </div>
-    <vform @submit="onSubmit">
-      <field
-        v-model="username"
-        name="user_name"
-        label="用户名"
-        placeholder="用户名"
-        :rules="[{ required: true, message: '请填写用户名' }]"
-      />
-      <field
-        v-model="password"
-        type="password"
-        name="password"
-        label="密码"
-        placeholder="密码"
-        :rules="[{ required: true, message: '请填写密码' }]"
-      />
-      <div style="margin: 16px;">
-        <vbutton round block type="info" native-type="submit" @click="login">提交</vbutton>
+    <div class="con">
+      <div class="tu">
+        <img class="logo" src="../../../public/img/96.png" />
       </div>
-    </vform>
-    <div class="bottom">
-      <div class="apply">
-        <span @click="apply">没有账号？</span>
-      </div>
-      <div class="forget">
-        <span @click="forget">忘记密码？</span>
+      <vform @submit="onSubmit">
+        <field
+          v-model="username"
+          name="user_name"
+          label="用户名"
+          placeholder="用户名"
+          :rules="[{ required: true, message: '请填写用户名' }]"
+        />
+        <field
+          v-model="password"
+          type="password"
+          name="password"
+          label="密码"
+          placeholder="密码"
+          :rules="[{ required: true, message: '请填写密码' }]"
+        />
+        <div style="margin: 16px;">
+          <vbutton round block type="info" native-type="submit" @click="login" style="letter-spacing: 15px;">提交</vbutton>
+        </div>
+      </vform>
+      <div class="bottom">
+        <div class="apply">
+          <span @click="apply">没有账号？</span>
+        </div>
+        <div class="forget">
+          <span @click="forget">忘记密码？</span>
+        </div>
       </div>
     </div>
   </div>
@@ -111,14 +110,7 @@ export default {
 .tu{
   display: flex;
   justify-content: center;
-  margin: 1.6rem 0px;
-}
-
-.login_head {
-      width: 100%;
-      height: 50px;
-      background-color: rgb(69, 188, 228);
-      border-radius: 5px;
+  margin: 4.5rem 0px;
 }
 .login_head span {
   margin-left: 180px;
@@ -142,4 +134,7 @@ span{
 .forget{
   flex: 1;
 }
+ /deep/ .con{
+    margin-top: 0px;
+  }
 </style>

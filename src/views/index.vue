@@ -38,7 +38,7 @@
               <div>杰出校友</div>
               </GridItem>
               <GridItem>
-              <div><span class="iconfont my_iconjiaocaipingjia"></span></div>
+              <div><span @click="book" class="iconfont my_iconjiaocaipingjia"></span></div>
               <div>教材评价</div>
               </GridItem>
               <GridItem>
@@ -148,6 +148,9 @@ export default {
     },
     dlzn () {
       this.$router.push({ path: '/dlzn' })
+    },
+    book () {
+      this.$router.push('/home/book')
     }
   },
   data () {
@@ -164,34 +167,37 @@ export default {
     [Dialog.Component.name]: Dialog.Component,
     navigation,
     tabbar
+  },
+  created: function () {
+    var that = this
+    var username = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/userinfo?username=' + username + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          if (res.data === '') {
+            console.log(res.data)
+            Dialog.confirm({
+              title: '提示',
+              message: '请先完善个人信息'
+            })
+              .then(() => {
+                that.$router.push('/login/myinfo')
+              })
+              .catch(() => {
+                // on cancel
+                that.$router.push('/login/myinfo')
+              })
+          }
+          console.log(res)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   }
-  // created: function () {
-  //   var username = localStorage.getItem('username')
-  //   this.tools.axios({
-  //     url: '' + this.tools.requrl + '/userinfo?username=' + username + '',
-  //     method: 'get'
-  //   })
-  //     .then(
-  //       function (res) {
-  //         if (res.data === '') {
-  //           Dialog.confirm({
-  //             title: '提示',
-  //             message: '请先完善个人信息'
-  //           })
-  //             .then(() => {
-  //               // that.$router.push('/my')
-  //             })
-  //             .catch(() => {
-  //               that.$router.push('/index')
-  //             })
-  //         }
-  //         console.log(res)
-  //       },
-  //       function (err) {
-  //         console.log(err)
-  //       }
-  //     )
-  // }
 }
 </script>
 <style  lang="less" scoped>
