@@ -28,6 +28,9 @@ export default {
     },
     sq () {
       this.$router.push('/txsq')
+    },
+    gotxsq () {
+      this.$router.push('/home/stop')
     }
   }
 }

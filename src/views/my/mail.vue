@@ -28,35 +28,37 @@ export default {
       var mail = this.value
       var username = localStorage.getItem('username')
       var that = this
-      this.tools.axios({
-        url: 'http://localhost:3000/resetuser',
-        method: 'get',
-        params: {
-          // 3为修改邮箱
-          status: 3,
-          username,
-          mail
-        }
-      })
-        .then(
-          function (res) {
-            if (res.data.status === 3) {
-              Dialog.confirm({
-                title: '提示',
-                message: '您已成功修改邮箱'
-              })
-                .then(() => {
-                  that.$router.push('/my')
-                })
-                .catch(() => {
-                  // on cancel
-                })
-            }
-          },
-          function (err) {
-            console.log(err)
+      if (mail !== '') {
+        this.tools.axios({
+          url: 'http://localhost:3000/resetuser',
+          method: 'get',
+          params: {
+            // 3为修改邮箱
+            status: 3,
+            username,
+            mail
           }
-        )
+        })
+          .then(
+            function (res) {
+              if (res.data.status === 3) {
+                Dialog.confirm({
+                  title: '提示',
+                  message: '您已成功修改邮箱'
+                })
+                  .then(() => {
+                    that.$router.push('/my')
+                  })
+                  .catch(() => {
+                    // on cancel
+                  })
+              }
+            },
+            function (err) {
+              console.log(err)
+            }
+          )
+      }
       console.log('666')
     }
   }

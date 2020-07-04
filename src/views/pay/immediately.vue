@@ -1,46 +1,65 @@
 <template>
-  <div class="big">
+  <div class="ti">
     <navigation title="支付订单" left="back"></navigation>
       <div class="xiaofei">
         <div style="margin:15px 20px; font-size:13px;">消费总额</div>
         <div class="shuru">
           <span>￥</span>
-          <div>{{titles}}</div>
+          <Field v-model="titles" label="￥"  />
         </div>
         <p style="margin:15px 20px;font-size:13px;">可询问工作人员应缴费用总额</p>
       </div>
-      <Button @click="showPopup" class="queren" size="small">支付</Button>
+      <Button @click="pay(titles)" class="queren" size="small" >支付</Button>
   </div>
 </template>
 
 <script>
 import navigation from '../../component/navigation'
-import { Button } from 'vant'
+import { Button, Field } from 'vant'
 export default {
   name: 'zhifu',
   data () {
     return {
-      value: ''
+      value: '',
+      value3: ''
     }
   },
   components: {
     Button,
-    navigation
+    navigation,
+    Field
   },
   methods: {
-    showPopup () {
-      this.show = true
+    pay (i) {
+      this.current = i
+      this.$router.push({
+        path: '/pay/success',
+        query: { money: this.titles }
+      })
     }
   },
   created () {
     this.titles = this.$route.query.money
+    console.log(this.$route.path)
+    this.theactive = this.$route.path
+  },
+  mounted () {
+    document
+      .querySelector('html')
+      .setAttribute('style', 'background-color:rgb(243,243,243)')
+  },
+  beforeDestroy () {
+    document.querySelector('html').removeAttribute('style')
   }
 }
 </script>
 
-<style  scoped>
+<style  scoped lang="less">
+.ti{
+  margin-top: 46px;
+}
 .xiaofei{
-  margin: 50px 20px;
+  margin:20px 20px 0px 20px;
   border:1px solid #ccd0d2;
   background:  #fff;
   border-radius: 5px;
@@ -53,7 +72,11 @@ export default {
   border-radius: 5px;
   margin-top: 30px;
   color: #f2f3f5;
-  border: 1px solid #47D14C
+  border: 1px solid #47D14C;
+     background: rgb(69, 188, 228);
+    border: 1px solid rgb(69, 188, 228);
+    height: 2rem;
+    border-radius: 0.3rem;
 }
 .shuru span {
   position: absolute;

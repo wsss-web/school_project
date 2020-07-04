@@ -1,0 +1,72 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "503864",
+      "name": "左箭头",
+      "font_class": "iconfontjiantouzuo",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "2194098",
+      "name": "课程",
+      "font_class": "lesson",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "7607585",
+      "name": "微信图标",
+      "font_class": "weixintubiao",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "8760666",
+      "name": ".icon-weixin",
+      "font_class": "weixin",
+      "unicode": "e53c",
+      "unicode_decimal": 58684
+    },
+    {
+      "icon_id": "9482626",
+      "name": "资讯",
+      "font_class": "zixun",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "11564860",
+      "name": "扣扣",
+      "font_class": "koukou",
+      "unicode": "e74e",
+      "unicode_decimal": 59214
+    },
+    {
+      "icon_id": "12242732",
+      "name": "缴费",
+      "font_class": "jiaofei",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "12395617",
+      "name": "我 的",
+      "font_class": "wode",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "13767359",
+      "name": "icon-zhuye",
+      "font_class": "zhuye",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    }
+  ]
+}

@@ -28,6 +28,7 @@ import Details from '../views/course/details.vue'
 import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
 import immediately from '../views/pay/immediately.vue'
+import success from '../views/pay/success.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -43,6 +44,7 @@ const dier = () => import('../views/home/dier.vue')
 const hhhh = () => import('../views/home/hhhh.vue')
 const dlzn = () => import('../views/home/dlzn.vue')
 const txsq = () => import('../views/home/txsq.vue')
+const aaaa = () => import('../views/home/aaaa.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -237,7 +239,7 @@ const routes = [
     component: Titlename
   },
   {
-    path: '/pay/immediately',
+    path: '/zhifu',
     name: 'immediately',
     component: immediately
   },
@@ -245,6 +247,16 @@ const routes = [
     path: '/txsq',
     name: 'txsq',
     component: txsq
+  },
+  {
+    path: '/pay/success',
+    name: 'success',
+    component: success
+  },
+  {
+    path: '/aaaa',
+    name: 'aaaa',
+    component: aaaa
   }
 ]
 

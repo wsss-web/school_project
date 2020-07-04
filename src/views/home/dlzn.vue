@@ -146,9 +146,6 @@ background: #45bce4;
   color:white;
   font-size: 1.1rem;
 }
-.tt{
-    background-color: rgb(15, 232, 240);
-}
 .tou1{
     margin-left: 10px;
     font-size: 18px;

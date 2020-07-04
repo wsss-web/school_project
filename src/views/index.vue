@@ -165,6 +165,33 @@ export default {
     navigation,
     tabbar
   }
+  // created: function () {
+  //   var username = localStorage.getItem('username')
+  //   this.tools.axios({
+  //     url: 'http://localhost:3000/userinfo?username=' + username + '',
+  //     method: 'get'
+  //   })
+  //     .then(
+  //       function (res) {
+  //         if (res.data === '') {
+  //           Dialog.confirm({
+  //             title: '提示',
+  //             message: '请先完善个人信息'
+  //           })
+  //             .then(() => {
+  //               // that.$router.push('/my')
+  //             })
+  //             .catch(() => {
+  //               // on cancel
+  //             })
+  //         }
+  //         console.log(res)
+  //       },
+  //       function (err) {
+  //         console.log(err)
+  //       }
+  //     )
+  // }
 }
 </script>
 <style  lang="less" scoped>
