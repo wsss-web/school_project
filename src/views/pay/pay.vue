@@ -28,7 +28,7 @@
             </tab>
           </div>
           <tab title="预付费">
-            <Search v-model="value" placeholder="请输入搜索关键词" background="rgb(243,243,243)" />
+            <Search v-model="value" placeholder="请输入搜索关键词" background="rgb(243,243,243)"  @search="onSearch"/>
             <div class="title">
               <van-image
                 round
@@ -36,7 +36,7 @@
                 height="2rem"
                 src="http://img1.imgtn.bdimg.com/it/u=3004952430,2809598645&fm=26&gp=0.jpg"
               />
-              <Cell title="宿舍照明用电支出" is-link to="/pay/payment" />
+              <Cell title="宿舍照明用电支出" is-link to="/payment" />
             </div>
             <div class="title">
               <van-image
@@ -45,7 +45,7 @@
                 height="2rem"
                 src="http://img1.imgtn.bdimg.com/it/u=3004952430,2809598645&fm=26&gp=0.jpg"
               />
-              <Cell title="空调用电支出" is-link to="/pay/aircondition" />
+              <Cell title="空调用电支出" is-link to="/aircondition" />
             </div>
           </tab>
         </tabs>
@@ -126,6 +126,9 @@ export default {
     checkAll () {
       console.log(this.$refs.checkboxGroup)
       this.$refs.checkboxGroup.toggleAll(true)
+    },
+    onSearch (val) {
+      console.log(val)
     }
   }
 }
