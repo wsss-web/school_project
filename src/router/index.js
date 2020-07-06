@@ -29,6 +29,7 @@ import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
 import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
+import myinfo from '../views/login/myinfo'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -257,6 +258,11 @@ const routes = [
     path: '/aaaa',
     name: 'aaaa',
     component: aaaa
+  },
+  {
+    path: '/login/myinfo',
+    name: 'myinfo',
+    component: myinfo
   }
 ]
 

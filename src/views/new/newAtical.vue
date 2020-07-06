@@ -79,6 +79,9 @@ export default {
 </script>
 
 <style scoped>
+.efont{
+  color:white;
+}
 .artBody {
   padding: 10px;
 }

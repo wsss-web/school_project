@@ -19,8 +19,8 @@
             />
             </Popup>
         <div>
-            <CellGroup @click="go_A" v-for="(item,i) in list" :key="i">
-              <Cell :title="item.title" is-link >{{item.value}}</Cell>
+            <CellGroup @click="go_A" v-for="(item,index) in list" :key="index">
+              <Cell :title='item.title'  :value='item.value' is-link ></Cell>
             </CellGroup>
       </div>
       <router-view></router-view>
@@ -35,6 +35,9 @@ export default {
     return {
       value: '',
       showPicker: false,
+      data: {
+        lesson1: ''
+      },
       list: [
         {
           title: '数字电子技术',
@@ -78,6 +81,24 @@ export default {
         }
       ]
     }
+  },
+  created () {
+    var that = this
+    var usernam = localStorage.getItem('username')
+    this.tools.axios({
+      url: '' + this.tools.requrl + '/courselook?username=' + usernam + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          console.log('请求成功')
+          that.artlist = res.data
+          console.log(res)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   },
   components: {
     Cell,

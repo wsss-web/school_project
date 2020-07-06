@@ -28,7 +28,8 @@
             </tab>
           </div>
           <tab title="预付费">
-            <Search v-model="value" placeholder="请输入搜索关键词" background="rgb(243,243,243)" />
+            <Search v-model="value"  placeholder="请输入搜索关键词" background="rgb(243,243,243)"    @search="onSearch"
+    @cancel="onCancel"  />
             <div class="title">
               <van-image
                 round
@@ -78,7 +79,8 @@ export default {
       title: '',
       data: {
         sch_id: '',
-        name: ''
+        name: '',
+        src: ''
       }
     }
   },
@@ -126,6 +128,11 @@ export default {
     checkAll () {
       console.log(this.$refs.checkboxGroup)
       this.$refs.checkboxGroup.toggleAll(true)
+    },
+    onSearch (val) {
+      console.log(val)
+    },
+    onCancel () {
     }
   }
 }

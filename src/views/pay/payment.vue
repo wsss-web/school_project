@@ -55,7 +55,8 @@ export default {
       carmodel: '',
       data: {
         sch_id: '',
-        money: ''
+        money: '',
+        data: ''
       },
       areaList: {
         province_list: {

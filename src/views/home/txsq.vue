@@ -17,7 +17,7 @@
             name="place"
             label="学院"
             input-align="right"
-            placeholder="输入学院-"
+            placeholder="输入学院"
           />
                     <Field
             v-model="value8"
@@ -59,7 +59,7 @@
             label="获奖名称"
             input-align="right"
             name="prizename"
-            placeholder="-输入获奖名称-"
+            placeholder="输入获奖名称"
           />
           <Cell title="获奖时间" :value="date1" name="prizetime" @click="show = true" />
           <Calendar v-model="show" @confirm="onConfirm" />

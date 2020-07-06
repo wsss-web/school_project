@@ -36,11 +36,7 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
-<<<<<<< HEAD
-import { Form, Button, Field, RadioGroup, Radio, Dialog } from 'vant'
-=======
-import { Form, Button, Field, Toast } from 'vant'
->>>>>>> 8ac3d04d4c534fa1361751ad1ef35fa54ab1a8ee
+import { Form, Button, Field, Dialog } from 'vant'
 export default {
   data () {
     return {
@@ -93,14 +89,7 @@ export default {
     Form,
     Button,
     Field,
-<<<<<<< HEAD
-    RadioGroup,
-    Radio,
-    navigation,
-    [Dialog.Component.name]: Dialog.Component
-=======
     navigation
->>>>>>> 8ac3d04d4c534fa1361751ad1ef35fa54ab1a8ee
   },
   mounted () {
     document
