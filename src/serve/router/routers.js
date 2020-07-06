@@ -288,7 +288,7 @@ router.get('/healthinfo', async(ctx,body)=>{
 
 //查询健康报备
 router.get('/healthlook', async (ctx, body) => {
-  var username = ctx.request.query.username
+  var username = ctx.request.query
   console.log(username)
   var sql = "select * from health where username='" + username + "'"
   const results = await query(sql)

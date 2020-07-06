@@ -9,7 +9,7 @@
             <SwipeItem><img class="tupian4" @click="lt1" src='../assets/tupian1.jpg'></SwipeItem>
             <SwipeItem><img class="tupian4" @click="lt2" src="../assets/tupian3.jpg"></SwipeItem>
             <SwipeItem><img class="tupian4" @click="lt3" src="../assets/tupian2.jpg"></SwipeItem>
-            </Swipe>
+          </Swipe>
         </div>
         <div class ="zhuye1">
           <Grid square>  <!--九宫格 -->

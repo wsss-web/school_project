@@ -4,7 +4,6 @@
         <div class="couser2">
         <CellGroup>
             <div v-for="(item , i) in list" :key="i">
-
               <Cell  >
                   教师：{{item.name}}<br>
                   选课号：{{item.num}}<br>
@@ -18,7 +17,6 @@
         </div>
     </div>
 </template>
-
 <script>
 import { Cell, Rate, CellGroup } from 'vant'
 import navigation from '../../component/navigation'
