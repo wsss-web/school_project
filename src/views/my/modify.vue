@@ -19,7 +19,7 @@
                placeholder="请重复输入密码">
              </field>
      <div class="bottom">
- <Button type="primary" size="large" @click="phone">提交</Button>
+ <Button type="primary" size="large" @click="sendword">提交</Button>
     </div>
           </vform>
         </div>

@@ -203,7 +203,7 @@ export default {
     animation: changeBg .5s ease infinite;
     overflow: hidden;
     padding: 20px;
-    width: 400px;
+    width: 95%;
     margin: 0 auto;
     background-repeat: no-repeat;
     background-size: 100% 100%;

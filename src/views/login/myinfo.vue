@@ -4,7 +4,7 @@
     <Form @submit="onSubmit" class="boxfont">
       <Field label="学号"  v-model="stuid" name='stuid' placeholder="学号" />
       <Field label="名字" v-model="name" name="name" placeholder="名字" />
-      <Field label="用户名"  v-model="username" name="username" placeholder="用户名" />
+      <Field label="用户名" name="username" :placeholder="username" readonly/>
       <Field
         label="手机号"
         v-model="phone"
@@ -21,7 +21,7 @@
         placeholder="邮箱"
       />
       <Field label="院系" name="schid"  v-model="schid" placeholder="院系" />
-      <Field label="宿舍长"  name="majorid" v-model="majorid" placeholder="宿舍长" />
+      <Field label="宿舍长姓名"  name="majorid" v-model="majorid" placeholder="宿舍长姓名" />
       <Field label="班级名字" name="classname" v-model="classname"   placeholder="班级名字" />
       <Field label="成绩"  name="grade" v-model="grade" placeholder="成绩" />
       <Field label="教育" name="education" v-model="education"   placeholder="教育" />
@@ -55,7 +55,7 @@ export default {
       othernews: '',
       stuid: '',
       name: '',
-      username: '',
+      username: localStorage.getItem('username'),
       phone: '',
       nickname: '',
       sex: '',
@@ -89,7 +89,8 @@ export default {
     Form,
     Button,
     Field,
-    navigation
+    navigation,
+    [Dialog.Component.name]: Dialog.Component
   },
   mounted () {
     document
@@ -110,7 +111,7 @@ export default {
       var onedata = {
         stuid: values.stuid,
         name: values.name,
-        username: values.username,
+        username: localStorage.getItem('username'),
         phone: values.phone,
         nickname: values.nickname,
         sex: values.sex,
@@ -124,6 +125,9 @@ export default {
         plan: values.plan
         // username: localStorage.getItem('username'),
       }
+      console.log(onedata)
+      localStorage.setItem('moniter', onedata.majorid)
+      localStorage.setItem('schid', onedata.schid)
       var that = this
       var flag = ''
       for (var p in onedata) {

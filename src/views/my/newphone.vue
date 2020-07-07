@@ -60,7 +60,7 @@ export default {
       var newphone = this.phone
       var imitate = this.pass
       var that = this
-      if (imitate === this.cur_pass.toString()) {
+      if (imitate === this.cur_pass.toString() && newphone !== '' && imitate !== '') {
         this.tools.axios({
           url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
@@ -90,6 +90,30 @@ export default {
               console.log(err)
             }
           )
+      }
+      if (imitate !== this.cur_pass.toString()) {
+        Dialog.confirm({
+          title: '提示',
+          message: '验证码不正确'
+        })
+          .then(() => {
+            // that.$router.push('/my')
+          })
+          .catch(() => {
+            // on cancel
+          })
+      }
+      if (newphone === '' || imitate === '') {
+        Dialog.confirm({
+          title: '提示',
+          message: '请把信息填写完整'
+        })
+          .then(() => {
+            // that.$router.push('/my')
+          })
+          .catch(() => {
+            // on cancel
+          })
       }
     }
   }
