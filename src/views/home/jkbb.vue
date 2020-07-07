@@ -1,13 +1,9 @@
 <template>
   <div>
-      <NavBar
-        title="标题"
-        left-text="返回"
-        left-arrow
-        @click-left="onClickLeft"/>
+    <navigation left="back" title="健康报备"></navigation>
     <NoticeBar
       left-icon="volume-o"
-      text="请大家认真填写，抗击肺炎，从我做起  &&日期：06月22日 周一"/>
+      text="请大家认真填写，抗击肺炎，从我做起  &&日期：06月22日 周一" style="margin-top: 47px;"/>
 
    <Form @submit="onSubmit">
     <Field v-model="data.tody_tem"
@@ -74,12 +70,12 @@
    </Form>
    <div style="margin: 16px;"  >
     </div>
-    <Toast/>
   </div>
 </template>
 
 <script>
-import { Form, Field, Button, RadioGroup, Radio, NoticeBar, NavBar, Toast } from 'vant'
+import navigation from '../../component/navigation'
+import { Form, Field, Button, RadioGroup, Radio, NoticeBar, Dialog } from 'vant'
 export default {
   name: 'lbt',
   components: {
@@ -89,18 +85,29 @@ export default {
     RadioGroup,
     Radio,
     NoticeBar,
-    NavBar,
-    Toast
+    navigation,
+    [Dialog.Component.name]: Dialog.Component
   },
   created: function () {
     var that = this
     var usernam = localStorage.getItem('username')
     this.tools.axios({
-      url: 'http://localhost:3000/healthlook?username=' + usernam + '',
+      url: '' + this.tools.requrl + '/healthlook?username=' + usernam + '',
       method: 'get'
     })
       .then((res) => {
-        that.data = res.data
+        if (res.data === '') {
+          that.data.tody_tem = ''
+          that.data.place = ''
+          that.data.radio = ''
+          that.data.del_address = ''
+          that.data.radio1 = ''
+          that.data.radio2 = ''
+          that.data.radio3 = ''
+          that.data.other = ''
+        } else {
+          that.data = res.data
+        }
         console.log(res)
       })
       .catch(function (err) {
@@ -109,7 +116,16 @@ export default {
   },
   data () {
     return {
-      data: []
+      data: {
+        tody_tem: '',
+        place: '',
+        radio: '',
+        del_address: '',
+        radio1: '',
+        radio2: '',
+        radio3: '',
+        other: ''
+      }
     }
   },
   methods: {
@@ -121,12 +137,16 @@ export default {
       this.$router.push({ path: '/index' })
     },
     totoast () {
-      this.$toast({
-        message: '提交成功',
-        position: 'top'
-      })
-      console.log('11111')
-      console.log(this.data.tody_tem)
+      var status = ''
+      console.log(this.data)
+      if (!this.data.username) {
+        console.log('6666')
+        // 添加操作
+        status = 1
+      } else {
+        // 更新操作
+        status = 3
+      }
       var onedata = {
         tody_tem: this.data.tody_tem,
         place: this.data.place,
@@ -137,16 +157,28 @@ export default {
         radio3: this.data.radio3,
         other: this.data.other,
         username: localStorage.getItem('username'),
-        status: 1
+        status: status
       }
+      var that = this
       console.log(onedata)
       this.tools.axios({
-        url: 'http://localhost:3000/healthinfo',
+        url: '' + this.tools.requrl + '/healthinfo',
         method: 'get',
         params: onedata
       })
         .then((res) => {
           console.log(res)
+          // Toast.success('您已提交成功')
+          Dialog.confirm({
+            title: '提示',
+            message: '您已成功提交'
+          })
+            .then(() => {
+              that.$router.push('/index')
+            })
+            .catch(() => {
+              // on cancel
+            })
         })
         .catch(function (err) {
           console.log(err)

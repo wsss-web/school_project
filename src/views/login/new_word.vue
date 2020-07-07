@@ -1,7 +1,8 @@
 <template>
     <div>
-      <div class="logo">
-        <img src="../../../public/img/96.png" />
+      <navigation title="重设密码"></navigation>
+      <div class="logo2">
+        <img src="../../../public/img/96.png"/>
       </div>
        <div class="from">
           <vform validate-first @submit="onSubmit">
@@ -12,7 +13,7 @@
               placeholder="输入新密码"
             />
             <div style="margin: 16px;">
-              <vbutton round block type="info" native-type="submit" @click="sure">
+              <vbutton round block type="info" native-type="submit" @click="sure" style="letter-spacing: 15px;">
                 提交
               </vbutton>
             </div>
@@ -22,6 +23,7 @@
 </template>
 <script>
 import { Form, Button, field, Dialog } from 'vant'
+import navigation from '../../component/navigation'
 export default {
   name: 'newword',
   data () {
@@ -33,7 +35,8 @@ export default {
     vbutton: Button,
     field,
     vform: Form,
-    [Dialog.Component.name]: Dialog.Component
+    [Dialog.Component.name]: Dialog.Component,
+    navigation
   },
   methods: {
     onSubmit (values) {
@@ -41,44 +44,57 @@ export default {
     },
     sure () {
       var address = localStorage.getItem('address')
-      var cururl = 'http://localhost:3000/newword?newword=' + this.newword + '&address=' + address + ''
+      var cururl = '' + this.tools.requrl + '/newword?newword=' + this.newword + '&address=' + address + ''
       var that = this
       console.log(cururl)
       console.log(address)
-      this.tools.axios({
-        url: cururl,
-        method: 'get'
-      })
-        .then(
-          function (res) {
-            console.log(res)
-            Dialog.confirm({
-              title: '提示',
-              message: '您已成功修改密码'
-            })
-              .then(() => {
-                that.$router.push('/login')
+      console.log(this.newword)
+      if (this.newword === '') {
+        Dialog.confirm({
+          title: '提示',
+          message: '请填写新密码'
+        })
+          .then(() => {
+          })
+          .catch(() => {
+            // on cancel
+          })
+      } else {
+        this.tools.axios({
+          url: cururl,
+          method: 'get'
+        })
+          .then(
+            function (res) {
+              console.log(res)
+              Dialog.confirm({
+                title: '提示',
+                message: '您已成功修改密码'
               })
-              .catch(() => {
-                // on cancel
-              })
-          },
-          function (err) {
-            console.log(err)
-          }
-        )
+                .then(() => {
+                  that.$router.push('/login')
+                })
+                .catch(() => {
+                  that.$router.push('/login')
+                })
+            },
+            function (err) {
+              console.log(err)
+            }
+          )
+      }
     }
   }
 }
 </script>
-<style lang="less">
-  .logo{
+<style scoped >
+  .logo2{
     display: flex;
     justify-content: center;
-    margin: 4.6rem 0px;
+    margin: 9.2rem 0px;
   }
-  .from{
-    margin-top: 130px;
-    border: 1px solid forestgreen;
+   .from{
+    border: none;
+    margin-top: 0px;
   }
 </style>

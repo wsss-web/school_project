@@ -4,7 +4,7 @@
       <navigation left="back" title="重要信息维护"></navigation>
       <div class="case">
         <p>个人基本信息</p>
-        <p>完整度:(0%)</p>
+        <p>完整度:{{percent}}</p>
       </div>
     </div>
     <div class="portrait">个人照片</div>
@@ -20,7 +20,7 @@
     <div v-for="(item,index) in List" :key="index">
       <div class="dell">
         <div class="name">
-          <div class="first">{{item.text}}</div>
+          <div class="first">{{item.name}}</div>
           <div class="right">{{item.text}}</div>
         </div>
       </div>
@@ -227,6 +227,7 @@ export default {
       isactive: false,
       value: '',
       room: {},
+      percent: '',
       columns1: ['1号楼', '2号楼', '3号楼', '4号楼', '5号楼', '6号楼', '7号楼', '8号楼', '9号楼', '10号楼', '11号楼', '12号楼', '13号楼', '14号楼'],
       columns2: [1, 2, 3, 4, 5, 6],
       columns3: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
@@ -283,7 +284,7 @@ export default {
       // 此时可以自行将文件上传至服务器
       console.log(file)
       var that = this
-      this.tools.axios.post('http://localhost:3000/image', {
+      this.tools.axios.post('' + this.tools.requrl + '/image', {
         image: file,
         username: localStorage.getItem('username')
       })
@@ -339,7 +340,7 @@ export default {
     newmsg () {
       var that = this
       this.tools.axios({
-        url: 'http://localhost:3000/resetdomitory?status=' + status + '',
+        url: '' + this.tools.requrl + '/resetdomitory?status=' + status + '',
         method: 'get',
         params: that.room
       })
@@ -368,12 +369,20 @@ export default {
     var username = localStorage.getItem('username')
     this.tools
       .axios({
-        url: 'http://localhost:3000/domitoryshow?username=' + username + '',
+        url: '' + this.tools.requrl + '/domitoryshow?username=' + username + '',
         method: 'get'
       })
       .then(
         function (res) {
           that.room = res.data
+          var i = 0
+          for (var p in that.room) {
+            if (that.room[p] !== '') {
+              i++
+            }
+          }
+          console.log(i)
+          that.percent = parseInt((i / 12) * 100) + '%'
           that.value = res.data.building_id
           that.images[0].url = res.data.image
           console.log(res)

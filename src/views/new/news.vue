@@ -2,7 +2,7 @@
   <div>
     <navigation title="资讯"></navigation>
     <div class="sw">
-      <Swipe class="my-swipe" autoplay=false indicator-color="white">
+      <Swipe class="my-swipe" autoplay=true indicator-color="white">
         <SwipeItem v-for="(item, index) in list.slice(0,5)" :key="index" :id="item.new_id">
           <div class="swimg">
             <img :src="item.img_src" alt />
@@ -54,7 +54,7 @@ export default {
   created: function () {
     var that = this
     this.tools.axios({
-      url: 'http://localhost:3000/newsinfo',
+      url: '' + this.tools.requrl + '/newsinfo',
       method: 'get'
     })
       .then(

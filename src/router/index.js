@@ -7,6 +7,8 @@ import Course from '../views/course/course.vue'
 import Pay from '../views/pay/pay.vue'
 import Login from '../views/login/login.vue'
 import Register from '../views/login/register.vue'
+import myinfo from '../views/login/myinfo.vue'
+import domitory from '../views/login/domitory.vue'
 import Phone from '../views/my/phone.vue'
 import Name from '../views/my/name.vue'
 import Modify from '../views/my/modify.vue'
@@ -27,12 +29,9 @@ import Cname from '../views/course/Cname.vue'
 import Details from '../views/course/details.vue'
 import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
-import Zhifu from '../views/pay/immediately.vue'
-import detail from '../views/login/detail.vue'
+import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
-import domitory from '../views/login/domitory.vue'
-import myinfo from '../views/login/myinfo.vue'
-import stop from '../views/home/txsq.vue'
+import book from '../views/home/book.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -47,6 +46,8 @@ const zhcx = () => import('../views/home/zhcx.vue')
 const dier = () => import('../views/home/dier.vue')
 const hhhh = () => import('../views/home/hhhh.vue')
 const dlzn = () => import('../views/home/dlzn.vue')
+const txsq = () => import('../views/home/txsq.vue')
+const aaaa = () => import('../views/home/aaaa.vue')
 Vue.use(VueRouter)
 
 const routes = [
@@ -129,9 +130,18 @@ const routes = [
     component: Login
   },
   {
+    path: '/myinfo',
+    component: myinfo
+  },
+  {
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/domitory',
+    name: 'domitory',
+    component: domitory
   },
   {
     path: '/forget',
@@ -198,11 +208,11 @@ const routes = [
     component: dlzn
   },
   {
-    path: '/pay/payment',
+    path: '/payment',
     component: payment
   },
   {
-    path: '/pay/aircondition',
+    path: '/aircondition',
     component: aircondition
   },
   {
@@ -242,35 +252,30 @@ const routes = [
   },
   {
     path: '/zhifu',
-    name: 'zhifu',
-    component: Zhifu
+    name: 'immediately',
+    component: immediately
   },
   {
-    path: '/login/detail',
-    name: 'detail',
-    component: detail
+    path: '/txsq',
+    name: 'txsq',
+    component: txsq
   },
   {
-    path: '/login/domitory',
-    name: 'domitory',
-    component: domitory
-  },
-  {
-    path: '/login/myinfo',
-    name: 'myinfo',
-    component: myinfo
-  },
-  {
-    path: '/pay/success',
+    path: '/success',
     name: 'success',
     component: success
   },
   {
-    path: '/home/stop',
-    name: 'stop',
-    component: stop
+    path: '/aaaa',
+    name: 'aaaa',
+    component: aaaa
+  },
+  {
+    path: '/book',
+    component: book
   }
 ]
+
 const router = new VueRouter({
   routes
 })

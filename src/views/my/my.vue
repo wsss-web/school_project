@@ -6,9 +6,9 @@
         <div class="cell-item">
           <p class="font">头像</p>
           <div class="ti">
-            <img src="../../assets/1.png" alt />
+            <img :src="people.image" alt />
           </div>
-          <Icon name="arrow" color="#969799" />
+<!--          <Icon name="arrow" color="#969799" /> -->
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
       <Button type="primary" size="large" @click="loginout">退出登录</Button>
     </div>
     <tabbar></tabbar>
-    <Overlay :show="show" @click="show = false">
+    <!-- <Overlay :show="show" @click="show = false">
       <div class="wrapper" @click.stop>
         <div class="block">
           <Cell @click="chose" title="男" />
@@ -37,13 +37,13 @@
         </div>
         <div></div>
       </div>
-    </Overlay>
+    </Overlay> -->
   </div>
 </template>
 <script>
 import tabbar from '../../component/tabbar.vue'
 import navigation from '../../component/navigation.vue'
-import { Icon, Cell, CellGroup, Button, Dialog, Overlay } from 'vant'
+import { Cell, CellGroup, Button, Dialog } from 'vant'
 export default {
   data () {
     return {
@@ -54,12 +54,10 @@ export default {
   components: {
     tabbar,
     navigation,
-    Icon,
     Cell,
     CellGroup,
     Button,
-    [Dialog.Component.name]: Dialog.Component,
-    Overlay
+    [Dialog.Component.name]: Dialog.Component
   },
   methods: {
     loginout () {
@@ -99,7 +97,7 @@ export default {
     //       money: 30,
     //       moniter: '陈鹏程'
     //     },
-    //     url: 'http://localhost:3000/resetdomitoryinfo',
+    //     url: '' + this.tools.requrl + ' + '/resetdomitoryinfo',
     //     method: 'get',
     //     header: {
     //       'Content-Type': 'application/json'
@@ -120,7 +118,7 @@ export default {
     var username = localStorage.getItem('username')
     this.tools
       .axios({
-        url: 'http://localhost:3000/userinfo?username=' + username + '',
+        url: '' + this.tools.requrl + '/userinfo?username=' + username + '',
         method: 'get'
       })
       .then(
@@ -148,6 +146,7 @@ export default {
 .gild {
   margin-top: 41.6px;
   height: 55px;
+  background: white;
 }
 .cell {
   margin: 0px 16px;

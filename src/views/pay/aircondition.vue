@@ -13,29 +13,19 @@
         <div class="font">空调用电支出</div>
       </div>
       <div>
-        <Cell title="缴费单位" value="平顶山学院" size="large" />
-        <Cell title="缴费房间" is-link value="请选择房间" @click="showPopup" v-model="carmodel"></Cell>
-        <Field v-model="value2" clearable label="缴费金额" input-align="right" placeholder="请输入金额" />
+        <Cell title="缴费学院" v-model="data.sch_id" name="sch_id" size="large" />
+        <Cell title="余额" v-model="data.money" name="sch_id" size="large" />
+        <Cell title="缴费房间" is-link value="房间号"  v-model="data.room"></Cell>
+        <Field  clearable label="缴费金额"  v-model="value2" input-align="right" placeholder="请输入金额" />
       </div>
-      <popup v-model="show" position="bottom" :style="{ height: '50%' }">
-        <Area
-          title="标题"
-          :area-list="areaList"
-          :columns-placeholder="['请选择']"
-          :columns-num="3"
-          ref="myArea"
-          @change="onChange"
-          @confirm="onConfirm"
-          @cancel="onCancel"
-        />
-      </popup>
+      <p class="rest">提示：可能存在网络延迟，以上剩余量仅供参考</p>
       <p class="rest">提示：可能存在网络延迟，以上剩余量仅供参考</p>
       <div class="button">
         <Button type="danger" size="normal" @click="join">加入待缴费账单</Button>
         <Button
           type="warning"
           style="background:rgb(254,184,48); border:1px solid rgb(248,180,69);border-radius: 5px; color:white;"
-          @click="pay"
+          @click="pay(value2)"
         >立即支付</Button>
       </div>
     </div>
@@ -44,57 +34,34 @@
 </template>
 <script>
 import navigation from '../../component/navigation'
-import { Image as VanImage, Cell, Area, popup, Field, Button } from 'vant'
+import { Image as VanImage, Cell, Field, Button, Dialog } from 'vant'
 export default {
   data () {
     return {
       show: false,
+      value3: '',
       value2: '',
-      carmodel: '',
-      areaList: {
-        province_list: {
-          110000: '1号楼',
-          120000: '2号楼',
-          130000: '3号楼',
-          140000: '4号楼',
-          150000: '5号楼',
-          160000: '6号楼',
-          170000: '7号楼',
-          180000: '8号楼',
-          190000: '9号楼',
-          200000: '10号楼',
-          210000: '11号楼'
-        },
-        city_list: {
-          110100: '1层',
-          110200: '2层',
-          110300: '3层',
-          110400: '4层',
-          110500: '5层',
-          110600: '6层',
-          120100: '1层'
-        },
-        county_list: {
-          110101: '101',
-          110102: '102',
-          110103: '103',
-          110104: '104',
-          110105: '105',
-          110106: '106',
-          110107: '107',
-          110108: '108',
-          110109: '109',
-          110201: '201',
-          110202: '202',
-          110203: '203',
-          110204: '204',
-          110205: '205',
-          110206: '206',
-          120101: '201'
-          // ....
-        }
+      // carmodel: '',
+      data: {
+        sch_id: '',
+        money: ''
       }
     }
+  },
+  created () {
+    var that = this
+    var usernam = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/payment?username=' + usernam + '',
+      method: 'get'
+    })
+      .then((res) => {
+        that.data = res.data
+        console.log(res)
+      })
+      .catch(function (err) {
+        console.log(err)
+      })
   },
   mounted () {
     document
@@ -108,48 +75,49 @@ export default {
     navigation,
     VanImage,
     Cell,
-    Area,
-    popup,
     Field,
-    Button
+    Button,
+    [Dialog.Component.name]: Dialog.Component
   },
   methods: {
-    showPopup () {
-      this.show = true
-    },
-    // value=0改变省，1改变市，2改变区
-    onChange (picker, index, value) {
-      const val = picker.getValues()
-      console.log(val)
-      // 查看打印
-      var areaName = ''
-      for (var i = 0; i < val.length; i++) {
-        areaName = areaName + (i === 0 ? '' : '/') + val[i].name
-      }
-      console.log(val)
-      this.carmodel = areaName
-    },
-    // 确定选择城市
-    onConfirm (val) {
-      console.log(val[0].name + ',' + val[1].name + ',' + val[2].name)
-      this.show = false
-      // 关闭弹框
-    },
-    // 取消选中城市
-    onCancel () {
-      this.show = false
-      this.$refs.myArea.reset()
-      // 重置城市列表
-    },
     join () {
       this.$router.push('/pay')
     },
     pay (i) {
-      this.current = i
-      this.$router.push({
-        path: '/zhifu',
-        query: { money: this.value2 }
-      })
+      if (i === '') {
+        Dialog.confirm({
+          title: '提示',
+          message: '请填写充值金额'
+        })
+          .then(() => {
+            // that.$router.push('/index')
+          })
+          .catch(() => {
+            // on cancel
+          })
+      } else {
+        console.log(i)
+        var that = this
+        that.data.money = parseInt(i) + parseInt(that.data.money)
+        this.tools.axios({
+          url: 'http://localhost:3000/resetdomitory',
+          method: 'get',
+          params: that.data
+        })
+          .then(
+            function (res) {
+              console.log(res)
+              // this.current = i
+              that.$router.push({
+                path: '/zhifu',
+                query: { money: that.value2 }
+              })
+            },
+            function (err) {
+              console.log(err)
+            }
+          )
+      }
     }
   }
 }

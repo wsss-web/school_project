@@ -7,10 +7,10 @@
           <div class="wait">
             <tab title="待缴账单">
               <Cell
-                title="平顶山学院"
+               :title="data.sch_id"
                 class="iconfont icon-jiaofei color:rgb(204,142,83)"
-                value="王森(****0204)"
                 is-link
+                :value="data.name"
               />
               <div class="payable">
                 <CheckboxGroup v-model="result" ref="checkboxGroup">
@@ -23,16 +23,12 @@
                 </CheckboxGroup>
               </div>
               <SubmitBar :price="0.00" button-text="提交订单" @submit="onSubmit">
-                <Checkbox v-model="checked" @click="checkAll">全选</Checkbox>
-                <template #tip>
-                  你的收货地址不支持同城送,
-                  <span>修改地址</span>
-                </template>
+                <Checkbox v-model="checked"  @click="checkAll">全选</Checkbox>
               </SubmitBar>
             </tab>
           </div>
           <tab title="预付费">
-            <Search v-model="value" placeholder="请输入搜索关键词" background="rgb(243,243,243)" />
+            <Search v-model="value" placeholder="请输入搜索关键词" background="rgb(243,243,243)"  @search="onSearch"/>
             <div class="title">
               <van-image
                 round
@@ -40,7 +36,7 @@
                 height="2rem"
                 src="http://img1.imgtn.bdimg.com/it/u=3004952430,2809598645&fm=26&gp=0.jpg"
               />
-              <Cell title="宿舍照明用电支出" is-link to="/pay/payment" />
+              <Cell title="宿舍照明用电支出" is-link to="/payment" />
             </div>
             <div class="title">
               <van-image
@@ -49,7 +45,7 @@
                 height="2rem"
                 src="http://img1.imgtn.bdimg.com/it/u=3004952430,2809598645&fm=26&gp=0.jpg"
               />
-              <Cell title="空调用电支出" is-link to="/pay/aircondition" />
+              <Cell title="空调用电支出" is-link to="/aircondition" />
             </div>
           </tab>
         </tabs>
@@ -78,7 +74,12 @@ export default {
       checked: '',
       checkedd: '',
       check: '',
-      result: []
+      result: [],
+      title: '',
+      data: {
+        sch_id: '',
+        name: ''
+      }
     }
   },
   components: {
@@ -104,6 +105,19 @@ export default {
   created () {
     console.log(this.$route.path)
     this.theactive = this.$route.path
+    var that = this
+    var usernam = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/paylook?username=' + usernam + '',
+      method: 'get'
+    })
+      .then((res) => {
+        that.data = res.data
+        console.log(res)
+      })
+      .catch(function (err) {
+        console.log(err)
+      })
   },
   methods: {
     onSubmit (e) {
@@ -112,6 +126,9 @@ export default {
     checkAll () {
       console.log(this.$refs.checkboxGroup)
       this.$refs.checkboxGroup.toggleAll(true)
+    },
+    onSearch (val) {
+      console.log(val)
     }
   }
 }

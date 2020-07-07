@@ -203,7 +203,6 @@ router.get('/resetuserinfo', async(ctx,body) => {
     console.log('修改成功')
   }
 })
-
 // 用户身份信息修改路由（客户端）
 router.get('/resetuser', async(ctx,body) => {
   var one_data = ctx.request.query
@@ -272,17 +271,23 @@ router.get('/resetdomitoryinfo', async(ctx,body) =>{
     console.log('修改成功')
   }
 })
-
 //健康报备信息
 router.get('/healthinfo', async(ctx,body)=>{
   var one_data = ctx.request.query
   console.log(one_data)
-  if(one_data.status==1){
+  // 插入信息
+  if(one_data.status == 1){
     var sql_add = "insert into health() values('"+ one_data.tody_tem +"', '"+one_data.place+ "','"+one_data.radio+ "','"+one_data.del_address+ "','"+one_data.radio1+ "','"+one_data.radio2+ "','"+one_data.radio3+ "','"+one_data.other+ "','"+one_data.username+ "')"
     var results_add = await query(sql_add)
     console.log(results_add)
-    
-    console.log('插入成功')
+    ctx.body = one_data
+  }
+  // 更新信息
+  if (one_data.status == 3) {
+    var sql_update = "update health set tody_tem = '"+ one_data.tody_tem +"',place='"+ one_data.place +"',radio='"+ one_data.radio +"',del_address='"+ one_data.del_address +"',radio1='"+ one_data.radio1 +"',radio2='"+ one_data.radio2 +"',radio3='"+ one_data.radio3 +"',other='"+ one_data.other +"'where username='"+ one_data.username +"'"
+    var results_update = await query(sql_update)
+    console.log('更新成功')
+    ctx.body = one_data
   }
 })
 
@@ -294,32 +299,75 @@ router.get('/healthlook', async (ctx, body) => {
   const results = await query(sql)
   ctx.body = results[0]
 })
-
+//用户注册时候的 个人信息 路由
+router.get('/loginuser',async(ctx,body)=>{
+  var one_data = ctx.request.query
+  console.log(one_data)
+  // var sql_add = "insert into health() values('"+ one_data.tody_tem +"', '"+one_data.place+ "','"+one_data.radio+ "','"+one_data.del_address+ "','"+one_data.radio1+ "','"+one_data.radio2+ "','"+one_data.radio3+ "','"+one_data.other+ "','"+one_data.username+ "')"
+  var sql_add = "insert into user_info(stu_id,name,username,phone,nickname,sex,address,sch_id,major_id,classname,grade,education,home_address,plan) values('"+ one_data.stuid +"','"+ one_data.name +"','"+ one_data.username +"','"+ one_data.phone +"','"+ one_data.nickname +"','"+ one_data.sex +"','"+ one_data.address +"','"+ one_data.schid +"','"+ one_data.majorid +"','"+ one_data.classname +"','"+ one_data.grade +"','"+ one_data.education +"','"+ one_data.home_address +"','"+ one_data.plan +"')"
+  // var sql_add = "insert into user_info(stu_id,name,username,phone,nickname,sex,address,sch_id,major_id,classname,grade,education,home_address,plan) values('"+ one_data.stuid +"', '"+ one_data.name + "','"+ one_data.username + "','"+ one_data.phone + "','"+ one_data.nickname + "','"+ one_data.sex + "','"+ one_data.address + "','"+ one_data.schid + "','"+ one_data.majorid + "','"+ one_data.classname + "','"+ one_data.grade + "','"+ one_data.education + "','"+ one_data.home_address + "','"+ one_data.plan + "')"
+  var results_add = await query(sql_add)
+  console.log(results_add)
+  console.log('插入成功')
+  ctx.body = one_data
+})
+//查询 用户注册的个人信息
+router.get('/loginlook', async (ctx, body) => {
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from user_info where username='" + username + "'"
+  const results = await query(sql)
+  ctx.body = results[0]
+})
+// 查询  缴费时候的信息表
+router.get('/paylook',async (ctx,body)=>{
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from user_info where username='" + username + "'"
+  const results = await query(sql)
+  ctx.body = results[0]
+})
+// 查询缴费时候的表
+router.get('/payment',async (ctx,body)=>{
+  var username = ctx.request.query.username
+  console.log(username)
+  var sql = "select * from stu_domitory where username='" + username + "'"
+  const results = await query(sql)
+  ctx.body = results[0]
+})
+// 注册用户宿舍信息
+router.get('/registerdomitory', async (ctx,body)=>{
+  var one_data = ctx.request.query
+  console.log(one_data)
+  var sql_add = "insert into stu_domitory (buliding_id,floor,room,specifications,washroom,balcony,username,money,moniter,moniter_id,sch_id) values('"+ one_data.buildingId +"', '"+ one_data.floor + "','"+ one_data.room + "','"+ one_data.specifications + "','"+ one_data.washroom + "','"+ one_data.balcony + "','"+ one_data.username + "','"+ one_data.money + "','"+ one_data.moniter + "','"+ one_data.moniter_id + "','"+ one_data.sch_id + "')"
+  var results_add = await query(sql_add)
+  console.log(results_add)
+  console.log('插入成功')
+  ctx.body = one_data
+})
 // 用户宿舍信息修改路由（客户端）
 router.get('/resetdomitory' ,async(ctx,body) => {
   var one_dom = ctx.request.query
-  var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"'where username = '"+ one_dom.username +"'"
+  var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"',moniter_id='" + one_dom.moniter_id + "',sch_id='"+ one_dom.sch_id +"',image='"+ one_dom.image +"'where username = '"+ one_dom.username +"'"
   var results = await query(sql)
   ctx.body = '修改成功'
 })
-
 // 上传头像
 router.post('/image', async(ctx,body) => {
   var image = ctx.request.body.image
   var username = ctx.request.body.username
   console.log(username)
   var content = image.content
-  var base64Data = content.replace(/^data:image\/\w+;base64,/, "");
+  var base64Data = content.replace(/^data:image\/\w+;base64,/, "");
   const dataBuffer = new Buffer(base64Data,'base64')
   var cur_name = await aaa()
-  var img_path = "http://localhost:3000/"+ cur_name +".jpg"
+  var img_path = "http://127.0.0.1:3000/"+ cur_name +".jpg"
   ctx.body = img_path
   fs.writeFile("./static/images/"+ cur_name +".jpg",dataBuffer,(res)=>{
     console.log('写入成功')
   })
-  var sql = "update stu_domitory set image='"+ img_path +"'where username='"+ username +"'"
+  var sql = "update stu_domitory,user_info set stu_domitory.image='"+ img_path +"',user_info.image='"+ img_path +"'where stu_domitory.username='"+ username +"'and user_info.username='"+ username +"'"
   var results = await query(sql)
   ctx.body = img_path
 })
-
 module.exports = router

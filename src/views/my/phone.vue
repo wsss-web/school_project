@@ -37,7 +37,7 @@ export default {
     var username = localStorage.getItem('username')
     var that = this
     this.tools.axios({
-      url: 'http://localhost:3000/userinfo?username=' + username + '',
+      url: '' + this.tools.requrl + '/userinfo?username=' + username + '',
       method: 'get'
     })
       .then(

@@ -30,7 +30,7 @@ export default {
       if (nickname !== '') {
         var that = this
         this.tools.axios({
-          url: 'http://localhost:3000/resetuser',
+          url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
           params: {
             // 2 为修改昵称

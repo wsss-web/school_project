@@ -61,7 +61,7 @@ export default {
       var that = this
       console.log(username, password, address)
       console.log(this.tools)
-      var cururl = 'http://localhost:3000/apply?username=' + username + '&password=' + password + '&address=' + address + ''
+      var cururl = '' + this.tools.requrl + '/apply?username=' + username + '&password=' + password + '&address=' + address + ''
       this.tools.axios({
         url: cururl,
         method: 'get'
@@ -104,7 +104,7 @@ export default {
   }
 }
 </script>
-<style lang='less'>
+<style >
   .logo{
     display: flex;
     justify-content: center;

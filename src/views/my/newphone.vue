@@ -4,25 +4,15 @@
     <navigation title="绑定手机号" left="back"></navigation>
     <div class="num">
       <vform @submit="onSubmit">
-        <field
-          v-model="phone"
-          name="newphone"
-          label="新手机号"
-          placeholder="新手机号"
-        />
-        <field v-model="pass"
-          name="pass"
-          label="验证码"
-          placeholder="输入验证码">
-        </field>
-        <div class="send">
+        <field v-model="phone" name="newphone" label="新手机号" placeholder="新手机号" />
+        <field v-model="pass" center clearable name="pass" label="验证码" placeholder="输入验证码">
+                  <template #button>
           <Button size="small" type="primary" @click.prevent="sendpass">发送验证码</Button>
-        </div>
-        <div>
-          <Button round block type="info" native-type="submit" style="margin-top: 50px;" @click="sure">
-            提交
-          </Button>
-        </div>
+        </template>
+        </field>
+      <div class="bottom">
+ <Button type="primary" size="large" @click="phone">提交</Button>
+    </div>
       </vform>
     </div>
   </div>
@@ -53,7 +43,7 @@ export default {
     sendpass () {
       var that = this
       this.tools.axios({
-        url: 'http://localhost:3000/imitate',
+        url: '' + this.tools.requrl + '/imitate',
         method: 'get'
       })
         .then(
@@ -72,7 +62,7 @@ export default {
       var that = this
       if (imitate === this.cur_pass.toString()) {
         this.tools.axios({
-          url: 'http://localhost:3000/resetuser',
+          url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
           params: {
             // 1 为修改手机号
@@ -106,11 +96,25 @@ export default {
 }
 </script>
 
-<style>
-  .num{
-    margin-top: 10rem;
-  }
-  .send>button{
-    float: right;
-  }
+<style scoped lang="less">
+.num {
+  margin-top: 10rem;
+}
+.send > button {
+  float: right;
+}
+.bottom{
+     margin: 10px 16px 80px 16px;
+     background-color:#45bce4;
+     border-radius: 0.3rem;
+     .van-cell::after{
+    border-bottom:none;
+}
+.van-button--primary{
+    background:rgb(69,188,228);
+    border:1px solid rgb(69,188,228);
+    height: 2rem;
+    border-radius: .3rem;
+}
+}
 </style>

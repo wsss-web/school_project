@@ -1,7 +1,7 @@
 <template>
   <div id="app">
         <div class="tou">
-          <navigation title="反转校园" left="remind" right="customer" @click-left="remind">
+          <navigation title="翻转校园" left="remind" right="customer" @click-left="remind">
           </navigation>
         </div>
         <div class="lunbo">
@@ -38,7 +38,7 @@
               <div>杰出校友</div>
               </GridItem>
               <GridItem>
-              <div><span class="iconfont my_iconjiaocaipingjia"></span></div>
+              <div><span @click="book" class="iconfont my_iconjiaocaipingjia"></span></div>
               <div>教材评价</div>
               </GridItem>
               <GridItem>
@@ -75,7 +75,6 @@
             <img @click="dlzn" class="tupian4" src="../assets/tupian5.jpg">
         </div>
         <div class="zhuye5"> --我们的努力只为了您片刻的停留--</div>
-
         <!-- <div class="dibu">
         <Tabbar v-model="active">
             <TabbarItem icon="home-o">首页</TabbarItem>
@@ -148,6 +147,9 @@ export default {
     },
     dlzn () {
       this.$router.push({ path: '/dlzn' })
+    },
+    book () {
+      this.$router.push('/book')
     }
   },
   data () {
@@ -164,34 +166,37 @@ export default {
     [Dialog.Component.name]: Dialog.Component,
     navigation,
     tabbar
+  },
+  created: function () {
+    var that = this
+    var username = localStorage.getItem('username')
+    this.tools.axios({
+      url: 'http://localhost:3000/userinfo?username=' + username + '',
+      method: 'get'
+    })
+      .then(
+        function (res) {
+          if (res.data === '') {
+            console.log(res.data)
+            Dialog.confirm({
+              title: '提示',
+              message: '请先完善个人信息'
+            })
+              .then(() => {
+                that.$router.push('/myinfo')
+              })
+              .catch(() => {
+                // on cancel
+                that.$router.push('/myinfo')
+              })
+          }
+          console.log(res)
+        },
+        function (err) {
+          console.log(err)
+        }
+      )
   }
-  // created: function () {
-  //   var username = localStorage.getItem('username')
-  //   this.tools.axios({
-  //     url: 'http://localhost:3000/userinfo?username=' + username + '',
-  //     method: 'get'
-  //   })
-  //     .then(
-  //       function (res) {
-  //         if (res.data === '') {
-  //           Dialog.confirm({
-  //             title: '提示',
-  //             message: '请先完善个人信息'
-  //           })
-  //             .then(() => {
-  //               // that.$router.push('/my')
-  //             })
-  //             .catch(() => {
-  //               // on cancel
-  //             })
-  //         }
-  //         console.log(res)
-  //       },
-  //       function (err) {
-  //         console.log(err)
-  //       }
-  //     )
-  // }
 }
 </script>
 <style  lang="less" scoped>

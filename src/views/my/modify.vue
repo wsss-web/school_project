@@ -15,12 +15,12 @@
              </field>
              <field v-model="newword2"
                name="newword"
-               label="重复输入新密码"
-               placeholder="请重复输入新密码">
+               label="重复输入密码"
+               placeholder="请重复输入密码">
              </field>
-             <div class="send">
-               <Button round block type="info" native-type="submit" @click="sendword">提交</Button>
-             </div>
+     <div class="bottom">
+ <Button type="primary" size="large" @click="phone">提交</Button>
+    </div>
           </vform>
         </div>
     </div>
@@ -57,7 +57,7 @@ export default {
       console.log(password)
       if (this.password === password && this.newword === this.newword2) {
         this.tools.axios({
-          url: 'http://localhost:3000/resetuser',
+          url: '' + this.tools.requrl + '/resetuser',
           method: 'get',
           params: {
             // 4为修改密码
@@ -106,7 +106,18 @@ export default {
 .form{
     margin-top:80px;
 }
-.send{
-  margin-top: 5rem;
+.bottom{
+     margin: 10px 16px 80px 16px;
+     background-color:#45bce4;
+     border-radius: 0.3rem;
+     .van-cell::after{
+    border-bottom:none;
+}
+.van-button--primary{
+    background:rgb(69,188,228);
+    border:1px solid rgb(69,188,228);
+    height: 2rem;
+    border-radius: .3rem;
+}
 }
 </style>
