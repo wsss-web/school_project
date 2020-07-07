@@ -14,11 +14,11 @@
         </CellGroup>
         <div class="titlefont2">宿舍长信息</div>
         <CellGroup>
-          <Field label="您的用户名" v-model="username" name="username" placeholder="您的用户名" />
+          <Field label="您的用户名" name="username" :placeholder="username" readonly/>
           <Field label="宿舍余额" v-model="money" name="money" placeholder="宿舍余额" />
-          <Field label="宿舍长姓名" v-model="moniter" name="moniter" placeholder="宿舍长姓名" />
+          <Field label="宿舍长姓名" name="moniter" :placeholder="moniter" readonly/>
           <Field label="宿舍长学号" v-model="moniter_id" name="moniter_id" placeholder="宿舍长学号" />
-          <Field label="院系" v-model="sch_id" name="sch_id" placeholder="院系" />
+          <Field label="院系" name="sch_id" :placeholder="sch_id" readonly/>
         </CellGroup>
         <div style="margin: 16px;">
           <Button round block type="info" native-type="submit" >保存</Button>
@@ -39,11 +39,11 @@ export default {
       specifications: '',
       washroom: '',
       balcony: '',
-      username: '',
+      username: localStorage.getItem('username'),
       money: '',
-      moniter: '',
+      moniter: localStorage.getItem('moniter'),
       moniter_id: '',
-      sch_id: ''
+      sch_id: localStorage.getItem('schid')
     }
   },
   components: {
@@ -64,11 +64,11 @@ export default {
         specifications: values.specifications,
         washroom: values.washroom,
         balcony: values.balcony,
-        username: values.username,
+        username: localStorage.getItem('username'),
         money: values.money,
-        moniter: values.moniter,
+        moniter: localStorage.getItem('moniter'),
         moniter_id: values.moniter_id,
-        sch_id: values.sch_id
+        sch_id: localStorage.getItem('schid')
         // username: localStorage.getItem('username'),
       }
       var that = this

@@ -370,4 +370,19 @@ router.post('/image', async(ctx,body) => {
   var results = await query(sql)
   ctx.body = img_path
 })
+
+// 提交问题
+router.post('/question', async(ctx,body) => {
+  var one_data = ctx.request.body.onedata
+  if (one_data.status == 1) {
+    var sql_add = "insert into question() values('"+ one_data.stu_id +"','"+ one_data.name +"','"+ one_data.phone +"','"+ one_data.time +"','"+ one_data.message +"','"+ one_data.status +"','"+ one_data.username +"')"
+    var results_add = await query(sql_add)
+    ctx.body = one_data
+  } else {
+    var sql = "select status from question where username='"+ one_data.username +"'"
+    var results = await query(sql)
+    ctx.body = results[0]
+  }
+
+})
 module.exports = router

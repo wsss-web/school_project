@@ -30,6 +30,9 @@ import Titlename from '../views/course/titlename.vue'
 import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
 import book from '../views/home/book.vue'
+import myinfo from '../views/login/myinfo.vue'
+import domitory from '../views/login/domitory.vue'
+import process from '../views/home/process.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -126,6 +129,14 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/login/myinfo',
+    component: myinfo
+  },
+  {
+    path: '/login/domitory',
+    component: domitory
   },
   {
     path: '/register',
@@ -262,6 +273,10 @@ const routes = [
   {
     path: '/book',
     component: book
+  },
+  {
+    path: '/process',
+    component: process
   }
 ]
 
