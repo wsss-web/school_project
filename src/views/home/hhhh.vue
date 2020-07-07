@@ -8,20 +8,25 @@
         @click-left="onClickLeft"/>
         <div>
           <Tabs>
-              <Tab title="可申报事项">暂无可申报事项</Tab>
-              <Tab title="待办事项">暂无代办事项</Tab>
+              <Tab title="可申报事项">
+                <Empty  />
+              </Tab>
+              <Tab title="待办事项">
+                <Empty  />
+              </Tab>
           </Tabs>
         </div>
     </div>
 </template>
 
 <script>
-import { NavBar, Tab, Tabs } from 'vant'
+import { NavBar, Tab, Tabs, Empty } from 'vant'
 export default {
   components: {
     NavBar,
     Tab,
-    Tabs
+    Tabs,
+    Empty
   },
   methods: {
     onClickLeft () {

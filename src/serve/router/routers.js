@@ -3,7 +3,6 @@ const router = new Router()
 const mysql = require('mysql')
 const e_mail = require('./maiier.js')
 const fs = require("fs")
-
 // 测试路由
 // router.get('/huawei', (ctx,next) => {
 // 	ctx.body = '我是华为界面'
@@ -335,6 +334,7 @@ router.get('/payment',async (ctx,body)=>{
   const results = await query(sql)
   ctx.body = results[0]
 })
+// 更新缴费时候的钱
 // 注册用户宿舍信息
 router.get('/registerdomitory', async (ctx,body)=>{
   var one_data = ctx.request.query
@@ -351,6 +351,13 @@ router.get('/resetdomitory' ,async(ctx,body) => {
   var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"',moniter_id='" + one_dom.moniter_id + "',sch_id='"+ one_dom.sch_id +"',image='"+ one_dom.image +"'where username = '"+ one_dom.username +"'"
   var results = await query(sql)
   ctx.body = '修改成功'
+})
+//查询课程
+router.get("/courselook",async(ctx,body)=>{
+  var sql = "select * from stu_lessons"
+  const results = await query(sql)
+  console.log(results)
+  ctx.body = results[0]
 })
 // 上传头像
 router.post('/image', async(ctx,body) => {

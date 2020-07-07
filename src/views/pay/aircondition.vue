@@ -19,7 +19,6 @@
         <Field  clearable label="缴费金额"  v-model="value2" input-align="right" placeholder="请输入金额" />
       </div>
       <p class="rest">提示：可能存在网络延迟，以上剩余量仅供参考</p>
-      <p class="rest">提示：可能存在网络延迟，以上剩余量仅供参考</p>
       <div class="button">
         <Button type="danger" size="normal" @click="join">加入待缴费账单</Button>
         <Button
