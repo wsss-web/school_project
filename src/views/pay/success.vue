@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     finish () {
-      this.$router.push('/pay/payment')
+      this.$router.push('/payment')
     }
   }
 }

@@ -29,7 +29,7 @@ import Allcourse from '../views/course/allcourse.vue'
 import Titlename from '../views/course/titlename.vue'
 import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
-import myinfo from '../views/login/myinfo'
+import book from '../views/home/book.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -197,11 +197,11 @@ const routes = [
     component: dlzn
   },
   {
-    path: '/pay/payment',
+    path: '/payment',
     component: payment
   },
   {
-    path: '/pay/aircondition',
+    path: '/aircondition',
     component: aircondition
   },
   {
@@ -250,7 +250,7 @@ const routes = [
     component: txsq
   },
   {
-    path: '/pay/success',
+    path: '/success',
     name: 'success',
     component: success
   },
@@ -260,9 +260,8 @@ const routes = [
     component: aaaa
   },
   {
-    path: '/login/myinfo',
-    name: 'myinfo',
-    component: myinfo
+    path: '/book',
+    component: book
   }
 ]
 

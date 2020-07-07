@@ -16,7 +16,7 @@
             </CellGroup>
         </div>
         <div class="content_x">
-            综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
+            综合评价：<Rate v-model="value" allow-half /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
         </div>
         <router-view></router-view>
     </div>

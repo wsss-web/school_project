@@ -3,7 +3,6 @@ const router = new Router()
 const mysql = require('mysql')
 const e_mail = require('./maiier.js')
 const fs = require("fs")
-
 // 测试路由
 // router.get('/huawei', (ctx,next) => {
 // 	ctx.body = '我是华为界面'
@@ -349,7 +348,7 @@ router.get('/registerdomitory', async (ctx,body)=>{
 // 用户宿舍信息修改路由（客户端）
 router.get('/resetdomitory' ,async(ctx,body) => {
   var one_dom = ctx.request.query
-  var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"'where username = '"+ one_dom.username +"'"
+  var sql = "update stu_domitory set buliding_id='"+ one_dom.buliding_id +"',floor='"+ one_dom.floor +"',room='"+ one_dom.room +"',specifications='"+ one_dom.specifications +"',washroom='"+ one_dom.washroom +"',balcony='"+ one_dom.balcony +"',money='"+ one_dom.money +"',moniter='"+ one_dom.moniter +"',moniter_id='" + one_dom.moniter_id + "',sch_id='"+ one_dom.sch_id +"',image='"+ one_dom.image +"'where username = '"+ one_dom.username +"'"
   var results = await query(sql)
   ctx.body = '修改成功'
 })

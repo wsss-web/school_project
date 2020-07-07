@@ -33,7 +33,7 @@ export default {
     pay (i) {
       this.current = i
       this.$router.push({
-        path: '/pay/success',
+        path: '/success',
         query: { money: this.titles }
       })
       localStorage.setItem('money', this.titles)

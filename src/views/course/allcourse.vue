@@ -8,11 +8,19 @@
                 {{item.title}}<br>
                 学期：{{item.session}}<br>
                 选课号：{{item.num}}<br>
-                综合评价：<Rate v-model="value" /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
+                综合评价：<Rate v-model="value" allow-half /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
                 时间：{{item.time}}<br>
                  <i  class="iconfont icon-iconfontjiantouzuo" @click="go_details"></i>
               </Cell>
             </div>
+                          <Cell >
+                模拟电子技术<br>
+                学期：2018-2019-1<br>
+                选课号：(2018-2019-1) -070227-2265-1<br>
+                综合评价：<Rate v-model="value1" allow-half /><span style="color:#47bbe2;margin-left: 10px;vertical-align: top;"></span><br>
+                时间：周四第5、6节{第1-3周|单周} 周五第9、10节{第1-3周|单周}...<br>
+                 <i  class="iconfont icon-iconfontjiantouzuo" @click="go_details"></i>
+              </Cell>
         </CellGroup>
         </div>
     </div>
@@ -25,19 +33,20 @@ export default {
   data () {
     return {
       value: 0,
+      value1: 0,
       list: [
         {
           title: '模拟电子技术',
           session: '2018-2019-1',
           num: '(2018-2019-1) -070227-2265-1',
           time: '周四第5、6节{第1-3周|单周} 周五第9、10节{第1-3周|单周}...'
-        },
-        {
-          title: '模拟电子技术',
-          session: '2018-2019-1',
-          num: '(2018-2019-1) -070227-2265-2',
-          time: '周四第7、8节{第1-3周|单周} 周五第9、10节{第1-3周|单周}...'
         }
+        // {
+        //   title: '模拟电子技术',
+        //   session: '2018-2019-1',
+        //   num: '(2018-2019-1) -070227-2265-2',
+        //   time: '周四第7、8节{第1-3周|单周} 周五第9、10节{第1-3周|单周}...'
+        // }
       ]
     }
   },

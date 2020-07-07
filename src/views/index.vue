@@ -149,7 +149,7 @@ export default {
       this.$router.push({ path: '/dlzn' })
     },
     book () {
-      this.$router.push('/home/book')
+      this.$router.push('/book')
     }
   },
   data () {

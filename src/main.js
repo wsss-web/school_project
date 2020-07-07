@@ -9,7 +9,8 @@ import '../src/assets/css/tubiao/iconfont.css'
 import '../src/assets/css/tubiao1/iconfont.css'
 import '../src/assets/css/tubiaojiuye/iconfont.css'
 import '../../school_project/src/assets/css/font_ybodwbv4vmn/iconfont.css'
-
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.prototype.tools = tools
 // require('../node_modules/vux/src/styles/reset.less')
 Vue.config.productionTip = false

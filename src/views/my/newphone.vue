@@ -11,7 +11,7 @@
         </template>
         </field>
       <div class="bottom">
- <Button type="primary" size="large" @click="phone">提交</Button>
+ <Button type="primary" size="large" @click="sure">提交</Button>
     </div>
       </vform>
     </div>
