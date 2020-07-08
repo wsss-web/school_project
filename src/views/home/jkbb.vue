@@ -3,7 +3,7 @@
     <navigation left="back" title="健康报备"></navigation>
     <NoticeBar
       left-icon="volume-o"
-      text="请大家认真填写，抗击肺炎，从我做起  &&日期：06月22日 周一" style="margin-top: 47px;"/>
+      text="请大家认真填写，抗击肺炎，从我做起  &&日期：07月08日 周三" style="margin-top: 47px;"/>
 
    <Form @submit="onSubmit">
     <Field v-model="data.tody_tem"

@@ -257,4 +257,7 @@ export default {
   .lunbo{
     margin-top: 45px;
   }
+  #app{
+    background-color:  #f3f3f3;
+  }
 </style>
