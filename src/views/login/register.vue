@@ -104,7 +104,7 @@ export default {
   }
 }
 </script>
-<style >
+<style scoped>
   .logo{
     display: flex;
     justify-content: center;
@@ -113,5 +113,8 @@ export default {
   .from{
     margin-top: 130px;
     border: 1px solid forestgreen;
+  }
+  /deep/.from{
+    border: none;
   }
 </style>

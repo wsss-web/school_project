@@ -291,6 +291,7 @@ export default {
         .then(function (res) {
           console.log(res)
           that.images[0].url = res.data
+          console.log(that.images[0].url)
         })
     },
     go () {
@@ -339,6 +340,9 @@ export default {
     },
     newmsg () {
       var that = this
+      console.log(that.room)
+      console.log(that.images)
+      that.room.image = that.images[0].url
       this.tools.axios({
         url: '' + this.tools.requrl + '/resetdomitory?status=' + status + '',
         method: 'get',
@@ -381,7 +385,6 @@ export default {
               i++
             }
           }
-          console.log(i)
           that.percent = parseInt((i / 12) * 100) + '%'
           that.value = res.data.building_id
           that.images[0].url = res.data.image

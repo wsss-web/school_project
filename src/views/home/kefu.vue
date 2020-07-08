@@ -91,12 +91,11 @@ export default {
         phone: this.data.phone,
         time: this.data.time,
         username: localStorage.getItem('username'),
-        status: 1
+        status: 0
       }
       console.log(onedata)
-      var isstatus = parseInt(localStorage.getItem('isstatus'))
-      // console.log(isstatus)
-      if (isstatus === '' || isstatus === 3) {
+      console.log(onedata.time)
+      if (onedata.message !== undefined && onedata.time !== undefined) {
         this.tools.axios.post('http://localhost:3000/question', {
           onedata
         })
@@ -112,7 +111,7 @@ export default {
       } else {
         Dialog.confirm({
           title: '提示',
-          message: '您有一个问题还未解决'
+          message: '请把信息填写完整'
         })
           .then(() => {
             // this.$router.push('/xyzn')
@@ -129,20 +128,7 @@ export default {
       this.show = false
     },
     look () {
-      if (this.message !== '' && this.time !== '') {
-        this.$router.push('/process')
-      } else {
-        Dialog.confirm({
-          title: '提示',
-          message: '请把信息填写完整'
-        })
-          .then(() => {
-            // this.$router.push('/xyzn')
-          })
-          .catch(() => {
-            // this.$router.push('/xyzn')
-          })
-      }
+      this.$router.push('/process')
     }
   },
   data () {

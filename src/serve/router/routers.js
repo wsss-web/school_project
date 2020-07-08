@@ -170,7 +170,7 @@ router.get('/userinfo', async (ctx, body) => {
 // 用户宿舍信息展示路由(客户端)
 router.get('/domitoryshow', async (ctx, body) => {
   var username = ctx.request.query.username
-  console.log(username)
+  // console.log(username)
   var sql = "select * from stu_domitory where username='" + username + "'"
   const results = await query(sql)
   ctx.body = results[0]
@@ -179,10 +179,10 @@ router.get('/domitoryshow', async (ctx, body) => {
 // 用户身份信息修改路由(管理系统)
 router.get('/resetuserinfo', async(ctx,body) => {
   var one_per = ctx.request.query
-  console.log(one_per)
+  // console.log(one_per)
   // 增加客户信息
   if(one_per.status == 1){
-    console.log('6666')
+    // console.log('6666')
     var sql_add = "insert into user_info(stu_id,name,username,phone,nickname,sex,address,sch_id,major_id,classname,grade,education,home_address,plan) values('"+ one_per.stu_id +"','"+ one_per.name +"','"+ one_per.username +"','"+ one_per.phone +"','"+ one_per.nickname +"','"+ one_per.sex +"','"+ one_per.address +"','"+ one_per.sch_id +"','"+ one_per.major_id +"','"+ one_per.classname +"','"+ one_per.grade +"','"+ one_per.education +"','"+ one_per.home_address +"','"+ one_per.plan +"')"
     var results_add = await query(sql_add)
     console.log('插入成功')
@@ -373,7 +373,9 @@ router.post('/image', async(ctx,body) => {
   fs.writeFile("./static/images/"+ cur_name +".jpg",dataBuffer,(res)=>{
     console.log('写入成功')
   })
-  var sql = "update stu_domitory,user_info set stu_domitory.image='"+ img_path +"',user_info.image='"+ img_path +"'where stu_domitory.username='"+ username +"'and user_info.username='"+ username +"'"
+  var sql = "UPDATE stu_domitory, user_info SET stu_domitory.image='"+ img_path +"',user_info.image='"+ img_path +"' WHERE stu_domitory.username=user_info.username AND stu_domitory.username='"+ username +"'"
+  // UPDATE stu_domitory, user_info SET stu_domitory.image='http://127.0.0.1:3000/67777.jpg',user_info.image='http://127.0.0.1:3000/67777.jpg' WHERE stu_domitory.username=user_info.username AND stu_domitory.username='wsss';
+  console.log(sql)
   var results = await query(sql)
   ctx.body = img_path
 })
@@ -381,7 +383,7 @@ router.post('/image', async(ctx,body) => {
 // 提交问题
 router.post('/question', async(ctx,body) => {
   var one_data = ctx.request.body.onedata
-  if (one_data.status == 1) {
+  if (one_data.status == 0) {
     var sql_add = "insert into question() values('"+ one_data.stu_id +"','"+ one_data.name +"','"+ one_data.phone +"','"+ one_data.time +"','"+ one_data.message +"','"+ one_data.status +"','"+ one_data.username +"')"
     var results_add = await query(sql_add)
     ctx.body = one_data

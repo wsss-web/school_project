@@ -74,12 +74,15 @@ export default {
       var that = this
       var flag = ''
       for (var p in onedata) {
-        if (onedata[p] !== '') {
-          flag = true
-        } else {
+        console.log(onedata[p])
+        if (onedata[p] === '') {
           flag = false
+          break
+        } else {
+          flag = true
         }
       }
+      console.log(flag)
       if (flag === true) {
         this.tools
           .axios({
