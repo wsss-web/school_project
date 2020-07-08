@@ -9,7 +9,7 @@
             <SwipeItem><img class="tupian4" @click="lt1" src='../assets/tupian1.jpg'></SwipeItem>
             <SwipeItem><img class="tupian4" @click="lt2" src="../assets/tupian3.jpg"></SwipeItem>
             <SwipeItem><img class="tupian4" @click="lt3" src="../assets/tupian2.jpg"></SwipeItem>
-            </Swipe>
+          </Swipe>
         </div>
         <div class ="zhuye1">
           <Grid square>  <!--九宫格 -->
@@ -183,11 +183,11 @@ export default {
               message: '请先完善个人信息'
             })
               .then(() => {
-                that.$router.push('/login/myinfo')
+                that.$router.push('/myinfo')
               })
               .catch(() => {
                 // on cancel
-                that.$router.push('/login/myinfo')
+                that.$router.push('/myinfo')
               })
           }
           console.log(res)
@@ -256,5 +256,8 @@ export default {
   }
   .lunbo{
     margin-top: 45px;
+  }
+  #app{
+    background-color:  #f3f3f3;
   }
 </style>

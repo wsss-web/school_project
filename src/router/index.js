@@ -7,6 +7,8 @@ import Course from '../views/course/course.vue'
 import Pay from '../views/pay/pay.vue'
 import Login from '../views/login/login.vue'
 import Register from '../views/login/register.vue'
+import myinfo from '../views/login/myinfo.vue'
+import domitory from '../views/login/domitory.vue'
 import Phone from '../views/my/phone.vue'
 import Name from '../views/my/name.vue'
 import Modify from '../views/my/modify.vue'
@@ -30,8 +32,6 @@ import Titlename from '../views/course/titlename.vue'
 import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
 import book from '../views/home/book.vue'
-import myinfo from '../views/login/myinfo.vue'
-import domitory from '../views/login/domitory.vue'
 import process from '../views/home/process.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
@@ -142,6 +142,11 @@ const routes = [
     path: '/register',
     name: 'register',
     component: Register
+  },
+  {
+    path: '/domitory',
+    name: 'domitory',
+    component: domitory
   },
   {
     path: '/forget',

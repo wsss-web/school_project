@@ -25,7 +25,6 @@
         </div>
     </div>
 </template>
-
 <script>
 import { Cell, Rate, CellGroup } from 'vant'
 import navigation from '../../component/navigation'

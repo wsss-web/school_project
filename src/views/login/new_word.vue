@@ -2,7 +2,7 @@
     <div>
       <navigation title="重设密码"></navigation>
       <div class="logo2">
-        <img src="../../../public/img/96.png" />
+        <img src="../../../public/img/96.png"/>
       </div>
        <div class="from">
           <vform validate-first @submit="onSubmit">
@@ -93,7 +93,7 @@ export default {
     justify-content: center;
     margin: 9.2rem 0px;
   }
-  /deep/ .from{
+   .from{
     border: none;
     margin-top: 0px;
   }

@@ -146,7 +146,7 @@ export default {
           })
           .then(res => {
             console.log(res)
-            that.$router.push('/login/domitory')
+            that.$router.push('/domitory')
           })
           .catch(function (err) {
             console.log(err)
