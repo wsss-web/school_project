@@ -28,7 +28,6 @@
         >立即支付</Button>
       </div>
     </div>
-    <!-- <tab></tab> -->
   </div>
 </template>
 <script>

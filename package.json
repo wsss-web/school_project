@@ -10,6 +10,7 @@
   "dependencies": {
     "@vue/cli-shared-utils": "^4.4.6",
     "core-js": "^3.6.5",
+    "echarts": "^4.8.0",
     "jquery": "^3.5.1",
     "koa-cors": "0.0.16",
     "koa2": "^2.0.0-alpha.7",

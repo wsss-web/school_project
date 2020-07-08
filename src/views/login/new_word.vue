@@ -87,7 +87,7 @@ export default {
   }
 }
 </script>
-<style scoped >
+<style scoped  lang="less">
   .logo2{
     display: flex;
     justify-content: center;

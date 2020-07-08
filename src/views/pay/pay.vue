@@ -78,7 +78,8 @@ export default {
       title: '',
       data: {
         sch_id: '',
-        name: ''
+        name: '',
+        src: ''
       }
     }
   },

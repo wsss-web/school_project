@@ -39,7 +39,7 @@ export default {
           list1: {
             title: '街舞社',
             aaa: '2000年01月01日',
-            bbb: '24人',
+            bbb: '32人',
             ccc: '未知'
           }
         },
@@ -51,7 +51,7 @@ export default {
           list1: {
             title: '轮滑社',
             aaa: '2000年01月01日',
-            bbb: '28人',
+            bbb: '20人',
             ccc: '未知'
           }
 

@@ -31,6 +31,8 @@ export default {
 }
 </script>
 
-<style  scoped>
-
+<style  scoped leng="less">
+.van-button--info{
+  margin-left:inherit;
+}
 </style>
