@@ -7,8 +7,6 @@ import Course from '../views/course/course.vue'
 import Pay from '../views/pay/pay.vue'
 import Login from '../views/login/login.vue'
 import Register from '../views/login/register.vue'
-import myinfo from '../views/login/myinfo.vue'
-import domitory from '../views/login/domitory.vue'
 import Phone from '../views/my/phone.vue'
 import Name from '../views/my/name.vue'
 import Modify from '../views/my/modify.vue'
@@ -33,6 +31,8 @@ import immediately from '../views/pay/immediately.vue'
 import success from '../views/pay/success.vue'
 import book from '../views/home/book.vue'
 import process from '../views/home/process.vue'
+import myinfo from '../views/login/myinfo.vue'
+import domitory from '../views/login/domitory.vue'
 const kefu = () => import('../views/home/kefu.vue')
 const lbt = () => import('../views/home/lbt.vue')
 const lbt2 = () => import('../views/home/lbt2.vue')
@@ -131,11 +131,15 @@ const routes = [
     component: Login
   },
   {
-    path: '/login/myinfo',
+    path: '/myinfo',
     component: myinfo
   },
   {
-    path: '/login/domitory',
+    path: '/domitory',
+    component: domitory
+  },
+  {
+    path: '/domitory',
     component: domitory
   },
   {
